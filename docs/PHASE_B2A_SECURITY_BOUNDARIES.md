@@ -11,3 +11,12 @@ The original B1 read worker, transport guard, pages and evidence remain byte-for
 Offline runner preloads a socket/fetch deny boundary, also loaded in each Vitest worker. The first harness run exposed missing worker propagation through a localhost port-9 assertion (ECONNREFUSED); this diagnostic is retained. No real RPC was contacted. The final harness blocks actual sockets and any unmocked fetch. HTTP 429/5xx, price changes and SDK fallback tests are synthetic.
 
 No automatic chain add/switch, WalletConnect, signing SDK replacement, paid backend, vendor patch, sim_getFeeConfig, merge, B2-B/B2-C or Portal action.
+
+
+## Post-audit security patch — offline-only
+
+The mock-only SDK request boundary now verifies the explicit expected write method and full nested arguments, the frozen Studio consensus system destination, the embedded canonical contract, the account/chain/revision and zero native value. Invalid outer or inner calldata fails closed before calling the fake provider's send. The single-attempt latch remains set before asynchronous checks to reject SDK fallback rebroadcasts.
+
+The transaction state machine preserves the first recorded finalized execution/boolean evidence and known hash. Contradictory later evidence transitions to TERMINAL_CONFLICT, retains earlier evidence and blocks reconciliation pending independent review. Incomplete later observations do not erase a known outcome.
+
+Added offline regression test source, but **post-patch tests have NOT RUN** in this GitHub-only session. Previous 163 PASS belongs only to parent commit 342a6c49e3c02b257721b465ef1f5d297caa0b36. The production UI still has no signing or broadcast executor; live transactions remain forbidden.

@@ -1,9 +1,9 @@
 import { address } from '../wallet/provider';
 import type { WriteMethod } from './write-spec';
-export type TxStatus = 'IDLE' | 'VALIDATING' | 'PREFLIGHT_READY' | 'FEE_UNAVAILABLE' | 'AWAITING_USER_SIGNATURE' | 'USER_REJECTED' | 'SUBMISSION_UNKNOWN' | 'SUBMITTED' | 'PENDING_CONSENSUS' | 'FINALIZED_SUCCESS' | 'FINALIZED_FAILURE' | 'RECONCILIATION_REQUIRED' | 'FAILED_BEFORE_SUBMISSION' | 'BLOCKED';
+export type TxStatus = 'IDLE' | 'VALIDATING' | 'PREFLIGHT_READY' | 'FEE_UNAVAILABLE' | 'AWAITING_USER_SIGNATURE' | 'USER_REJECTED' | 'SUBMISSION_UNKNOWN' | 'SUBMITTED' | 'PENDING_CONSENSUS' | 'FINALIZED_SUCCESS' | 'FINALIZED_FAILURE' | 'RECONCILIATION_REQUIRED' | 'FAILED_BEFORE_SUBMISSION' | 'BLOCKED' | 'TERMINAL_CONFLICT';
 export interface Identity { account: string; chain: string; revision: number }
-export interface Operation { key: string; method: WriteMethod; identity?: Identity; status: TxStatus; hash?: string; outcome?: 'CHANGED' | 'NO_OP' | 'FAILED'; reconciliation?: 'SUCCESS' | 'FAILURE' }
-const pending: TxStatus[] = ['AWAITING_USER_SIGNATURE', 'SUBMISSION_UNKNOWN', 'SUBMITTED', 'PENDING_CONSENSUS', 'RECONCILIATION_REQUIRED'];
+export interface Operation { key: string; method: WriteMethod; identity?: Identity; status: TxStatus; hash?: string; outcome?: 'CHANGED' | 'NO_OP' | 'FAILED'; reconciliation?: 'SUCCESS' | 'FAILURE'; terminalExecution?: 'SUCCESS' | 'FAILURE'; terminalReturn?: boolean }
+const pending: TxStatus[] = ['AWAITING_USER_SIGNATURE', 'SUBMISSION_UNKNOWN', 'SUBMITTED', 'PENDING_CONSENSUS', 'RECONCILIATION_REQUIRED', 'TERMINAL_CONFLICT'];
 export class Transactions {
   private operations = new Map<string, Operation>();
   get(key: string): Operation { const op = this.operations.get(key); if (!op) throw new Error('UNKNOWN_OPERATION'); return { ...op, identity: op.identity && { ...op.identity } }; }
@@ -39,9 +39,22 @@ export class Transactions {
     if (op.status === 'RECONCILIATION_REQUIRED' && !evidence.finalized) throw new Error('FINALITY_REGRESSION');
     if (!evidence.finalized) return this.consensusPending(key);
     const boolMethod = op.method === 'confirm_cycle' || op.method === 'expire_cycle';
-    const knownExecution = evidence.execution !== 'UNKNOWN';
-    const knownReturn = !boolMethod || typeof evidence.returnValue === 'boolean';
-    return this.set({ ...op, status: 'RECONCILIATION_REQUIRED', reconciliation: knownExecution && (evidence.execution === 'FAILURE' || knownReturn) ? evidence.execution as 'SUCCESS' | 'FAILURE' : undefined, outcome: evidence.execution === 'FAILURE' ? 'FAILED' : boolMethod && evidence.returnValue === false ? 'NO_OP' : undefined });
+    const incomingExecution = evidence.execution === 'UNKNOWN' ? undefined : evidence.execution;
+    const incomingReturn = boolMethod && evidence.execution === 'SUCCESS' && typeof evidence.returnValue === 'boolean' ? evidence.returnValue : undefined;
+    // Finalized execution/boolean evidence cannot be silently reclassified.
+    // Conflicts retain the original evidence and hash, and require independent review.
+    if ((op.terminalExecution && incomingExecution && op.terminalExecution !== incomingExecution) ||
+        (op.terminalReturn !== undefined && incomingReturn !== undefined && op.terminalReturn !== incomingReturn)) {
+      return this.set({ ...op, identity: undefined, status: 'TERMINAL_CONFLICT' });
+    }
+    const terminalExecution = op.terminalExecution ?? incomingExecution;
+    const terminalReturn = op.terminalReturn ?? incomingReturn;
+    const reconciliation = terminalExecution === 'FAILURE' ? 'FAILURE' as const :
+      terminalExecution === 'SUCCESS' && (!boolMethod || terminalReturn !== undefined) ? 'SUCCESS' as const : undefined;
+    const outcome = terminalExecution === 'FAILURE' ? 'FAILED' as const :
+      boolMethod && terminalReturn === false ? 'NO_OP' as const :
+      boolMethod && terminalReturn === true ? 'CHANGED' as const : undefined;
+    return this.set({ ...op, status: 'RECONCILIATION_REQUIRED', terminalExecution, terminalReturn, reconciliation, outcome });
   }
   reconciled(key: string, observedOutcome: 'CHANGED' | 'NO_OP' | 'FAILED', verified: boolean) {
     const op = this.require(key, ['RECONCILIATION_REQUIRED']);

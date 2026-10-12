@@ -24,3 +24,37 @@ it('account change clears unsigned context and does not discard submitted hash',
 it('identity change during signature remains unknown until resolved',()=>{const t=ready();t.signatureRequestedForMock('one',identity,true);t.invalidateIdentity();expect(t.get('one').status).toBe('SUBMISSION_UNKNOWN');expect(()=>t.begin('one','create_intent',identity)).toThrow();});
 it.each(['accountsChanged','chainChanged'])('wallet %s invalidates transaction preflight through callback',async event=>{const t=new Transactions(),p=new FakeProvider(),s=new WalletSession(()=>{},()=>t.invalidateIdentity());s.select(p);await s.connect();t.begin('one','create_intent',{account:s.state.account!,chain:s.state.chain!,revision:s.state.revision});t.prepared('one',true);p.emit(event,event==='chainChanged'?'0x1':[]);expect(t.get('one')).toMatchObject({status:'BLOCKED',identity:undefined});s.dispose();});
 it('later complete evidence can resolve unknown execution without rebroadcast',()=>{const t=submitted();t.terminalObserved('one',{finalized:true,execution:'UNKNOWN'});t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});expect(t.reconciled('one','CHANGED',true).status).toBe('FINALIZED_SUCCESS');});
+
+it('failure then success retains failure evidence and locks resolution',()=>{
+  const t=submitted();t.terminalObserved('one',{finalized:true,execution:'FAILURE'});
+  const conflict=t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});
+  expect(conflict).toMatchObject({status:'TERMINAL_CONFLICT',terminalExecution:'FAILURE',reconciliation:'FAILURE',outcome:'FAILED',hash:MOCK_HASH});
+  expect(()=>t.reconciled('one','CHANGED',true)).toThrow();
+  expect(()=>t.terminalObserved('one',{finalized:true,execution:'FAILURE'})).toThrow();
+});
+it('success then failure retains success evidence and locks resolution',()=>{
+  const t=submitted();t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});
+  const conflict=t.terminalObserved('one',{finalized:true,execution:'FAILURE'});
+  expect(conflict).toMatchObject({status:'TERMINAL_CONFLICT',terminalExecution:'SUCCESS',reconciliation:'SUCCESS',hash:MOCK_HASH});
+  expect(()=>t.reconciled('one','CHANGED',true)).toThrow();
+});
+it('success with missing boolean return still prevents opposing failure',()=>{
+  const t=submitted('confirm_cycle');t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});
+  const conflict=t.terminalObserved('one',{finalized:true,execution:'FAILURE'});
+  expect(conflict.status).toBe('TERMINAL_CONFLICT');
+  expect(conflict.terminalExecution).toBe('SUCCESS');
+});
+it('contradictory boolean return locks terminal evidence',()=>{
+  const t=submitted('expire_cycle');t.terminalObserved('one',{finalized:true,execution:'SUCCESS',returnValue:false});
+  const conflict=t.terminalObserved('one',{finalized:true,execution:'SUCCESS',returnValue:true});
+  expect(conflict).toMatchObject({status:'TERMINAL_CONFLICT',terminalReturn:false,outcome:'NO_OP',hash:MOCK_HASH});
+  expect(()=>t.reconciled('one','NO_OP',true)).toThrow();
+});
+it('unknown and incomplete later observations cannot erase known result',()=>{
+  const t=submitted('confirm_cycle');
+  t.terminalObserved('one',{finalized:true,execution:'SUCCESS',returnValue:true});
+  t.terminalObserved('one',{finalized:true,execution:'UNKNOWN'});
+  t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});
+  expect(t.get('one')).toMatchObject({status:'RECONCILIATION_REQUIRED',terminalExecution:'SUCCESS',terminalReturn:true,outcome:'CHANGED'});
+  expect(t.reconciled('one','CHANGED',true).status).toBe('FINALIZED_SUCCESS');
+});

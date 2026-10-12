@@ -22,7 +22,8 @@ through the production receipt-verification code. Receipt verification did not s
 | Intent #8 cancellation | Explorer-discovered create/cancel receipts now FINALIZED / MAJORITY_AGREE / SUCCESS; cancellation exact args [8,1], null return; current state CANCELLED |
 
 Each hash, account, contract and full exact arguments is in the machine-readable index.
-Explorer links use `https://explorer-studio.genlayer.com/tx/<hash>`; The actual Explorer server-rendered contract/address page was independently read;
+The Explorer links below identify exact transactions. The Explorer server-rendered
+contract/address page was independently read;
 [listing provenance](../evidence/final-delivery/explorer-listing-provenance.json) records the
 source, HTML digest and transaction table. This is not Chrome visual acceptance or a screenshot.
 

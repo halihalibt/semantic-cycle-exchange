@@ -1,7 +1,14 @@
 # Windows Chrome + OKX — final wallet acceptance
 
-Status: NOT RUN for the newly fixed build. Existing user-executed live E2E remains valid.
-This is the only browser release gate; expiry is a separate time-gated live test.
+Current release acceptance: **USER-EXECUTED 7 PASS / 0 FAIL**, followed by
+user-reported published-site acceptance. See the completion record below.
+This is not independently reproduced browser automation; extension versions and
+new screenshot bytes were not supplied. Live positive expiry remains time-gated.
+
+## Historical pre-release checklist
+
+The following instructions and merge/publication steps describe the original
+pre-release checklist. They are retained for provenance, not current release blockers.
 No new transaction is required for this checklist. Do not click **Confirm and request wallet**.
 
 Update the existing local checkout (the dependencies have not changed):
@@ -60,3 +67,11 @@ and the same navigation/read-only checks on production before marking publicatio
 | Read-only Onchain Demo works without connected wallet | PASS |
 
 Scope: the above seven cases are the user's own Windows Chrome acceptance declarations. The original first-connection step was part of establishing the wallet session but was not reported as a separate test row. The source report did not include new raw screenshots, browser extension version numbers, or an independent Chrome automation trace; do not invent any. Maintain the separate **LIVE POSITIVE EXPIRATION — NOT RUN / TIME-GATED** gate for Cycle #4. All live transaction receipts documented elsewhere remain independent historical evidence and are not relabeled as newly executed tests.
+
+## Published-site acceptance
+
+The user subsequently reported PASS for the published application, including the
+homepage, My Intents, Build Cycle and wallet/navigation functionality. GitHub Pages
+build and deployment succeeded in [run 38315428325, attempt 2](https://github.com/halihalibt/semantic-cycle-exchange/actions/runs/38315428325/attempts/2).
+This is user-operated acceptance and recorded CI deployment, not an independent
+production browser automation trace.

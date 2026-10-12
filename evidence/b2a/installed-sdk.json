@@ -1,0 +1,27 @@
+{
+  "version": "1.1.8",
+  "exports": [
+    "abi",
+    "buildGenVmPositionalArgs",
+    "chains",
+    "createAccount",
+    "createClient",
+    "decodeInputData",
+    "decodeLocalnetTransaction",
+    "decodeTransaction",
+    "formatStakingAmount",
+    "generatePrivateKey",
+    "parseStakingAmount",
+    "simplifyTransactionReceipt"
+  ],
+  "artifact_sha256": {
+    "dist/index.js": "577032b22e6077b671a7d27ba8d6dac58eb90ed5892f2a05b11eefc6eef29dd2",
+    "dist/index.d.ts": "f70a973b5b7b3154d4d65e2add7c574a90ddbd8db657c0d0012eee98a2b9a8a4",
+    "dist/index-C3Ul1Rte.d.ts": "24c849737a5b083858152e62f5ab38286e0b0b3035d4098446e1b804ed0e8820"
+  },
+  "chain_id": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "feeManagerContract": null,
+  "live_wallet": "NOT RUN",
+  "live_network": "NOT RUN"
+}

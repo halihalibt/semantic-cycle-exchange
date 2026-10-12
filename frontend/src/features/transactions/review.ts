@@ -21,7 +21,13 @@ export function reviewRequest<M extends WriteMethod>(method: M, args: WriteArgs[
   const tx = new Transactions();
   tx.begin('review', method, { account, chain: wallet.chain!, revision: wallet.revision });
   tx.prepared('review', false);
-  return frozen({ args, method, parameters, fee: feeQuote(method), operation: tx.get('review'), walletRevision: wallet.revision, account, notice });
+  const view = frozen({ args, method, fee: feeQuote(method), operation: tx.get('review'), walletRevision: wallet.revision, account, notice });
+  // React 19.2 Performance Tracks JSON-stringifies enumerable primitive arrays.
+  // Keep canonical BigInt arguments intact and explicitly accessible, but outside
+  // its props traversal. Display rendering still uses the lossless json helper.
+  return Object.freeze(Object.defineProperty({ ...view, parameters: frozen(parameters) }, 'parameters', {
+    enumerable: false,
+  }));
 }
 export function reviewCurrent(review: Review, wallet: WalletState) {
   return wallet.status === 'CONNECTED' && wallet.chain === '61999' && wallet.revision === review.walletRevision && wallet.account?.toLowerCase() === review.account.toLowerCase();

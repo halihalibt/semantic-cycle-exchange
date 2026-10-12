@@ -13,11 +13,12 @@ export function LiveTransactionReview({review,wallet,runtime}: {review:Review;wa
   useEffect(()=>{active.current=true;return()=>{active.current=false;if(key.current)runtime.cancelApproval(key.current);};},[runtime]);
   useEffect(()=>{if(!current && key.current)runtime.cancelApproval(key.current);},[current,runtime]);
   async function prepare() {
-    if(working.current || !current)return;working.current=true;setBusy(true);setError('');setAck(false);
+    if(working.current || !current)return;working.current=true;setBusy(true);setError('');setAck(false);setReady(undefined);setOperation(undefined);
     try {
       const r=await runtime.prepare(review);key.current=r.key;
       if(!active.current){runtime.cancelApproval(r.key);return;}
-      setReady(r);setOperation(r.operation);
+      setReady({key:r.key,confirmation:r.confirmation,gasUnits:r.gasUnits});setOperation(r.operation);
+      if(r.operation.error)setError(r.operation.error);
     }catch(e){if(active.current)setError(e instanceof Error?e.message:'PREFLIGHT_FAILED');}
     finally{working.current=false;if(active.current)setBusy(false);}
   }

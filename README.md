@@ -65,3 +65,8 @@ status counts describe the requested page; cumulative counters are global.
 
 No write UX, wallet signing, deployment, public website release or Portal submission
 is included. MIT License.
+
+
+## B2-A foundation — WIP / INCOMPLETE
+
+Optional explicit browser-provider selection and account connection are implemented alongside the read-only pages. Signing and transaction submission remain disabled. Seven write specifications, validation and transaction safety are offline foundations; total fees are unavailable. See [B2-A execution report](docs/PHASE_B2A_EXECUTION_REPORT.md) and [acceptance matrix](docs/PHASE_B2A_TEST_AND_ACCEPTANCE.md). Real wallet/write compatibility is not established.

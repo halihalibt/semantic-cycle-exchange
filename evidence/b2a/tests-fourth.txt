@@ -1,0 +1,231 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> semantic-cycle-exchange@0.1.0 test
+> node --import ./tests/deny-network.mjs ./node_modules/vitest/vitest.mjs run --reporter=verbose
+
+
+ RUN  v3.2.4 /workspace/scratch/b04b7e09d2f9/repository-b/frontend
+
+ ✓ tests/network.test.js > test process denies actual socket egress 4ms
+stderr | tests/sdk-118.test.ts > wrong chain blocked despite Studio skipping SDK chain guard
+Error using provider for method eth_sendTransaction: Error: APP_WRONG_NETWORK
+    at Object.request (/workspace/scratch/b04b7e09d2f9/repository-b/frontend/src/lib/wallet/request-boundary.ts:16:88)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > account and revision mismatch blocked before fake send
+Error using provider for method eth_sendTransaction: Error: APP_IDENTITY_CHANGED
+    at Object.request (/workspace/scratch/b04b7e09d2f9/repository-b/frontend/src/lib/wallet/request-boundary.ts:17:95)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > account and revision mismatch blocked before fake send
+Error using provider for method eth_sendTransaction: Error: APP_IDENTITY_CHANGED
+    at Object.request (/workspace/scratch/b04b7e09d2f9/repository-b/frontend/src/lib/wallet/request-boundary.ts:15:49)
+    at Object.request (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/genlayer-js/dist/index.js:2388:35)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at withRetry.delay.count.count (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > provider rejection propagated and never reaches fallback HTTP send
+Error using provider for method eth_sendTransaction: { code: 4001, message: 'mock rejection' }
+
+stderr | tests/sdk-118.test.ts > single attempt boundary blocks SDK ABI fallback rebroadcast
+Error using provider for method eth_sendTransaction: Error: function selector was not recognized
+    at FakeProvider.<anonymous> (/workspace/scratch/b04b7e09d2f9/repository-b/frontend/tests/sdk-118.test.ts:48:244)
+    at FakeProvider.mockCall (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
+    at FakeProvider.spy [as request] (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/tinyspy/dist/index.js:47:80)
+    at Object.request (/workspace/scratch/b04b7e09d2f9/repository-b/frontend/src/lib/wallet/request-boundary.ts:23:29)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+ ✓ tests/sdk-118.test.ts > installed package exact version and candidate capability matrix 7ms
+ ✓ tests/sdk-118.test.ts > actual SDK create_intent encodes exact arguments and returns only fake hash 21ms
+ ✓ tests/sdk-118.test.ts > actual SDK update_intent encodes exact arguments and returns only fake hash 4ms
+ ✓ tests/sdk-118.test.ts > actual SDK cancel_intent encodes exact arguments and returns only fake hash 11ms
+ ✓ tests/sdk-118.test.ts > actual SDK assess_cycle encodes exact arguments and returns only fake hash 3ms
+ ✓ tests/sdk-118.test.ts > actual SDK confirm_cycle encodes exact arguments and returns only fake hash 4ms
+ ✓ tests/sdk-118.test.ts > actual SDK decline_cycle encodes exact arguments and returns only fake hash 2ms
+ ✓ tests/sdk-118.test.ts > actual SDK expire_cycle encodes exact arguments and returns only fake hash 1ms
+ ✓ tests/sdk-118.test.ts > wrong chain blocked despite Studio skipping SDK chain guard 17ms
+ ✓ tests/sdk-118.test.ts > account and revision mismatch blocked before fake send 9ms
+ ✓ tests/sdk-118.test.ts > provider rejection propagated and never reaches fallback HTTP send 3ms
+ ✓ tests/sdk-118.test.ts > single attempt boundary blocks SDK ABI fallback rebroadcast 3ms
+stderr | tests/sdk-118.test.ts > pending fake signature and concurrent call share one send latch
+Error using provider for method eth_sendTransaction: Error: APP_DUPLICATE_SUBMISSION_BLOCKED
+    at Object.request (/workspace/scratch/b04b7e09d2f9/repository-b/frontend/src/lib/wallet/request-boundary.ts:13:28)
+    at Object.request (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/genlayer-js/dist/index.js:2388:35)
+    at withRetry.delay.count.count (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/b04b7e09d2f9/repository-b/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > mock HTTP 429 does not send or automatically retry
+GenLayer RPC error (eth_getTransactionCount): mock unavailable
+
+stderr | tests/sdk-118.test.ts > mock HTTP 503 does not send or automatically retry
+GenLayer RPC error (eth_getTransactionCount): mock unavailable
+
+stderr | tests/sdk-118.test.ts > mock RPC unavailable fails before provider submission
+GenLayer RPC error (eth_getTransactionCount): mock offline
+
+ ✓ tests/sdk-118.test.ts > pending fake signature and concurrent call share one send latch 54ms
+ ✓ tests/sdk-118.test.ts > mock HTTP 429 does not send or automatically retry 2ms
+ ✓ tests/sdk-118.test.ts > mock HTTP 503 does not send or automatically retry 2ms
+ ✓ tests/sdk-118.test.ts > mock RPC unavailable fails before provider submission 1ms
+ ✓ tests/sdk-118.test.ts > gas estimate is bigint, not a total AI fee quote 1ms
+ ✓ tests/sdk-118.test.ts > exposes unsafe SDK gas fallback as evidence only, never production approval 4ms
+ ✓ tests/sdk-118.test.ts > explicit FINALIZED SDK receipt polling works against mock response only 2ms
+ ✓ tests/transaction.test.ts > real quotes always unavailable including AI; mock arithmetic not production pricing 3ms
+ ✓ tests/transaction.test.ts > unavailable quote prevents signature state 1ms
+ ✓ tests/transaction.test.ts > production submission is unconditionally blocked 0ms
+ ✓ tests/transaction.test.ts > duplicate local key and double-click cannot start second signature 0ms
+ ✓ tests/transaction.test.ts > requires deliberate action and fresh verified identity 0ms
+ ✓ tests/transaction.test.ts > rejection never successful submission 0ms
+ ✓ tests/transaction.test.ts > timeout unknown is not retryable; late hash tracked 0ms
+ ✓ tests/transaction.test.ts > hash is not finalized and cannot be replaced 0ms
+ ✓ tests/transaction.test.ts > consensus alone is not execution success 0ms
+ ✓ tests/transaction.test.ts > finalized execution still requires state reconciliation 0ms
+ ✓ tests/transaction.test.ts > terminal failure stays failure after reconciliation 0ms
+ ✓ tests/transaction.test.ts > confirm_cycle false is no state change 0ms
+ ✓ tests/transaction.test.ts > expire_cycle false is no state change 0ms
+ ✓ tests/transaction.test.ts > missing boolean return cannot imply a state change 0ms
+ ✓ tests/transaction.test.ts > account change clears unsigned context and does not discard submitted hash 0ms
+ ✓ tests/transaction.test.ts > identity change during signature remains unknown until resolved 0ms
+ ✓ tests/transaction.test.ts > wallet accountsChanged invalidates transaction preflight through callback 1ms
+ ✓ tests/transaction.test.ts > wallet chainChanged invalidates transaction preflight through callback 0ms
+ ✓ tests/transaction.test.ts > later complete evidence can resolve unknown execution without rebroadcast 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > preserves full u64 precision 2ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects invalid ID 0 1ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects invalid ID -1 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects invalid ID 1.5 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects invalid ID 1e3 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects invalid ID 01 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects invalid ID 18446744073709551616 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects page limit 0 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects page limit 51 1ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects page limit -1 1ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects page limit 1.5 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > allows page boundaries and large offsets 1ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > decodes positive and negative without inventing vote fields 1ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > distinguishes stored OPEN from effective EXPIRED 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > keeps page counts separate from global counters 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > handles missing records 0ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > rejects contradictory or malformed responses 1ms
+ ✓ tests/adapter.test.ts > Exact IDs and view decoding > validates all seven view argument shapes 1ms
+ ✓ tests/adapter.test.ts > Network boundary and reliability > blocks writes and nonfinal reads before transport 2ms
+ ✓ tests/adapter.test.ts > Network boundary and reliability > passes the controlled abort signal and exact endpoint 2ms
+ ✓ tests/adapter.test.ts > Network boundary and reliability > separates 429 and retains Retry-After without retrying 2ms
+ ✓ tests/adapter.test.ts > Network boundary and reliability > handles Retry-After HTTP dates 0ms
+ ✓ tests/adapter.test.ts > Network boundary and reliability > separates server and transport failures 1ms
+ ✓ tests/adapter.test.ts > Network boundary and reliability > does not amplify 429 and enforces cooldown 1ms
+ ✓ tests/adapter.test.ts > Network boundary and reliability > labels successful observations live finalized 1ms
+ ✓ tests/adapter.test.ts > Network boundary and reliability > cancels in-flight and queued reads without starting another worker 2ms
+ ✓ tests/adapter.test.ts > Network boundary and reliability > times out and terminates a hung worker 3ms
+ ✓ tests/adapter.test.ts > Network boundary and reliability > retries at most once for explicit 5xx 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > has exactly seven methods and frozen argument names 5ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > create_intent arguments retain order 1ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > update_intent arguments retain order 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > cancel_intent arguments retain order 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > assess_cycle arguments retain order 2ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > confirm_cycle arguments retain order 1ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > decline_cycle arguments retain order 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > expire_cycle arguments retain order 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > preserves full u64 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects integer 0 1ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects integer -1 1ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects integer 1.1 2ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects integer 01 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects integer 1e3 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects integer 18446744073709551616 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects integer  1 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects integer NaN 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects unsafe Number input even through untyped boundary 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects unknown methods and wrong argument counts 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > accepts 512 UTF8 byte boundary 0 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > accepts 512 UTF8 byte boundary 1 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > accepts 512 UTF8 byte boundary 2 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects oversized or invalid Unicode 0 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects oversized or invalid Unicode 1 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects oversized or invalid Unicode 2 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects oversized or invalid Unicode 3 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects blank descriptions 0 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects blank descriptions 1 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects blank descriptions 2 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > rejects blank descriptions 3 0ms
+ ✓ tests/write-validation.test.ts > canonical positional writes > allows empty optional fields and preserves BOM like Python 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > allows interior of 1–30 day interval only as advisory 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > requires fresh read near validity boundary 86400n 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > requires fresh read near validity boundary 2592000n 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > requires fresh read near validity boundary 86420n 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > requires fresh read near validity boundary 2591980n 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects invalid validity 86399n 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects invalid validity 2592001n 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects stale time context 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > uses authoritative unfinished count, not one history page 1ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects owner mismatch 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects stale version 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects update status CONSUMED 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects update status CANCELLED 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects update status EXPIRED 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects update status RESERVED 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects expired record and near deadline 0ms
+ ✓ tests/write-validation.test.ts > advisory intent preflight > rejects version overflow 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > topology is not an AI semantic result 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > rejects duplicate IDs 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > rejects duplicate owners 1ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > rejects wrong direction 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > rejects version and record misalignment 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > rejects outsider and reserved assessment 1ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > duplicate eligible confirmation is no-op; decline blocks snapshot 1ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > requires actual snapshot returned by view 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > rejects mutated reservation terms 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > rejects terminal confirm ACTIVE 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > rejects terminal confirm ABORTED 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > rejects terminal confirm EXPIRED 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > reserved cancellation explicitly aborts eligible pending cycle 1ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > overdue reserved cancellation waits for permissionless cleanup 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > expiration distinguishes effective and stored expired, repeats false 0ms
+ ✓ tests/write-validation.test.ts > topology and snapshots > expiration rejects before deadline and fails closed at boundary 0ms
+ ✓ tests/wallet.test.tsx > provider discovery > no provider and no automatic requests 3ms
+ ✓ tests/wallet.test.tsx > provider discovery > legacy fallback never auto-connects 1ms
+ ✓ tests/wallet.test.tsx > provider discovery > multiple providers, duplicates, spoofed UUID do not replace selection 2ms
+ ✓ tests/wallet.test.tsx > provider discovery > announcements supersede fallback metadata without duplicate providers 0ms
+ ✓ tests/wallet.test.tsx > provider discovery > ignores invalid providers and metadata 0ms
+ ✓ tests/wallet.test.tsx > session identity > explicit selection and user-triggered connection only 1ms
+ ✓ tests/wallet.test.tsx > session identity > classifies provider code 4001 1ms
+ ✓ tests/wallet.test.tsx > session identity > classifies provider code 4100 0ms
+ ✓ tests/wallet.test.tsx > session identity > classifies provider code 4900 0ms
+ ✓ tests/wallet.test.tsx > session identity > classifies provider code 4901 0ms
+ ✓ tests/wallet.test.tsx > session identity > separates app errors 0ms
+ ✓ tests/wallet.test.tsx > session identity > checks chain 0x1 1ms
+ ✓ tests/wallet.test.tsx > session identity > checks chain 0xf22f 0ms
+ ✓ tests/wallet.test.tsx > session identity > rejects invalid hex 61999 1ms
+ ✓ tests/wallet.test.tsx > session identity > rejects invalid hex 0xzz 0ms
+ ✓ tests/wallet.test.tsx > session identity > rejects invalid hex -0x1 2ms
+ ✓ tests/wallet.test.tsx > session identity > rejects invalid hex 0x 0ms
+ ✓ tests/wallet.test.tsx > session identity > rejects invalid hex 0x10000000000000000 0ms
+ ✓ tests/wallet.test.tsx > session identity > invalidates identity on accountsChanged 1ms
+ ✓ tests/wallet.test.tsx > session identity > invalidates identity on chainChanged 1ms
+ ✓ tests/wallet.test.tsx > session identity > invalidates identity on connect 0ms
+ ✓ tests/wallet.test.tsx > session identity > invalidates identity on disconnect 1ms
+ ✓ tests/wallet.test.tsx > session identity > ignores late connection completion after account switch 0ms
+ ✓ tests/wallet.test.tsx > session identity > double connect does not request permission twice 1ms
+ ✓ tests/wallet.test.tsx > session identity > disconnect during connection cannot restore old account 0ms
+ ✓ tests/wallet.test.tsx > minimal UI escapes metadata, requires selection, and cleans listeners 78ms
+ ✓ tests/pages.test.tsx > renders real positive ACTIVE and negative NOT_MATCHED fixtures without a wallet 111ms
+ ✓ tests/pages.test.tsx > shows RPC failure and historical evidence without fake live success 156ms
+ ✓ tests/pages.test.tsx > shows protocol page counts and labels cumulative totals 16ms
+ ✓ tests/pages.test.tsx > marks cached observation after failed refresh 3ms
+ ✓ tests/pages.test.tsx > validates IDs before querying and displays found=false 31ms
+ ✓ tests/pages.test.tsx > displays stored and effective status distinctly 11ms
+
+ Test Files  7 passed (7)
+      Tests  163 passed (163)
+   Start at  08:28:01
+   Duration  1.31s (transform 572ms, setup 852ms, collect 1.09s, tests 654ms, environment 2.42s, prepare 500ms)
+

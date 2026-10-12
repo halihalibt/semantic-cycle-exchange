@@ -1,0 +1,76 @@
+{
+  "results": [
+    {
+      "command": "npm ci",
+      "exit_code": 0,
+      "log": "npm-ci.log"
+    },
+    {
+      "command": "npm test baseline",
+      "exit_code": 0,
+      "pass": 258,
+      "fail": 0,
+      "skip": 0,
+      "log": "test-baseline.log"
+    },
+    {
+      "command": "typecheck first",
+      "exit_code": 2,
+      "log": "typecheck-first.log",
+      "finding": "SDK bridge callback inferred never; corrected explicit void type"
+    },
+    {
+      "command": "typecheck second",
+      "exit_code": 0,
+      "log": "typecheck-second.log"
+    },
+    {
+      "command": "lint first",
+      "exit_code": 0,
+      "log": "lint-first.log"
+    },
+    {
+      "command": "tests first",
+      "exit_code": 0,
+      "pass": 328,
+      "fail": 0,
+      "skip": 0,
+      "log": "test-first.log"
+    },
+    {
+      "command": "typecheck third",
+      "exit_code": 2,
+      "log": "typecheck-third.log",
+      "finding": "New test-only non-null assertion placement and Hash literal typing; corrected"
+    },
+    {
+      "command": "tests second",
+      "exit_code": 1,
+      "pass": 383,
+      "fail": 17,
+      "skip": 0,
+      "log": "test-second.log",
+      "finding": "SDK bridge override did not intercept internal captured estimator; fixed bridge rather than weakening tests"
+    },
+    {
+      "command": "lint second",
+      "exit_code": 0,
+      "log": "lint-second.log"
+    },
+    {
+      "command": "tests third",
+      "exit_code": 0,
+      "pass": 400,
+      "fail": 0,
+      "skip": 0,
+      "log": "test-third.log"
+    },
+    {
+      "command": "typecheck fourth",
+      "exit_code": 0,
+      "log": "typecheck-fourth.log"
+    }
+  ],
+  "final": "verification.json",
+  "old_tests": "All 258 baseline tests byte-for-byte unchanged"
+}

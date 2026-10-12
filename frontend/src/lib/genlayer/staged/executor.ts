@@ -122,4 +122,20 @@ export class StagedExecutor {
     finally{c.observing=false;}
     return this.transactions.get(key);
   }
+  /** Bounded, cancellable read polling only. Exhaustion preserves UNKNOWN/pending.
+   * Hashless unknown submissions require independent recovery; never restart send. */
+  async track(key: string, maxReads: number, intervalMs: number, signal?: AbortSignal): Promise<Operation> {
+    if(!Number.isSafeInteger(maxReads) || maxReads<1 || maxReads>10 || !Number.isSafeInteger(intervalMs) || intervalMs<0 || intervalMs>3000)throw new Error('INVALID_TRACKING_BOUNDS');
+    for(let i=0;i<maxReads;i++) {
+      const op=this.transactions.get(key);
+      if(signal?.aborted || !op.hash || ['FINALIZED_SUCCESS','FINALIZED_FAILURE','TERMINAL_CONFLICT'].includes(op.status))return op;
+      const observed=await this.observe(key);
+      if(['FINALIZED_SUCCESS','FINALIZED_FAILURE','TERMINAL_CONFLICT'].includes(observed.status))return observed;
+      if(i+1<maxReads && intervalMs)await new Promise<void>(resolve=>{
+        const finish=()=>{clearTimeout(timer);signal?.removeEventListener('abort',finish);resolve();};
+        const timer=setTimeout(finish,intervalMs);signal?.addEventListener('abort',finish,{once:true});if(signal?.aborted)finish();
+      });
+    }
+    return this.transactions.get(key);
+  }
 }

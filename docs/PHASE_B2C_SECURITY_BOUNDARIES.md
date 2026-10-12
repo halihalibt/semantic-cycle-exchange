@@ -1,0 +1,17 @@
+# PHASE B2-C — security boundaries
+
+Production remains read-only with blocked previews. Static graph verification traverses main.tsx and RPC Worker: no staged module or wallet send boundary reachable. No production write factory, hidden URL, settings/env switch or debug button. MOCK_ONLY assertion is additional validation, not authentication; the actual isolation is absent production wiring plus process/worker outbound denial in tests.
+
+WalletSession state/revision and Transactions invalidation are reused. Exact provider object/account/network/revision checked around async approval boundaries; EIP-1193 verifies accounts/chain. Args, expected SDK write and forwarded envelope are deeply captured. One-use confirmation binds immutable records/fees/budget; confirm re-reads full affected state, fee policy and balance. Contract time/revalidation remain authoritative.
+
+Workflow and boundary both enforce one attempt. Forwarded is set immediately before provider invocation. Thereafter timeout/error is SUBMISSION_UNKNOWN unless original valid hash observed; 4001 rejection is USER_REJECTED. Before-forward timeout fails closed and late work cannot send after operation invalidation. No automatic send retry/SDK fallback resend/reconnect restart/fabricated hash. Late original hash resolves same operation for readonly tracking.
+
+Mock fee budgets require immutable binding, expiry, policy, six coverage categories, nonnegative bigint amounts, distribution sum, fresh balance and approved maximum. Changed policy invalidates approval; native transfer zero. SDK bridge refuses unsupported distributions, gas fallback/ambiguity and missing/changed gasPrice. Production feeQuote never turns into a mock-approved quote.
+
+Full receipt must bind hash, sender, target and calldata. FINALIZED, MAJORITY_AGREE, execution and return are independently checked. Success requires actual method-specific finalized views; false confirm/expire requires actual NO_OP state. Missing evidence preserves uncertainty/reconciliation. Conflicting terminal aliases/executions/returns lock TERMINAL_CONFLICT, including after prior success, preserving hash/original evidence. Tracking is bounded (at most ten reads per invocation), cancellable and never resubmits.
+
+Reconciliation verifies contract-provided canonical Snapshot/digest without lossy u64 parsing, Prompt, exact directed ring/terms/owners/versions, reservations/releases, confirmation flags and ACTIVE/CONSUMED transitions. Checksum computation verifies an existing supplied Snapshot; it never originates proposal ids/AI decisions. Contract-only replay/decline markers and unexpected rollback cannot be certified by views. Failure requires unchanged affected records; concurrent state changes leave reconciliation unresolved.
+
+Known limits: separate finalized reads are non-atomic; concurrent later actions can prevent conclusive reconciliation; local clock advisory; extension/live fee behavior NOT RUN; locks in memory and no supported live reload recovery. Reload after unknown submission must STOP for independent recovery, never start a replacement request. A legitimate 200000-gas estimate is also conservatively refused. Production gates eliminate current live exposure; mock tests do not certify future live safety.
+
+Canonical source/Prompt/lock/config/old tests/historical evidence preserved. No keys/phrases requested/read/stored; no real wallet used by Work. Three separated live readonly probes only. No signature/send/deploy/publish/A edit/merge/Portal.

@@ -44,3 +44,19 @@ After these checks pass, complete the already authorized final recheck and stand
 PR #4. If Pages is still disabled, in repository Settings → Pages set Source to GitHub Actions;
 then use the prepared main-branch Pages workflow. Recheck the actual deployment URL/build SHA
 and the same navigation/read-only checks on production before marking publication accepted.
+
+## User-operated completion checkpoint — 2026-10-13 (UTC+8)
+
+**USER-EXECUTED / USER-REPORTED Windows Chrome + OKX wallet acceptance: 7 PASS / 0 FAIL / 0 NOT RUN** for the exact wallet-continuity functionality in PR #4. This report was supplied directly by the user after running the updated local build; it is not an independently rerun Work Chromium session. No new signing or blockchain transaction was requested or required.
+
+| User-reported scenario | Outcome |
+| --- | --- |
+| Internal page navigation retains wallet session | PASS |
+| Browser backward / forward retains correct session | PASS |
+| F5 reload safely recovers authorized wallet session | PASS |
+| Explicit disconnect persists; no automatic reconnect | PASS |
+| Account switching updates the verified account | PASS |
+| Wrong-network safety intercept blocks writes | PASS |
+| Read-only Onchain Demo works without connected wallet | PASS |
+
+Scope: the above seven cases are the user's own Windows Chrome acceptance declarations. The original first-connection step was part of establishing the wallet session but was not reported as a separate test row. The source report did not include new raw screenshots, browser extension version numbers, or an independent Chrome automation trace; do not invent any. Maintain the separate **LIVE POSITIVE EXPIRATION — NOT RUN / TIME-GATED** gate for Cycle #4. All live transaction receipts documented elsewhere remain independent historical evidence and are not relabeled as newly executed tests.

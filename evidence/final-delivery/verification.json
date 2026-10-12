@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-10-12T21:43:12.890888+00:00",
+  "timestamp_utc": "2026-10-12T21:54:50.082400+00:00",
   "checks": [
     {
       "check": "npm-ci",
@@ -14,8 +14,7 @@
     {
       "check": "lint",
       "exit_code": 0,
-      "status": "PASS",
-      "note": "Node Buffer import fixed in read-only evidence probe; initial lint log retained"
+      "status": "PASS"
     },
     {
       "check": "vitest",
@@ -49,16 +48,16 @@
     }
   ],
   "tests": {
-    "numTotalTests": 524,
-    "numPassedTests": 524,
+    "numTotalTests": 541,
+    "numPassedTests": 541,
     "numFailedTests": 0,
     "numPendingTests": 0,
     "numTodoTests": 0,
     "success": true
   },
   "timing_enabled_full_suite": {
-    "numTotalTests": 524,
-    "numPassedTests": 524,
+    "numTotalTests": 541,
+    "numPassedTests": 541,
     "numFailedTests": 0,
     "numPendingTests": 0,
     "numTodoTests": 0,
@@ -72,5 +71,11 @@
   "real_chrome_okx_new_fix": "NOT RUN / no Chromium executable",
   "real_expiration_positive": "NOT RUN / TIME-GATED",
   "merge": "NOT RUN / pending Windows Chrome acceptance",
-  "publication": "NOT RUN / merge gate and Pages not enabled"
+  "publication": "NOT RUN / merge gate and Pages not enabled",
+  "final_receipt_count": 17,
+  "additional_offline_tests": {
+    "wallet_navigation": 20,
+    "real_receipt_parser": 17
+  },
+  "chrome_gate": "WAITING FOR USER-EXECUTED targeted new-fix acceptance"
 }

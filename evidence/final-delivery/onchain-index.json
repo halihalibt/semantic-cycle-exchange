@@ -416,6 +416,142 @@
       "path": "decline-3.json",
       "sha256": "6a593ac2422ffaab3f15cd6f711e26697cb0c85903baeba7e6945fea42f5962a",
       "verified": true
+    },
+    {
+      "label": "create-8",
+      "hash": "0x86c6fb22e5e44dd6365e121efa6efeaa8b5232b9bea26de3fd4cf59c1e5dc9f5",
+      "method": "create_intent",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "I can write product descriptions",
+        "One description, 100 words maximum",
+        "I need a simple banner design",
+        "PNG format, 1200x628",
+        "1792440926"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "8",
+      "votes": {
+        "0x3E5ee2507cc167C9925Bf10c67D7986581112024": "agree",
+        "0x4404Fb70d490c935758146f42A73DC850FF95C71": "idle",
+        "0x4EDbE1FC9EAeC7b0EBA849b0C76AE73Eb0ad5C47": "agree",
+        "0x6737ca1d6BDF8b7C4f19143E2D55581Ca64eb7C3": "agree",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "idle"
+      },
+      "rounds": "1",
+      "path": "create-8.json",
+      "sha256": "404e357e38e6b3115d755878bb29acf682c3e3a3b749a5a073cea06e11d73646",
+      "verified": true
+    },
+    {
+      "label": "cancel-8",
+      "hash": "0xbc0cf2b63958b9000bb80b0c6a15933584ab8fc33737eef7a66fa058dfc2b349",
+      "method": "cancel_intent",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "8",
+        "1"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": null,
+      "votes": {
+        "0x36728d2a123aB444E603EE5b2ad17d18Bb193557": "agree",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25": "agree",
+        "0xBBb165E4c9d73a1493D363280f7067Cd07891dBE": "idle",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "agree",
+        "0xacc2459F341D7a887bcA8FAA62F1EC9378d4Bc67": "idle"
+      },
+      "rounds": "1",
+      "path": "cancel-8.json",
+      "sha256": "819f301151a6a5d5e96fe1717dd760fca3c36854dcda5fbe1733c4d6d452fa90",
+      "verified": true
+    },
+    {
+      "label": "create-14",
+      "hash": "0x7bab2d243d4a983f999234b9fc1c8d3478bfa82dfe324352e6d264196c3e42a2",
+      "method": "create_intent",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "I can edit short videos",
+        "One video, 45 seconds maximum",
+        "I need a social media poster",
+        "PNG format, 1080x1920",
+        "1792012568"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "14",
+      "votes": {
+        "0x03D58A4DeF6fDFc032A56374785a5F571D07Bc11": "agree",
+        "0x14402D49f317CE1a2F35BAE01b1804A2A9703dCb": "agree",
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "idle",
+        "0xBBb165E4c9d73a1493D363280f7067Cd07891dBE": "idle",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "agree"
+      },
+      "rounds": "1",
+      "path": "create-14.json",
+      "sha256": "dee0535d57553261629707e9a28157cf365ad8d1f3287910e152ff66b6d106fb",
+      "verified": true
+    },
+    {
+      "label": "assessment-5-cycle-4",
+      "hash": "0xd8157fec047a37150356dc22c8f8f2d8ca8c5518319ba58b5b7b5d9ada069c2b",
+      "method": "assess_cycle",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        [
+          "14",
+          "12",
+          "13"
+        ],
+        [
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          [
+            "14",
+            "12"
+          ],
+          [
+            "12",
+            "13"
+          ],
+          [
+            "13",
+            "14"
+          ]
+        ]
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": {
+        "assessment_id": "5",
+        "cycle_id": "4",
+        "result": "MATCHED"
+      },
+      "votes": {
+        "0x14402D49f317CE1a2F35BAE01b1804A2A9703dCb": "agree",
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "agree",
+        "0x4aba638Cf0Cf5249437AaD968fC69dde46ae6BAC": "idle",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25": "agree",
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84": "idle"
+      },
+      "rounds": "1",
+      "path": "assessment-5-cycle-4.json",
+      "sha256": "e45e4c38f3112163133674696f8c84c2a1e85b9488a532253ee0ec216acc4229",
+      "verified": true
     }
   ],
   "reads": [
@@ -992,6 +1128,7 @@
       }
     }
   ],
-  "cancelIntent8Hash": "UNKNOWN / not supplied",
-  "expiration": "LIVE EXPIRATION POSITIVE TEST — NOT RUN / TIME-GATED"
+  "cancelIntent8Hash": "0xbc0cf2b63958b9000bb80b0c6a15933584ab8fc33737eef7a66fa058dfc2b349",
+  "expiration": "LIVE EXPIRATION POSITIVE TEST — NOT RUN / TIME-GATED",
+  "supplemented_at_utc": "2026-10-12T21:52:54.194Z"
 }

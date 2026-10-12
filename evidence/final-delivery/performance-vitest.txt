@@ -4,7 +4,7 @@
 ························································································································································································································stderr | tests/wallet-navigation.test.tsx > authorized refresh restores only via reads on the rediscovered provider
 Not implemented: navigation to another Document
 
-··········································stderr | tests/live-pages.test.tsx > unknown send error is visible and provides read-only recovery, no resend button
+···································stderr | tests/live-pages.test.tsx > unknown send error is visible and provides read-only recovery, no resend button
 Error using provider for method eth_sendTransaction: Error: transport lost
     at FakeProvider.<anonymous> (/workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/tests/live-pages.test.tsx:56:281)
     at FakeProvider.mockCall (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
@@ -14,7 +14,7 @@ Error using provider for method eth_sendTransaction: Error: transport lost
     at withRetry.delay.count.count (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
     at attemptRetry (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
 
-·stderr | tests/sdk-118.test.ts > wrong chain blocked despite Studio skipping SDK chain guard
+·······················································································································stderr | tests/sdk-118.test.ts > wrong chain blocked despite Studio skipping SDK chain guard
 Error using provider for method eth_sendTransaction: Error: APP_WRONG_NETWORK
     at Object.request (/workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:40:88)
     at processTicksAndRejections (node:internal/process/task_queues:104:5)
@@ -38,10 +38,10 @@ Error using provider for method eth_sendTransaction: Error: APP_IDENTITY_CHANGED
     at withRetry.delay.count.count (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
     at attemptRetry (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
 
-·stderr | tests/sdk-118.test.ts > provider rejection propagated and never reaches fallback HTTP send
+······stderr | tests/sdk-118.test.ts > provider rejection propagated and never reaches fallback HTTP send
 Error using provider for method eth_sendTransaction: { code: 4001, message: 'mock rejection' }
 
-stderr | tests/sdk-118.test.ts > single attempt boundary blocks SDK ABI fallback rebroadcast
+·············stderr | tests/sdk-118.test.ts > single attempt boundary blocks SDK ABI fallback rebroadcast
 Error using provider for method eth_sendTransaction: Error: function selector was not recognized
     at FakeProvider.<anonymous> (/workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/tests/sdk-118.test.ts:48:244)
     at FakeProvider.mockCall (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
@@ -52,7 +52,7 @@ Error using provider for method eth_sendTransaction: Error: function selector wa
     at withRetry.delay.count.count (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
     at attemptRetry (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
 
-··········································································································stderr | tests/sdk-118.test.ts > pending fake signature and concurrent call share one send latch
+······stderr | tests/sdk-118.test.ts > pending fake signature and concurrent call share one send latch
 Error using provider for method eth_sendTransaction: Error: APP_DUPLICATE_SUBMISSION_BLOCKED
     at Object.request (/workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:35:28)
     at Object.request (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:35)
@@ -68,7 +68,7 @@ GenLayer RPC error (eth_getTransactionCount): mock unavailable
 stderr | tests/sdk-118.test.ts > mock RPC unavailable fails before provider submission
 GenLayer RPC error (eth_getTransactionCount): mock offline
 
-············································stderr | tests/live-transaction.test.ts > concurrent confirmation and ABI-shaped error forward at most once
+··································stderr | tests/live-transaction.test.ts > concurrent confirmation and ABI-shaped error forward at most once
 Error using provider for method eth_sendTransaction: Error: invalid pointer in tuple
     at FakeProvider.<anonymous> (/workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/tests/live-transaction.test.ts:62:198)
     at FakeProvider.mockCall (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
@@ -82,7 +82,7 @@ Error using provider for method eth_sendTransaction: Error: invalid pointer in t
 stderr | tests/live-transaction.test.ts > wallet rejection clears durable pending record; no resend
 Error using provider for method eth_sendTransaction: { code: 4001 }
 
-···················································stderr | tests/live-transaction.test.ts > network error persists unknown and cannot resend after reload
+···········································stderr | tests/live-transaction.test.ts > network error persists unknown and cannot resend after reload
 Error using provider for method eth_sendTransaction: Error: offline
     at FakeProvider.<anonymous> (/workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/tests/live-transaction.test.ts:73:362)
     at FakeProvider.mockCall (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
@@ -92,17 +92,17 @@ Error using provider for method eth_sendTransaction: Error: offline
     at withRetry.delay.count.count (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
     at attemptRetry (file:///workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
 
-·············································stderr | tests/live-transaction.test.ts > a manually renewed preflight after explicit rejection is allowed, never automatic
+····································stderr | tests/live-transaction.test.ts > a manually renewed preflight after explicit rejection is allowed, never automatic
 Error using provider for method eth_sendTransaction: { code: 4001 }
 
 stderr | tests/live-transaction.test.ts > an earlier rejected request cannot unlock a later identical ready request
 Error using provider for method eth_sendTransaction: { code: 4001 }
 
-··················
+·································
 
- Test Files  16 passed (16)
-      Tests  524 passed (524)
-   Start at  17:43:03
-   Duration  3.39s (transform 1.28s, setup 1.69s, collect 4.91s, tests 7.02s, environment 4.68s, prepare 1.08s)
+ Test Files  17 passed (17)
+      Tests  541 passed (541)
+   Start at  17:54:01
+   Duration  6.51s (transform 2.40s, setup 3.89s, collect 9.42s, tests 13.29s, environment 9.31s, prepare 2.26s)
 
 JSON report written to /workspace/scratch/6c9cb4a141dd/semantic-cycle-exchange/evidence/final-delivery/performance-vitest.json

@@ -1,0 +1,62 @@
+# Final live E2E evidence — SCA-3 V1
+
+The original browser operations were **USER-EXECUTED** in Windows Chrome + OKX.
+Work independently retrieved 13 provided hashes plus four Explorer-discovered hashes via the Stable Studio RPC, decoded exact
+method/arguments with installed SDK 1.1.8, verified hash/contract binding, and retained
+sender, leader result, consensus votes and raw transaction evidence.
+
+[Machine-readable index and current finalized reads](../evidence/final-delivery/onchain-index.json)
+· [complete read-only request/response log](../evidence/final-delivery/readonly-rpc-calls.json)
+· [reproducible read-only probe](../frontend/final-read-probe.mjs).
+Each individual receipt has a SHA256 entry. New offline regression parses all 17
+through the production receipt-verification code. No real transaction was sent by Work.
+
+| Evidence | Result |
+| --- | --- |
+| create_intent #7, #9, #10, #11, #12, #13 | FINALIZED / MAJORITY_AGREE / SUCCESS; returned exact Intent ID |
+| update_intent #7 | FINALIZED / MAJORITY_AGREE / SUCCESS; returned version 2 |
+| assess_cycle → Assessment #3 / Cycle #2 | FINALIZED / MAJORITY_AGREE / SUCCESS; actual MATCHED result |
+| confirm_cycle #2, owners A/B/C | Three separate bound accounts; FINALIZED / MAJORITY_AGREE / SUCCESS; each returned true |
+| assess_cycle → Assessment #4 / Cycle #3 | FINALIZED / MAJORITY_AGREE / SUCCESS; actual MATCHED result |
+| decline_cycle #3 | FINALIZED / MAJORITY_AGREE / SUCCESS; successful null return, actual ABORTED state |
+| Intent #8 cancellation | Explorer-discovered create/cancel receipts now FINALIZED / MAJORITY_AGREE / SUCCESS; cancellation exact args [8,1], null return; current state CANCELLED |
+
+Each hash, account, contract and full exact arguments is in the machine-readable index.
+Explorer links use `https://explorer-studio.genlayer.com/tx/<hash>`; The actual Explorer server-rendered contract/address page was independently read;
+[listing provenance](../evidence/final-delivery/explorer-listing-provenance.json) records the
+source, HTML digest and transaction table. This is not Chrome visual acceptance or a screenshot.
+
+Current latest-final reads:
+
+| Object | Observed state |
+| --- | --- |
+| Cycle #1 | ACTIVE, 3 / 3 confirmations; original Verified Onchain Demo preserved |
+| Cycle #2 | ACTIVE, 3 / 3 confirmations; Intents #7 / #9 / #10 CONSUMED |
+| Cycle #3 | ABORTED, 0 / 3 confirmations |
+| Intent #8 | CANCELLED |
+| Intent #11 | OPEN, no current cycle |
+| Intents #12 / #13 / #14 | RESERVED by later Cycle #4 |
+| Cycle #4 | PENDING, 0 / 3 confirmations; ring 12 → 13 → 14 → 12 |
+
+The user's earlier post-decline reading showed #11/#12/#13 released. That is historical
+USER-EXECUTED evidence; the current #12/#13 reservation is caused by the subsequent expiry
+case and does not contradict it. Work did not independently recover a raw intermediate
+read proving all three OPEN immediately after decline. Preserve that distinction.
+
+Cycle #4 snapshot:
+`b710987581187442258dbd6865959bbf2d9bc81fae2a65e334a580fc93f2c594`.
+Actual onchain confirmation_deadline: **1792012568**, **2026-10-15 05:16:08 UTC+8**.
+**LIVE EXPIRATION POSITIVE TEST — NOT RUN / TIME-GATED**. No time manipulation,
+contract change or early expiration request occurred. Use the actual eligible chain time;
+then have the user manually execute `expire_cycle` from a fresh request and inspect the
+returned boolean plus finalized actual state. No automatic scheduling/signing is authorized.
+
+Screenshot original bytes from the prior browser session were not provided in this task's
+attachments. Screenshot contents/hashes/public hosting are UNKNOWN here; user statements
+are labelled USER-EXECUTED, and no fabricated screenshot manifest was created.
+
+Independently discovered supplement: create Intent #8, cancel Intent #8, create Intent #14,
+and Assessment #5 / Cycle #4. All four are FINALIZED / MAJORITY_AGREE / SUCCESS and pass
+the same bound receipt checks. Exact hashes/results are in the index and individual raw files.
+Cancel #8: `0xbc0cf2b63958b9000bb80b0c6a15933584ab8fc33737eef7a66fa058dfc2b349`.
+Assessment #5 returns MATCHED / cycle_id 4; this is preparation, not expire_cycle execution.

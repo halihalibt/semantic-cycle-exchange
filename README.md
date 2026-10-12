@@ -1,8 +1,29 @@
-# Semantic Cycle Accord
+# Semantic Cycle Exchange
+
+## Current final-delivery checkpoint
+
+Wallet navigation now preserves the App/WalletSession/transaction runtime. Authorized EIP-6963
+wallet reloads recover using `eth_accounts`/`eth_chainId` only; local Disconnect persists and
+identity events invalidate old approvals. All 504 original tests and submission-security bytes
+are retained; new wallet and live-evidence regression results are linked in the final report.
+
+User-executed live writes have now been independently verified via read-only RPC: Cycle #2
+ACTIVE, Cycle #3 ABORTED, #7/#9/#10 CONSUMED and #8 CANCELLED. The cancellation receipt hash has also been independently recovered and verified. Live positive expiration is NOT RUN / TIME-GATED to 2026-10-15 05:16:08 UTC+8.
+
+**PR #4 remains Draft/unmerged; new Chrome wallet-fix acceptance NOT RUN; Pages not published.**
+[Final delivery report](docs/ACCELERATED_FINAL_DELIVERY_REPORT.md),
+[short Windows Chrome acceptance](docs/WINDOWS_CHROME_WALLET_ACCEPTANCE.md),
+[final evidence index](docs/FINAL_ONCHAIN_EVIDENCE_INDEX.md),
+[Intelligent Contracts draft](docs/SUBMISSION_INTELLIGENT_CONTRACTS_FINAL.md),
+[Projects draft](docs/SUBMISSION_PROJECTS_FINAL.md).
+A main, canonical source, SDK, network and production main remain frozen. A GitHub Pages
+workflow is prepared in this PR; publication waits for browser acceptance, merge and Pages setup.
+Earlier phase/status paragraphs below are historical and superseded where indicated here.
+
 
 Three digital-service offers. Three needs. One directed agreement.
 
-## Current R1 engineering checkpoint
+## Historical R1 engineering checkpoint
 
 The B2-C-R1 branch connects all seven writes to deliberate browser-wallet requests on **Stable Studionet 61999 only**, using the user-confirmed zero-fee test premise, strict successful Gas-limit estimation, value=0, SDK 1.1.8 encoding, single-attempt sending, persistent unresolved locks and finalized-state reconciliation. **497 offline tests PASS (410 unchanged + 87 new); 0 FAIL / 0 SKIP.** Production signing is now possible in this branch after explicit confirmation; **new real wallet/onchain E2E is NOT RUN**. Main remains unchanged and PR #4 remains Draft/unmerged; no website was published.
 

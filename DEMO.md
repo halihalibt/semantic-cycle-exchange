@@ -1,5 +1,17 @@
 # Local read-only Demo
 
+## Current final-delivery status
+
+The original `?w=1` verified cases remain intact. Additional finalized cases can be inspected
+at `?view=cycle&id=2` (ACTIVE) and `?view=cycle&id=3` (ABORTED). See the
+[final evidence index](docs/FINAL_ONCHAIN_EVIDENCE_INDEX.md) for historical/current distinctions.
+The new wallet-continuity implementation still needs the [short Windows Chrome check](docs/WINDOWS_CHROME_WALLET_ACCEPTANCE.md).
+PR #4 is Draft/unmerged, Pages is not enabled/published, and live positive expiry remains
+NOT RUN / TIME-GATED. These are the current states; older execution statements above remain
+historical provenance. No production browser PASS or Portal submission is claimed.
+
+
+
 The browser Demo is not yet live-verified. B1 is BLOCKED at its first browser read;
 Node-side SDK reads passed. Do not call this a published or production-ready app.
 

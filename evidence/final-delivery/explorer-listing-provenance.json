@@ -1,0 +1,126 @@
+{
+  "source": "https://explorer-studio.genlayer.com/address/0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+  "observed_at_utc": "2026-10-12T21:53:11.657165+00:00",
+  "http_status": 200,
+  "html_sha256": "590ab3cb01663eb46f590ee7101c177f7c0f400178ae382bfa07c632127e03e2",
+  "method": "Read-only HTTP server-rendered HTML table extraction; not Chrome visual acceptance or screenshot",
+  "contract_name_present": true,
+  "transactions": [
+    {
+      "hash": "0xd8157fec047a37150356dc22c8f8f2d8ca8c5518319ba58b5b7b5d9ada069c2b",
+      "table_text": "0xd8157fec...da069c2b             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             assess_cycle    SUCCESS    Accepted   32 minutes ago"
+    },
+    {
+      "hash": "0x7bab2d243d4a983f999234b9fc1c8d3478bfa82dfe324352e6d264196c3e42a2",
+      "table_text": "0x7bab2d24...6c3e42a2             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   34 minutes ago"
+    },
+    {
+      "hash": "0xfd9abb76faae58049ebb86049c1712c52f21238b198b5e4f15c65f98aaf81c7a",
+      "table_text": "0xfd9abb76...aaf81c7a             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             decline_cycle    SUCCESS    Accepted   40 minutes ago"
+    },
+    {
+      "hash": "0x32f3a6f3f5a59c4a48cbca57ecda61bd36fd57789c5f0c3142ed6e3bf06ae26e",
+      "table_text": "0x32f3a6f3...f06ae26e             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             assess_cycle    SUCCESS    Accepted   about 1 hour ago"
+    },
+    {
+      "hash": "0x7b6d3553c21987b829a1dda41c355890f8df301dbeb740caaa5e65623516f55e",
+      "table_text": "0x7b6d3553...3516f55e             Call      FINALIZED     IN      0xcF45E7...a565e5              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   about 1 hour ago"
+    },
+    {
+      "hash": "0xc88df37d8b481b71e1bd93b98e0989455f0263ea0350e4457c8c74c4a328eb71",
+      "table_text": "0xc88df37d...a328eb71             Call      FINALIZED     IN      0x49CE61...47eb3A              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   about 1 hour ago"
+    },
+    {
+      "hash": "0xb1ea3ba9ba4e267f534098987d1cd1421788233d6547d305f12b7683cad867ba",
+      "table_text": "0xb1ea3ba9...cad867ba             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   about 1 hour ago"
+    },
+    {
+      "hash": "0x49d8ffb9d9d4b887110f44a1d0576fd7948c0d0dfec86bcce06ca837592a936e",
+      "table_text": "0x49d8ffb9...592a936e             Call      FINALIZED     IN      0xcF45E7...a565e5              0x84e928...09C6F0             confirm_cycle    SUCCESS    Accepted   about 1 hour ago"
+    },
+    {
+      "hash": "0x9694ff7b0a43ce2f40b22d7ad000b1914150a499dbe98eeca91669d513a90876",
+      "table_text": "0x9694ff7b...13a90876             Call      FINALIZED     IN      0x49CE61...47eb3A              0x84e928...09C6F0             confirm_cycle    SUCCESS    Accepted   about 1 hour ago"
+    },
+    {
+      "hash": "0xb0cf0ea42ea3901d12e3f99e46bf689f667df70fb480ad384551aacea36568ed",
+      "table_text": "0xb0cf0ea4...a36568ed             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             confirm_cycle    SUCCESS    Accepted   about 1 hour ago"
+    },
+    {
+      "hash": "0x29b2a75465b46864eb3bfdeadf4c54c3739c118c15099a4c8453dcd91eb46c48",
+      "table_text": "0x29b2a754...1eb46c48             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             assess_cycle    SUCCESS    Accepted   about 1 hour ago"
+    },
+    {
+      "hash": "0x7daac86d3e17f5ccd637972610c56cf7cfd268f45f2f8dd3030677679331bfcf",
+      "table_text": "0x7daac86d...9331bfcf             Call      FINALIZED     IN      0xcF45E7...a565e5              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   about 1 hour ago"
+    },
+    {
+      "hash": "0xd18ac0762e3ff379560fd5e8f980295982134837962c054bfbb3d1c9d5bf7f05",
+      "table_text": "0xd18ac076...d5bf7f05             Call      FINALIZED     IN      0x49CE61...47eb3A              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   about 1 hour ago"
+    },
+    {
+      "hash": "0xbc0cf2b63958b9000bb80b0c6a15933584ab8fc33737eef7a66fa058dfc2b349",
+      "table_text": "0xbc0cf2b6...dfc2b349             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             cancel_intent    SUCCESS    Accepted   about 2 hours ago"
+    },
+    {
+      "hash": "0x86c6fb22e5e44dd6365e121efa6efeaa8b5232b9bea26de3fd4cf59c1e5dc9f5",
+      "table_text": "0x86c6fb22...1e5dc9f5             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   about 2 hours ago"
+    },
+    {
+      "hash": "0x1be34dde1a051205063c3312deb0935be3745670e2fbdbb3188e1ebb425c24c6",
+      "table_text": "0x1be34dde...425c24c6             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             update_intent    SUCCESS    Accepted   about 2 hours ago"
+    },
+    {
+      "hash": "0x52923b7ccf1ab4cc568f1f87846083c17c3ee2e519904857782a766f184661fa",
+      "table_text": "0x52923b7c...184661fa             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   about 2 hours ago"
+    },
+    {
+      "hash": "0x0bb517817a4dd54ec6afb1b1d04223fb78804ed3f6e561f2ca65ca31d2b3234f",
+      "table_text": "0x0bb51781...d2b3234f             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             assess_cycle    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0xdd549213898fc72d7c4414868f417af8ca8467a8f4369dcd86235294a3ace674",
+      "table_text": "0xdd549213...a3ace674             Call      FINALIZED     IN      0xBE8567...28AD61              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0x0508f72d44c7d6d92db5b89cd9d2bbca0917f9518fc96b207b4fda748f8f3064",
+      "table_text": "0x0508f72d...8f8f3064             Call      FINALIZED     IN      0x418C0A...cd024e              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0x0de8eae342b2ee8f957fa81b079c0bfa1e8ad5d9f1e59a0cb6892ef24e48ef86",
+      "table_text": "0x0de8eae3...4e48ef86             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0xcc310816d39b379189690be115241f594719c44959351232908b9ab85ee8ef82",
+      "table_text": "0xcc310816...5ee8ef82             Call      FINALIZED     IN      0xBE8567...28AD61              0x84e928...09C6F0             confirm_cycle    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0x4736fce42672766d2b589eab8a73d8bee56caf202c7ceaf1c83ada8b9fbd4531",
+      "table_text": "0x4736fce4...9fbd4531             Call      FINALIZED     IN      0x418C0A...cd024e              0x84e928...09C6F0             confirm_cycle    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0x48c3a1d262adba989c1f37520b871919b619a61e9bb721e14eeffeac6ca1b34b",
+      "table_text": "0x48c3a1d2...6ca1b34b             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             confirm_cycle    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0xc71701f70199e4d65565adb2bbee2592e4e463f3fbf81b25d99b10c9de703968",
+      "table_text": "0xc71701f7...de703968             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             assess_cycle    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0xdf3cc58f55e7ad77bcbcb4d2e4f46d05131da80e0b2946ce0d60de2b2d8b149d",
+      "table_text": "0xdf3cc58f...2d8b149d             Call      FINALIZED     IN      0xBE8567...28AD61              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0xc02f228c9d13dd57ffe0df063ba4032d4a1e6b4a86769ebc59557f611b257e45",
+      "table_text": "0xc02f228c...1b257e45             Call      FINALIZED     IN      0x418C0A...cd024e              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0xce94c5a03d32d0af9592ee1060667ccff19e8c47e3d4f56f1e1e4f0636c19e92",
+      "table_text": "0xce94c5a0...36c19e92             Call      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             create_intent    SUCCESS    Accepted   1 day ago"
+    },
+    {
+      "hash": "0x3bf2036d9683c6ab55b09cacf54bdeb8ecfa7cb8e7864b832ae7041067f196cc",
+      "table_text": "0x3bf2036d...67f196cc             Deploy      FINALIZED     IN      0x22Acaa...065B15              0x84e928...09C6F0             (constructor)    SUCCESS    Accepted   1 day ago"
+    }
+  ]
+}

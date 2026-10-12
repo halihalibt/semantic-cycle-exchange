@@ -27,6 +27,8 @@ export class Transactions {
   productionSubmission(key: string) { const op = this.require(key, ['PREFLIGHT_READY', 'FEE_UNAVAILABLE', 'VALIDATING']); return this.set({ ...op, identity: undefined, status: 'BLOCKED' }); }
   rejected(key: string) { const op = this.require(key, ['AWAITING_USER_SIGNATURE']); return this.set({ ...op, identity: undefined, status: 'USER_REJECTED' }); }
   failedBeforeSubmission(key: string) { const op = this.require(key, ['VALIDATING', 'PREFLIGHT_READY', 'FEE_UNAVAILABLE']); return this.set({ ...op, identity: undefined, status: 'FAILED_BEFORE_SUBMISSION' }); }
+  blockedBeforeForwarding(key: string) { const op = this.require(key, ['VALIDATING', 'PREFLIGHT_READY', 'FEE_UNAVAILABLE', 'AWAITING_USER_SIGNATURE', 'SUBMISSION_UNKNOWN', 'BLOCKED']); return this.set({ ...op, identity: undefined, status: 'FAILED_BEFORE_SUBMISSION' }); }
+  conflict(key: string) { const op = this.get(key); if (!op.hash) throw new Error('HASH_REQUIRED'); return this.set({ ...op, identity: undefined, status: 'TERMINAL_CONFLICT' }); }
   unknown(key: string) { const op = this.require(key, ['AWAITING_USER_SIGNATURE', 'SUBMISSION_UNKNOWN']); return this.set({ ...op, identity: undefined, status: 'SUBMISSION_UNKNOWN' }); }
   hashObserved(key: string, hash: string) {
     const op = this.require(key, ['AWAITING_USER_SIGNATURE', 'SUBMISSION_UNKNOWN', 'SUBMITTED']);

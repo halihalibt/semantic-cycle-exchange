@@ -1,7 +1,7 @@
 # SCA-3 V1 — ACCELERATED FINAL DELIVERY REPORT
 
 **Engineering/evidence checkpoint complete. Post-release addendum (2026-10-13):** The new Windows Chrome + OKX wallet UX tests were USER-EXECUTED 7/7 PASS; PR #4 was converted Ready and standard-merged, producing main `12eac692f5d4cdd4b283f51e155aaf414976e07f`. GitHub Actions run `38315428325` attempt 2 passed build (541 tests) and deploy, serving https://halihalibt.github.io/semantic-cycle-exchange/ . User confirmed the published site and essential navigation/wallet functionality. This is user-operated acceptance, not Work-independent Chrome automation. Earlier chronological sections below remain archived pre-release checkpoint facts; this addendum supersedes their old current-status claims. Live positive `expire_cycle` for Cycle #4 remains NOT RUN / TIME-GATED and authenticated Portal eligibility is UNKNOWN.
-No new onchain write, signature, deployment or Portal submission was performed by Work.
+No new onchain write, signature, deployment or Portal submission was performed during this read-only engineering and evidence audit.
 
 ## 1. Wallet reconnection root cause
 

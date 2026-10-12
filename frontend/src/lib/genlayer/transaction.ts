@@ -2,7 +2,7 @@ import { address } from '../wallet/provider';
 import type { WriteMethod } from './write-spec';
 export type TxStatus = 'IDLE' | 'VALIDATING' | 'PREFLIGHT_READY' | 'FEE_UNAVAILABLE' | 'AWAITING_USER_SIGNATURE' | 'USER_REJECTED' | 'SUBMISSION_UNKNOWN' | 'SUBMITTED' | 'PENDING_CONSENSUS' | 'FINALIZED_SUCCESS' | 'FINALIZED_FAILURE' | 'RECONCILIATION_REQUIRED' | 'FAILED_BEFORE_SUBMISSION' | 'BLOCKED' | 'TERMINAL_CONFLICT';
 export interface Identity { account: string; chain: string; revision: number }
-export interface Operation { key: string; method: WriteMethod; identity?: Identity; status: TxStatus; hash?: string; outcome?: 'CHANGED' | 'NO_OP' | 'FAILED'; reconciliation?: 'SUCCESS' | 'FAILURE'; terminalExecution?: 'SUCCESS' | 'FAILURE'; terminalReturn?: boolean }
+export interface Operation { key: string; method: WriteMethod; identity?: Identity; status: TxStatus; hash?: string; outcome?: 'CHANGED' | 'NO_OP' | 'FAILED'; reconciliation?: 'SUCCESS' | 'FAILURE'; terminalExecution?: 'SUCCESS' | 'FAILURE'; terminalReturn?: boolean; error?: string }
 const pending: TxStatus[] = ['AWAITING_USER_SIGNATURE', 'SUBMISSION_UNKNOWN', 'SUBMITTED', 'PENDING_CONSENSUS', 'RECONCILIATION_REQUIRED', 'TERMINAL_CONFLICT'];
 export class Transactions {
   private operations = new Map<string, Operation>();
@@ -18,8 +18,11 @@ export class Transactions {
     return this.set({ ...op, status: mockFeeAvailable ? 'PREFLIGHT_READY' : 'FEE_UNAVAILABLE' });
   }
   private require(key: string, states: TxStatus[]) { const op = this.get(key); if (!states.includes(op.status)) throw new Error('INVALID_TRANSITION'); return op; }
-  /** State rehearsal only. No executor, provider or SDK is held by this machine. */
+  /** Pure state transition; only the executor owns an authorized provider boundary. */
   signatureRequestedForMock(key: string, current: Identity, deliberateAction: boolean) {
+    return this.signatureRequested(key, current, deliberateAction);
+  }
+  signatureRequested(key: string, current: Identity, deliberateAction: boolean) {
     const op = this.require(key, ['PREFLIGHT_READY']);
     if (!deliberateAction || !op.identity || address(current.account) !== op.identity.account || current.chain !== op.identity.chain || current.revision !== op.identity.revision) throw new Error('FRESH_PREFLIGHT_REQUIRED');
     return this.set({ ...op, status: 'AWAITING_USER_SIGNATURE' });
@@ -63,6 +66,7 @@ export class Transactions {
     if (!verified || !op.reconciliation || op.outcome && op.outcome !== observedOutcome || op.reconciliation === 'FAILURE' && observedOutcome !== 'FAILED' || op.reconciliation === 'SUCCESS' && observedOutcome === 'FAILED') throw new Error('RECONCILIATION_REQUIRED');
     return this.set({ ...op, identity: undefined, outcome: observedOutcome, status: op.reconciliation === 'SUCCESS' ? 'FINALIZED_SUCCESS' : 'FINALIZED_FAILURE' });
   }
+  diagnostic(key: string, message: string) { return this.set({ ...this.get(key), error: message }); }
   invalidateIdentity() {
     for (const op of this.operations.values()) {
       if (pending.includes(op.status)) this.set({ ...op, identity: undefined, status: op.status === 'AWAITING_USER_SIGNATURE' ? 'SUBMISSION_UNKNOWN' : op.status });

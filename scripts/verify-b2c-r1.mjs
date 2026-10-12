@@ -1,0 +1,27 @@
+import assert from 'node:assert/strict';
+import { readFileSync, existsSync } from 'node:fs';
+import { resolve, dirname, relative } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+const root=resolve(dirname(new URL(import.meta.url).pathname),'..'), baseline='6132f7372234664d7ee1891278ea0b0b66da24db';
+const read=p=>readFileSync(resolve(root,p)), hash=p=>createHash('sha256').update(read(p)).digest('hex');
+const historical=execFileSync('git',['ls-tree','-r','--name-only',baseline],{cwd:root,encoding:'utf8'}).trim().split('\n');
+const frozen=historical.filter(p=>p.startsWith('frontend/tests/') || p.startsWith('intelligent-contract/') || p.startsWith('evidence/') || ['frontend/package.json','frontend/package-lock.json','frontend/vite.config.ts','frontend/src/lib/genlayer/config.ts'].includes(p));
+for(const p of frozen)assert.deepEqual(read(p),execFileSync('git',['show',`${baseline}:${p}`],{cwd:root}),`Historical file changed: ${p}`);
+const pkg=JSON.parse(read('frontend/package.json')), lock=JSON.parse(read('frontend/package-lock.json')), installed=JSON.parse(read('frontend/node_modules/genlayer-js/package.json'));
+assert.equal(pkg.dependencies['genlayer-js'],'1.1.8');assert.equal(installed.version,'1.1.8');assert.equal(lock.packages['node_modules/genlayer-js'].version,'1.1.8');
+const sdkPaths=['frontend/node_modules/genlayer-js/dist/index.js','frontend/node_modules/genlayer-js/dist/index-C3Ul1Rte.d.ts','frontend/node_modules/genlayer-js/dist/chains/index.js'];
+const previous=JSON.parse(read('evidence/b2c/frozen-files-and-import-graph.json')).hashes;
+for(const p of sdkPaths)assert.equal(hash(p),previous[p],`SDK byte integrity: ${p}`);
+const canonical='intelligent-contract/contracts/semantic_cycle_accord.py';assert.equal(hash(canonical),'88de2802bbe4e795dcae2bb0c4028477133d41bdc9b7940d6aef273367ded442');
+const a=resolve(root,'../semantic-cycle-accord-genlayer');assert.equal(execFileSync('git',['rev-parse','HEAD'],{cwd:a,encoding:'utf8'}).trim(),'8a09380c06f12afd6ac85197737b0018cd8e594f');assert.equal(execFileSync('git',['status','--porcelain'],{cwd:a,encoding:'utf8'}),'');assert.deepEqual(read(canonical),readFileSync(resolve(a,'contracts/semantic_cycle_accord.py')));
+function graph(entry){const reached=new Set();function walk(p){p=resolve(root,p);if(reached.has(p))return;reached.add(p);const s=readFileSync(p,'utf8');const imports=[...s.matchAll(/(?:\b(?:from|import)\s*|\bimport\s*\(|\bnew\s+URL\s*\()\s*['"]([^'"]+)['"]/g)].map(m=>m[1]).filter(x=>x.startsWith('.'));for(const target of imports){const next=resolve(dirname(p),target),file=[next,...['.ts','.tsx','.js','.json'].map(e=>next+e),resolve(next,'index.ts')].find(existsSync);assert.ok(file,`Unresolved ${target}`);if(!file.endsWith('.json'))walk(file);}}walk(entry);return [...reached].map(p=>relative(root,p)).sort();}
+const app=graph('frontend/src/main.tsx'),worker=graph('frontend/src/lib/genlayer/worker.ts');
+for(const p of app)assert.ok(!p.includes('/tests/') && !p.endsWith('/sdk118-rehearsal.ts'),`Mock SDK bridge in production: ${p}`);
+for(const p of worker)assert.ok(!p.includes('/live/') && !p.endsWith('/wallet/request-boundary.ts') && !p.endsWith('/staged/executor.ts'),`Read worker can send: ${p}`);
+for(const p of ['frontend/src/lib/genlayer/live/runtime.ts','frontend/src/lib/genlayer/live/sdk118.ts','frontend/src/lib/genlayer/staged/executor.ts','frontend/src/lib/wallet/request-boundary.ts'])assert.ok(app.includes(p),`Production path missing: ${p}`);
+const bridge=read('frontend/src/lib/genlayer/live/sdk118.ts').toString();assert.ok(!bridge.includes('client.writeContract('));assert.ok(!bridge.includes('sendRawTransaction('));
+const runtime=read('frontend/src/lib/genlayer/live/runtime.ts').toString();assert.ok(runtime.includes("mode:'STUDIO_ZERO_FEE'"));
+const deny=read('frontend/tests/deny-network.mjs').toString();assert.ok(deny.includes('net.Socket.prototype.connect'));assert.ok(deny.includes('B2A_UNMOCKED_FETCH_BLOCKED'));
+const hashes=Object.fromEntries(['frontend/package.json','frontend/package-lock.json',canonical,...sdkPaths].map(p=>[p,hash(p)]));
+console.log(JSON.stringify({status:'PASS',baseline,frozenFilesChecked:frozen.length,all410PriorTestsPreserved:true,aRepositoryCleanAndSourceIdentical:true,sdkLockIntegrity:true,productionSigningCapable:true,mockBridgeExcluded:true,readonlyWorkerCannotSend:true,productionImportGraph:app,workerImportGraph:worker,hashes},null,2));

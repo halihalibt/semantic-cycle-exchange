@@ -2,6 +2,12 @@
 
 Three digital-service offers. Three needs. One directed agreement.
 
+## Current R1 engineering checkpoint
+
+The B2-C-R1 branch connects all seven writes to deliberate browser-wallet requests on **Stable Studionet 61999 only**, using the user-confirmed zero-fee test premise, strict successful Gas-limit estimation, value=0, SDK 1.1.8 encoding, single-attempt sending, persistent unresolved locks and finalized-state reconciliation. **497 offline tests PASS (410 unchanged + 87 new); 0 FAIL / 0 SKIP.** Production signing is now possible in this branch after explicit confirmation; **new real wallet/onchain E2E is NOT RUN**. Main remains unchanged and PR #4 remains Draft/unmerged; no website was published.
+
+[Integration report](docs/PHASE_B2C_R1_TRANSACTION_INTEGRATION_REPORT.md) · [Audit](docs/PHASE_B2C_R1_INDEPENDENT_AUDIT.md) · [User-operated E2E plan](docs/PHASE_B2C_R1_MANUAL_E2E_PLAN.md) · [Verification evidence](evidence/b2c-r1/verification.json). Current checks: `python scripts/verify-b2c-r1.py`; this supersedes the historical B2-C verifier’s production-isolation expectation. Earlier preview-only/fee-blocked statements below describe their frozen historical checkpoints.
+
 This application uses the existing SCA-3 V1 GenLayer Intelligent Contract to inspect
 three-party service exchange commitments. Each provider supplies the next participant.
 Independent Leader/Validator classification evaluates every edge; exactly three FIT

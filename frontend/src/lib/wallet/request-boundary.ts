@@ -15,7 +15,7 @@ function isZeroValue(value: unknown): boolean {
   if (value === 0 || value === 0n) return true;
   return typeof value === 'string' && /^(?:0x[\da-f]+|0|[1-9]\d*)$/i.test(value) && BigInt(value) === 0n;
 }
-/** Offline SDK evidence only. No production write executor is connected.
+/** Shared strict SDK-compatible envelope boundary.
  * The latch is set before async checks, preventing SDK ABI fallback rebroadcast. */
 export function singleRequestBoundary(provider: Provider, expectedAccount: string, revision: number, currentRevision: () => number, expectedWrite: ExpectedWrite, finalCheck: (tx: Readonly<Record<string, unknown>>) => void = () => {}) {
   expectedWrite = frozen(expectedWrite);

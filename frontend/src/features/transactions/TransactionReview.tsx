@@ -1,8 +1,13 @@
+import { useContext } from 'react';
+import { BrowserTransactionContext } from './BrowserTransactionContext';
+import { LiveTransactionReview } from './LiveTransactionReview';
 import type { WalletState } from '../../lib/wallet/session';
 import { WRITE_PARAMETERS } from '../../lib/genlayer/write-spec';
 import { json, reviewCurrent, type Review } from './review';
 export function TransactionReview({ review, wallet }: { review?: Review; wallet: WalletState }) {
+  const runtime=useContext(BrowserTransactionContext);
   if (!review) return null;
+  if(runtime)return <LiveTransactionReview key={json([review.method,review.args,review.walletRevision])} review={review} wallet={wallet} runtime={runtime}/>;
   const current = reviewCurrent(review, wallet);
   return <section className="transaction-review" aria-label="Transaction review" aria-live="polite">
     <p className="eyebrow">REQUEST PREVIEW · NO TRANSACTION SENT</p><h2>{review.method}</h2>

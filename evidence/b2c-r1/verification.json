@@ -1,0 +1,105 @@
+{
+  "timestamp_utc": "2026-10-12T19:03:42.904369+00:00",
+  "commands": [
+    {
+      "check": "npm-ci",
+      "command": [
+        "npm",
+        "ci"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence": "evidence/b2c-r1/npm-ci.txt"
+    },
+    {
+      "check": "typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence": "evidence/b2c-r1/typecheck.txt"
+    },
+    {
+      "check": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence": "evidence/b2c-r1/lint.txt"
+    },
+    {
+      "check": "vitest",
+      "command": [
+        "npm",
+        "test",
+        "--",
+        "--reporter=default",
+        "--reporter=json",
+        "--outputFile=../evidence/b2c-r1/vitest.json"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence": "evidence/b2c-r1/vitest.txt"
+    },
+    {
+      "check": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence": "evidence/b2c-r1/build.txt"
+    },
+    {
+      "check": "canonical",
+      "command": [
+        "npm",
+        "run",
+        "integrity"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence": "evidence/b2c-r1/canonical.txt"
+    },
+    {
+      "check": "production-integrity",
+      "command": [
+        "node",
+        "scripts/verify-b2c-r1.mjs"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence": "evidence/b2c-r1/production-integrity.txt"
+    },
+    {
+      "check": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence": "evidence/b2c-r1/diff-check.txt"
+    }
+  ],
+  "tests": {
+    "numTotalTests": 497,
+    "numPassedTests": 497,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "numTodoTests": 0,
+    "success": true
+  },
+  "scope": "OFFLINE Mock Provider / Mock RPC + jsdom. Sockets and unmocked fetch denied.",
+  "live_wallet_sign_broadcast": "NOT RUN / FORBIDDEN",
+  "website_publish_merge_portal": "NOT RUN / FORBIDDEN"
+}

@@ -6,6 +6,7 @@ export class WalletSession {
   private bindings: [string, ProviderListener][] = [];
   private value: WalletState = { status: 'NOT_INSTALLED', revision: 0 };
   constructor(private changed: (state: WalletState) => void, private invalidated: () => void = () => {}) {}
+  get selectedProvider(): Provider | undefined { return this.provider; }
   get state(): WalletState { return { ...this.value }; }
   private set(state: Omit<WalletState, 'revision'>) { this.value = { ...state, revision: this.value.revision + 1 }; this.invalidated(); this.changed(this.state); }
   discover(count: number) { if (!this.provider) this.set({ status: count ? 'DISCOVERED' : 'NOT_INSTALLED' }); }

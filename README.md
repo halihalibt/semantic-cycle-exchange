@@ -10,7 +10,7 @@ are retained; new wallet and live-evidence regression results are linked in the 
 User-executed live writes have now been independently verified via read-only RPC: Cycle #2
 ACTIVE, Cycle #3 ABORTED, #7/#9/#10 CONSUMED and #8 CANCELLED. The cancellation receipt hash has also been independently recovered and verified. Live positive expiration is NOT RUN / TIME-GATED to 2026-10-15 05:16:08 UTC+8.
 
-**PR #4 remains Draft/unmerged; new Chrome wallet-fix acceptance NOT RUN; Pages not published.**
+**FINAL RELEASE (2026-10-13):** PR #4 was merged by standard merge commit `12eac692f5d4cdd4b283f51e155aaf414976e07f`. The GitHub Pages build and deployment succeeded at https://halihalibt.github.io/semantic-cycle-exchange/ . New Windows Chrome + OKX wallet continuity was USER-EXECUTED 7/7 PASS and the user accepted the published site. **Live positive `expire_cycle` remains NOT RUN / TIME-GATED until Cycle #4's real deadline.** All subsequent WIP, Draft, and disabled-write statements below are explicitly **historical phase checkpoints** and are not the current release status.
 [Final delivery report](docs/ACCELERATED_FINAL_DELIVERY_REPORT.md),
 [short Windows Chrome acceptance](docs/WINDOWS_CHROME_WALLET_ACCEPTANCE.md),
 [final evidence index](docs/FINAL_ONCHAIN_EVIDENCE_INDEX.md),

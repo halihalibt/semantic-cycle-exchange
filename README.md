@@ -1,48 +1,138 @@
 # Semantic Cycle Exchange
 
-## Current final-delivery checkpoint
+Semantic Cycle Exchange is a published application for arranging three-party
+digital-service exchanges. People publish what they can offer and what they need,
+assemble a directed exchange, inspect GenLayer's compatibility assessment, and
+explicitly accept or decline the resulting commitment.
 
-Wallet navigation now preserves the App/WalletSession/transaction runtime. Authorized EIP-6963
-wallet reloads recover using `eth_accounts`/`eth_chainId` only; local Disconnect persists and
-identity events invalidate old approvals. All 504 original tests and submission-security bytes
-are retained; new wallet and live-evidence regression results are linked in the final report.
+[Open the application](https://halihalibt.github.io/semantic-cycle-exchange/) ·
+[Inspect verified examples without a wallet](https://halihalibt.github.io/semantic-cycle-exchange/?w=1) ·
+[Demo guide](DEMO.md)
 
-User-executed live writes have now been independently verified via read-only RPC: Cycle #2
-ACTIVE, Cycle #3 ABORTED, #7/#9/#10 CONSUMED and #8 CANCELLED. The cancellation receipt hash has also been independently recovered and verified. Live positive expiration is NOT RUN / TIME-GATED to 2026-10-15 05:16:08 UTC+8.
+## The problem
 
-**FINAL RELEASE (2026-10-13):** PR #4 was merged by standard merge commit `12eac692f5d4cdd4b283f51e155aaf414976e07f`. The GitHub Pages build and deployment succeeded at https://halihalibt.github.io/semantic-cycle-exchange/ . New Windows Chrome + OKX wallet continuity was USER-EXECUTED 7/7 PASS and the user accepted the published site. **Live positive `expire_cycle` remains NOT RUN / TIME-GATED until Cycle #4's real deadline.** All subsequent WIP, Draft, and disabled-write statements below are explicitly **historical phase checkpoints** and are not the current release status.
-[Final delivery report](docs/ACCELERATED_FINAL_DELIVERY_REPORT.md),
-[short Windows Chrome acceptance](docs/WINDOWS_CHROME_WALLET_ACCEPTANCE.md),
-[final evidence index](docs/FINAL_ONCHAIN_EVIDENCE_INDEX.md),
-[Intelligent Contracts draft](docs/SUBMISSION_INTELLIGENT_CONTRACTS_FINAL.md),
-[Projects draft](docs/SUBMISSION_PROJECTS_FINAL.md).
-A main, canonical source, SDK, network and production main remain frozen. A GitHub Pages
-workflow is prepared in this PR; publication waits for browser acceptance, merge and Pages setup.
-Earlier phase/status paragraphs below are historical and superseded where indicated here.
+Two people may not have a direct service match. A third participant can complete
+the exchange: A supplies B, B supplies C, and C supplies A. Natural-language offers
+also carry practical restrictions—file formats, scope and deadlines—that simple
+keyword matching misses. The application makes the full ring, assessment and
+individual consent visible in one workflow.
 
+## How it works
 
-Three digital-service offers. Three needs. One directed agreement.
+1. Publish or browse versioned **Intents** with an offer, limitations, need,
+   requirements and expiry.
+2. Choose three Intents owned by different participants and arrange their direction.
+3. Review exact IDs, versions and edges, then request an AI assessment as a participant.
+4. Inspect the three decisions. Only `FIT / FIT / FIT` creates a pending Cycle.
+5. Each owner reviews and confirms the same snapshot, or declines while eligible.
+   Three confirmations make the Cycle ACTIVE.
 
-## Historical R1 engineering checkpoint
+**ACTIVE records accepted terms; it does not establish completed service delivery.**
 
-The B2-C-R1 branch connects all seven writes to deliberate browser-wallet requests on **Stable Studionet 61999 only**, using the user-confirmed zero-fee test premise, strict successful Gas-limit estimation, value=0, SDK 1.1.8 encoding, single-attempt sending, persistent unresolved locks and finalized-state reconciliation. **497 offline tests PASS (410 unchanged + 87 new); 0 FAIL / 0 SKIP.** Production signing is now possible in this branch after explicit confirmation; **new real wallet/onchain E2E is NOT RUN**. Main remains unchanged and PR #4 remains Draft/unmerged; no website was published.
+## Try the live application
 
-[Integration report](docs/PHASE_B2C_R1_TRANSACTION_INTEGRATION_REPORT.md) · [Audit](docs/PHASE_B2C_R1_INDEPENDENT_AUDIT.md) · [User-operated E2E plan](docs/PHASE_B2C_R1_MANUAL_E2E_PLAN.md) · [Verification evidence](evidence/b2c-r1/verification.json). Current checks: `python scripts/verify-b2c-r1.py`; this supersedes the historical B2-C verifier’s production-isolation expectation. Earlier preview-only/fee-blocked statements below describe their frozen historical checkpoints.
+The application is [published on GitHub Pages](https://halihalibt.github.io/semantic-cycle-exchange/).
+Explore, Assessment, Workspace, Inspect and the Verified Onchain Demo support
+wallet-free public reads. Connect a browser wallet on Stable Studionet 61999 to
+manage your own Intents or prepare a write. Inspecting existing cases requires
+no signature or new transaction.
 
-This application uses the existing SCA-3 V1 GenLayer Intelligent Contract to inspect
-three-party service exchange commitments. Each provider supplies the next participant.
-Independent Leader/Validator classification evaluates every edge; exactly three FIT
-decisions can create a pending Cycle. All three owners must confirm the same snapshot.
-**ACTIVE means accepted commitment, not delivered services.**
+| Entry | Purpose |
+| --- | --- |
+| [Explore](https://halihalibt.github.io/semantic-cycle-exchange/?view=intents) | Browse public Intents |
+| [Verified Onchain Demo](https://halihalibt.github.io/semantic-cycle-exchange/?w=1) | Original positive and incompatible cases |
+| [Cycle #2](https://halihalibt.github.io/semantic-cycle-exchange/?view=cycle&id=2) | Frontend E2E: ACTIVE with three confirmations |
+| [Cycle #3](https://halihalibt.github.io/semantic-cycle-exchange/?view=cycle&id=3) | Matched commitment declined by a participant |
+| [Intent #8](https://halihalibt.github.io/semantic-cycle-exchange/?view=intent&id=8) | CANCELLED Intent |
 
-B1 includes a React/TypeScript/Vite read-only dashboard, wallet-free verified positive
-and negative examples, ID inspection, all seven typed public views, exact SDK lock,
-complete canonical contract source, integrity checks, tests and provenance reports.
-There are no payments, custody, tokens, arbitration or automatic global matching.
+## Core features
 
-## Run locally
+- Public Intent discovery and owner-specific history and management.
+- Three-party Cycle Builder with exact direction, version and eligibility checks.
+- Assessment inspection showing labels, immutable terms and the linked Cycle.
+- Explicit confirmation, decline and deadline-dependent cleanup workflows.
+- Wallet session continuity across internal navigation, with guarded reload recovery.
+- Exact request preview, fresh preflight, single-attempt submission, finality
+  verification and actual-state reconciliation.
+- Persistent unresolved-submission journal to prevent ambiguous sends being retried.
 
-Requires maintained Node.js LTS (validated with 24.19.0 / npm 11.9.0).
+## AI assessment and explicit commitments
+
+The [Semantic Cycle Accord protocol](https://github.com/halihalibt/semantic-cycle-accord-genlayer)
+is the reusable primitive. GenLayer's Leader assesses all three directed edges;
+Validators independently classify the same snapshot and compare every label.
+`NO_FIT` or `UNSURE` prevents commitment creation. Compatibility never replaces
+consent: three distinct owners must confirm the exact snapshot before ACTIVE.
+
+This repository contributes the user-facing product: discovery and owner workflows,
+ring construction, SDK integration, transaction review and submission, wallet
+continuity, reconciliation and public verification. It uses the same deployed
+primitive, with its [complete official source included here](intelligent-contract/contracts/semantic_cycle_accord.py).
+
+## Technical architecture
+
+React, TypeScript and Vite provide query-based routes under
+`/semantic-cycle-exchange/`. A restricted read adapter uses latest-final contract
+views. Wallet-provider discovery and the transaction runtime are separate from
+public reads. There is no application backend or private-key service.
+
+| Fixed integration | Value |
+| --- | --- |
+| Network | Stable GenLayer Studionet, Chain ID 61999 |
+| RPC | https://studio.genlayer.com/api |
+| SDK | genlayer-js@1.1.8 |
+| Contract | [0x84e9284448D4cd16dcBBCbd8104449B11209C6F0](https://explorer-studio.genlayer.com/address/0x84e9284448D4cd16dcBBCbd8104449B11209C6F0) |
+
+See [architecture](docs/ARCHITECTURE.md) and [security boundaries](docs/SECURITY_BOUNDARIES.md).
+
+## Wallet and transaction safety
+
+Initial account permission is requested only after explicit connection. Internal
+navigation retains the session. Reload recovery uses already authorized accounts
+and chain reads for a uniquely identified EIP-6963 provider; local Disconnect
+persists. Account or network changes invalidate old previews and approvals.
+Legacy injected providers do not silently recover across reloads.
+
+A write requires an exact preview, fresh preflight and deliberate confirmation
+before the wallet request. Submission is attempted once. An unknown outcome stays
+locked in a durable journal; navigation, timeout or refresh cannot authorize a
+retry. A transaction hash or an EVM-style success flag alone is not final success:
+receipt identity, calldata, consensus, execution return and actual state are checked.
+
+The current write path is restricted to the user-confirmed zero-fee Studionet premise,
+requires a successful gas estimate and an observed gas price of zero, and sends
+native value zero. It is not a general fee quotation or a production-network guarantee.
+
+## Verified onchain case studies
+
+| Case | Outcome |
+| --- | --- |
+| Original positive | Assessment #1 MATCHED; Cycle #1 ACTIVE, 3 / 3 confirmations |
+| Semantic incompatibility | Assessment #2 NOT_MATCHED; NO_FIT prevents a linked Cycle |
+| Frontend E2E | Assessment #3 MATCHED; Cycle #2 ACTIVE; Intents #7 / #9 / #10 CONSUMED |
+| Decline | Assessment #4 MATCHED; Cycle #3 ABORTED |
+| Cancellation | Intent #8 CANCELLED |
+
+[Demo guide and exact transaction links](DEMO.md) ·
+[onchain evidence index](docs/FINAL_ONCHAIN_EVIDENCE_INDEX.md).
+
+The released application suite records **541 automated tests PASS**. Browser
+wallet continuity acceptance was **USER-EXECUTED: 7 PASS** in Windows Chrome + OKX;
+the published-site acceptance was also user-reported. These are distinct from
+independent RPC verification of **17 historical transaction receipts** and from
+offline Mock Provider tests. See [browser acceptance provenance](docs/WINDOWS_CHROME_WALLET_ACCEPTANCE.md).
+
+## Complete Intelligent Contract source
+
+[The full canonical contract](intelligent-contract/contracts/semantic_cycle_accord.py)
+is 32,040 bytes and byte-identical to Repository A's production source, including
+all seven writes, seven views, canonical prompt and consensus logic.
+SHA256: `88de2802bbe4e795dcae2bb0c4028477133d41bdc9b7940d6aef273367ded442`.
+[Source provenance](intelligent-contract/SOURCE_PROVENANCE.md) identifies its frozen origin.
+
+## Local development
+
+Use Node.js **>=22.12.0** and the committed lockfile. No dependency upgrade is needed.
 
 ```sh
 cd frontend
@@ -50,65 +140,35 @@ npm ci
 npm run dev
 ```
 
-Open the printed local URL. Demo: `/semantic-cycle-exchange/?w=1`.
-Record lookup: `/semantic-cycle-exchange/?view=inspect`.
-No wallet connection is required. The application reads the actual frozen contract;
-RPC failure is shown explicitly and never replaced with test fixtures.
+Open Vite's printed URL with the `/semantic-cycle-exchange/` base path.
+Add `?w=1` for verified examples or `?view=inspect` for ID lookup.
 
 ```sh
 npm run typecheck
 npm run lint
 npm test
-npm run build
 npm run integrity
+npm run build
 ```
 
-`node live-probe.mjs` is a separate, opt-in, nine-request Node SDK check against the
-real network. Unit tests are offline and never call RPC. Read the reports before
-interpreting local test results as live browser evidence.
+Unit tests block outgoing network access. They use mocks and retained receipts,
+not new onchain transactions. Public reads expose RPC errors and label cached
+observations rather than replacing failures with fixtures.
 
-## Network and evidence
+## Current limitations
 
-- Stable Studionet only: chain **61999**, https://studio.genlayer.com/api.
-- Existing contract: `0x84e9284448D4cd16dcBBCbd8104449B11209C6F0`.
-- Repository A frozen commit: `8a09380c06f12afd6ac85197737b0018cd8e594f`.
-- Positive: Assessment #1, FIT/FIT/FIT, ring 1→3→2→1, Cycle #1 ACTIVE.
-- Negative: Assessment #2, FIT/FIT/NO_FIT, ring 4→6→5→4, no linked Cycle.
-- SDK: exactly **genlayer-js 1.1.8**, installed types/runtime verified.
+There are no payments, escrow, custody, automatic service delivery, dispute
+resolution or automatic global matching. Semantic errors remain possible.
+Separate latest-final reads are not an atomic historical snapshot; page-level
+counts are not global totals. Browser acceptance does not establish multi-browser
+or extension-version coverage.
 
-The complete byte-identical contract is in
-[intelligent-contract/contracts/semantic_cycle_accord.py](intelligent-contract/contracts/semantic_cycle_accord.py).
-[Provenance](intelligent-contract/SOURCE_PROVENANCE.md) documents hashes/deployment.
+Live positive `expire_cycle` execution is **NOT RUN / TIME-GATED**. Dedicated Cycle #4
+was PENDING, ring `12 → 13 → 14 → 12`, with deadline **2026-10-15 05:16:08 UTC+8**
+(`1792012568`). All seven writes have UI paths; this is not a claim that all seven
+have passed positive live execution. Historical checkpoint documents and raw
+records remain available at their original paths for reproducibility.
 
-Read [Demo](DEMO.md), [architecture](docs/ARCHITECTURE.md),
-[SDK compatibility](docs/STABLE_SDK_COMPATIBILITY.md),
-[acceptance](docs/PHASE_B1_TEST_AND_ACCEPTANCE.md), [report](docs/PHASE_B1_REPORT.md)
-and [checkpoint](WORK_CHECKPOINT.md).
+## License
 
-Historical transaction metadata remains separate from current finalized observations.
-Consensus vote counts come from archived transaction evidence, not fabricated contract
-fields. Stored and effective statuses can differ after expiry. Protocol effective
-status counts describe the requested page; cumulative counters are global.
-
-No write UX, wallet signing, deployment, public website release or Portal submission
-is included. MIT License.
-
-
-## B2-A foundation — WIP / INCOMPLETE
-
-Optional explicit browser-provider selection and account connection are implemented alongside the read-only pages. Signing and transaction submission remain disabled. Seven write specifications, validation and transaction safety are offline foundations; total fees are unavailable. See [B2-A execution report](docs/PHASE_B2A_EXECUTION_REPORT.md) and [acceptance matrix](docs/PHASE_B2A_TEST_AND_ACCEPTANCE.md). Real wallet/write compatibility is not established.
-
-## B2-B business request previews
-
-The product now includes Explore Intents, connected-owner history, Intent forms, a directed three-party Builder, Assessment lookup and a Cycle Workspace. All seven write methods stop at exact request review with **FEE_QUOTE_UNAVAILABLE / ONCHAIN_SUBMISSION_DISABLED**. No signing or broadcast executor is exposed. See [user flows](docs/PHASE_B2B_USER_FLOWS.md), [implementation](docs/PHASE_B2B_IMPLEMENTATION_REPORT.md), [test/acceptance results](docs/PHASE_B2B_TEST_AND_ACCEPTANCE.md) and [security boundaries](docs/PHASE_B2B_SECURITY_BOUNDARIES.md). Final 258 tests passed offline; new browser visual/keyboard acceptance is still pending.
-
-
-## B2-B Windows Chrome user-executed acceptance addendum (2026-10-13)
-
-The previous B2-B `NOT RUN` browser statements describe the **Work/offline execution checkpoint**, and are preserved verbatim for provenance. Later, the user independently completed scoped Windows Chrome acceptance of the frozen B2-B build. See [the user-executed acceptance matrix](docs/PHASE_B2B_WINDOWS_CHROME_ACCEPTANCE.md) and [the 31 screenshot SHA256 metadata entries](evidence/b2b/windows-chrome-screenshot-manifest.md). Screenshots are user-conversation attachments, **not** files publicly hosted by this GitHub repo; no independent in-GitHub image verification is claimed. Live read-only observations, wallet connection and write-request **previews** passed; no actual B2-B write, signing, broadcast or AI assessment was performed.
-
-Any older statement that B2-A is `WIP / INCOMPLETE` or that the app has "no write UX" is a **historical phase/status statement**: B2-A was subsequently merged, and B2-B now has **preview-only write UX** while all real signing and submission remain disabled. Do not interpret the presence of request previews as a live-write product. The older Work Chromium `ERR_EMPTY_RESPONSE` remains BLOCKED with UNKNOWN root cause, not a proven CORS defect. PR #3 remains Draft, unmerged.
-
-## B2-C staged transaction engineering
-
-B2-B PR #3 was subsequently merged at frozen main `a98d3dcbefcef6e37b11fb41a2ef9e11050c5b78`; historical Draft statements above remain. B2-C adds isolated execution, exact SDK guards, complete mock fee budgets, readonly finality tracking and seven-method state reconciliation. **410 offline tests pass (258 unchanged + 152 new); FEE GATE BLOCKED.** No staged code or send boundary reachable from production; signing/broadcast/writes disabled. Browser B2-C NOT RUN; live execution NOT RUN. [Report](docs/PHASE_B2C_EXECUTION_REPORT.md), [tests](docs/PHASE_B2C_TEST_AND_ACCEPTANCE.md), [SDK/fees](docs/PHASE_B2C_SDK_FEE_COMPATIBILITY.md), [security](docs/PHASE_B2C_SECURITY_BOUNDARIES.md), [future manual plan](docs/PHASE_B2C_MANUAL_LIVE_TEST_PLAN.md). [PR #4](https://github.com/halihalibt/semantic-cycle-exchange/pull/4) remains Draft/unmerged.
+[MIT](LICENSE).

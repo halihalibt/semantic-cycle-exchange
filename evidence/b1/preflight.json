@@ -1,0 +1,35 @@
+{
+  "repositoryB": {
+    "owner": "halihalibt",
+    "visibility": "public",
+    "defaultBranch": "main",
+    "main": "1ac07943412b8eb0acf192a89758178bbfe3ef26",
+    "readme": true,
+    "license": "MIT"
+  },
+  "repositoryA": {
+    "main": "8a09380c06f12afd6ac85197737b0018cd8e594f",
+    "sourceSize": 32040,
+    "sourceSha256": "88de2802bbe4e795dcae2bb0c4028477133d41bdc9b7940d6aef273367ded442"
+  },
+  "runtime": {
+    "node": "24.19.0",
+    "npm": "11.9.0"
+  },
+  "chainId": {
+    "method": "eth_chainId",
+    "result": "0xf22f",
+    "category": "current direct RPC observation"
+  },
+  "cors": {
+    "origin": "http://localhost:5173",
+    "preflightHttpStatus": 200,
+    "allowOrigin": "http://localhost:5173",
+    "allowHeaders": "content-type",
+    "category": "current direct HTTP OPTIONS observation; not a browser SDK execution"
+  },
+  "browser": {
+    "status": "BLOCKED",
+    "reason": "Chromium 153 started with default web security. Production app emitted one finalized read request. No HTTP response was observed and Home live stats did not render within 25 seconds. Cause is unestablished; not proof of CORS denial. See browser-smoke.json."
+  }
+}

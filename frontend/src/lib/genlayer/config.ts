@@ -1,0 +1,9 @@
+export const NETWORK = { id: 61999, rpc: 'https://studio.genlayer.com/api', explorer: 'https://explorer-studio.genlayer.com' } as const;
+export const CONTRACT = '0x84e9284448D4cd16dcBBCbd8104449B11209C6F0' as const;
+export const BASELINE = '8a09380c06f12afd6ac85197737b0018cd8e594f';
+export const SOURCE = `https://github.com/halihalibt/semantic-cycle-accord-genlayer/tree/${BASELINE}`;
+export const PROMPT_HASH = '8a7b279a3594397802c71fef4df9b4d30db1ff528177d0bf05c80a62397192d3';
+export const SNAPSHOT = '48e1c68d358f67368c5d8b478e9d450401be06cdf91e90b6b8b94932d2951ede';
+export const METHODS = ['get_intent','get_cycle','get_assessment','get_intents_page','get_cycles_page','get_owner_records','get_protocol_stats'] as const;
+export type ViewMethod = typeof METHODS[number];
+export const EVIDENCE = { positive: '0xc71701f70199e4d65565adb2bbee2592e4e463f3fbf81b25d99b10c9de703968', negative: '0x0bb517817a4dd54ec6afb1b1d04223fb78804ed3f6e561f2ca65ca31d2b3234f', confirmations: ['0x48c3a1d262adba989c1f37520b871919b619a61e9bb721e14eeffeac6ca1b34b','0x4736fce42672766d2b589eab8a73d8bee56caf202c7ceaf1c83ada8b9fbd4531','0xcc310816d39b379189690be115241f594719c44959351232908b9ab85ee8ef82'] };

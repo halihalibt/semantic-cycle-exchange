@@ -56,3 +56,9 @@ was obtained within the 25-second verification window. Root cause UNKNOWN;
 CORS is not established. Browser full Demo NOT VERIFIED and responsive browser
 acceptance NOT RUN. Original Node reads and 34 test results are historical B1
 PASS evidence, not rerun results or a replacement for browser validation.
+
+## B1-R3 user Windows Chrome acceptance addendum (2026-10-12)
+
+Earlier B1/B1-R1 "BLOCKED" and "not pushed" statements above are preserved as **historical checkpoint observations**. B1-R1 already published the implementation in Draft PR #1. The user subsequently ran the current app in Windows Chrome and furnished original screenshot evidence. **USER-EXECUTED PASS**: Home finalized Studio HTTP 200 and 6/2/1/1 cumulative counts; Assessment #1 MATCHED, Cycle #1 ACTIVE with three confirmations; Assessment #2 NOT_MATCHED (FIT/FIT/NO_FIT), no linked Cycle; Cycle #2 correctly not found; visual 390px layout; Offline request failure visibly marked unavailable and previous data cached.
+
+See [R3 detailed acceptance](PHASE_B1_R3_WINDOWS_CHROME_ACCEPTANCE.md) and [private-image SHA256 metadata](../evidence/b1/windows-chrome-acceptance-manifest.json). Ten PNG bytes, dimensions and hashes were checked from the user-provided private transfer ZIP. **Raw PNG files are not public**, so image hashes are not independently verifiable from GitHub alone. Work Chromium `OPTIONS net::ERR_EMPTY_RESPONSE` remains **BLOCKED/UNKNOWN** separately; do not claim CORS was proven. Live 429 and deliberately induced timeout NOT RUN; original Node and 34 local test results were not rerun. B1 now awaits independent PR review, not automatic merge. No production, SDK or contract changes, writes or deployment in R3.

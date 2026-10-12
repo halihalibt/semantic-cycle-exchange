@@ -57,3 +57,8 @@ Git CLI push had no HTTPS credentials; checkpoint publication used the connected
 - `frontend/tests/business-fixtures.ts`
 - `frontend/tests/business-model.test.ts`
 - `frontend/tests/business-pages.test.tsx`
+
+
+## Subsequent user browser acceptance — addendum, not Work re-execution (2026-10-13)
+
+At the moment this Work implementation report was recorded, browser checks were NOT RUN. That historical statement remains true for Work. Later, the user performed separate Windows Chrome tests of the frozen code: core actual finalized read-only pages, OKX connection, preview-only business actions, 390px samples, Offline/cache and recovery, and a scoped keyboard filter all passed. Source attribution and exact limits are documented in [Windows Chrome Acceptance](PHASE_B2B_WINDOWS_CHROME_ACCEPTANCE.md); 31 screenshot SHA256 entries are in [the metadata manifest](../evidence/b2b/windows-chrome-screenshot-manifest.md), with PNG originals retained outside GitHub. No new Work execution, production source edit, wallet signature or transaction is claimed. Draft PR #3 remains unmerged.

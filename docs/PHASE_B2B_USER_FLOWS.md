@@ -17,3 +17,8 @@ All business action buttons review requests only. ONCHAIN_SUBMISSION_DISABLED is
 Transaction Review shows exact named positional parameters, contract, public account/network, advisory consequences, FEE_UNAVAILABLE, FEE_QUOTE_UNAVAILABLE, ONCHAIN_SUBMISSION_DISABLED and status definitions. No hash is generated. Account changes invalidate review. Form changes clear review. Error messages use role=alert; controls have labels and native keyboard interaction. Cached observations retain timestamps and explicit stale-data notices.
 
 Mobile CSS uses a single column below 800px, wrapping navigation, addresses/hashes and full-width fields. 390px visual/browser verification is NOT RUN; do not infer screenshot acceptance from DOM tests.
+
+
+## Browser follow-up (2026-10-13; USER-EXECUTED, not Work)
+
+The prior statement that 390px visual verification was NOT RUN belongs to Work's environment. Later the user separately verified the core Windows Chrome flows and sampled mobile 390px Create/Builder/Cycle layouts and native keyboard Explore filtering. Full accessibility and other mobile pages NOT RUN; real signing and RPC writes remain disabled. See [Windows Chrome scope](PHASE_B2B_WINDOWS_CHROME_ACCEPTANCE.md). Wallet selection requires reconnection after full-document navigation, which is a known UX limitation. Preserve the original Work NOT RUN and Chromium BLOCKED/UNKNOWN records.

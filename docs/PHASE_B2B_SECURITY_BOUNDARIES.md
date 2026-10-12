@@ -15,3 +15,8 @@ Local time is advisory. Existing 30-second freshness/boundary checks fail closed
 Tests run with Mock Provider, Mock RPC, stubbed browser fetch and the unchanged process/worker socket deny boundary. npm install is dependency acquisition, not a blockchain operation. No real wallet was operated, no key/seed was read, and no real RPC write/AI assessment/signature/transaction/deployment/publication was performed. Live reads and browser extension behavior were NOT RUN in B2-B.
 
 Canonical contract/Prompt, Repository A, SDK 1.1.8, Stable Studionet 61999 and RPC are unchanged. No sim_getFeeConfig, new dependencies, backend, database, paid service, merge, B2-C/B3 or Portal submission.
+
+
+## Later user browser acceptance boundary (2026-10-13)
+
+This document's prior statement that no browser wallet/live read was operated is a factual **Work execution** statement. Separately, the user connected OKX Wallet on 61999 and performed live **read-only** calls and purely advisory request previews in Windows Chrome. No signing, broadcasts or chain writes followed. Recorded screenshots and limitations: [acceptance](PHASE_B2B_WINDOWS_CHROME_ACCEPTANCE.md) and [metadata](../evidence/b2b/windows-chrome-screenshot-manifest.md). The original Work Chromium OPTIONS `ERR_EMPTY_RESPONSE` stays BLOCKED / UNKNOWN, not diagnosed as CORS. This addendum does not authorize a write executor.

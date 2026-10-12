@@ -27,3 +27,8 @@ The initial "browser Demo is not yet live-verified" paragraph above is the histo
 ## B2-B business flow previews
 
 Use `?view=intents`, `?view=my`, `?view=create`, `?view=intent&id=N`, `?view=builder`, `?view=assessment&id=N` and `?view=cycle&id=N` locally to inspect business workflows. The original `?w=1` and `?view=inspect` remain available. Request review never sends a transaction; all writes remain disabled. Wallet-dependent forms require the existing public-account connection on Stable Studionet. B2-B browser execution is NOT RUN; do not treat offline fixture tests as new onchain evidence. See docs/PHASE_B2B_USER_FLOWS.md.
+
+
+## B2-B subsequent user browser evidence (2026-10-13)
+
+The original B1 and B2-B Work browser `NOT RUN` lines above are retained as their historical execution-state reports. Separately, the **user** ran the frozen B2-B app in Windows Chrome and screenshot-verified real read-only Explore/My Intents, connected OKX Wallet on chain 61999, positive/negative Assessment views, ACTIVE Cycle, seven-method request-preview flows, scoped mobile/keyboard checks, Offline/cache and recovery. See [B2-B acceptance](docs/PHASE_B2B_WINDOWS_CHROME_ACCEPTANCE.md) and [hash manifest](evidence/b2b/windows-chrome-screenshot-manifest.md). This is not Work browser execution, not public deployment, not proof of real transaction support, and does not replace B1's earlier Verified Demo acceptance or Work Chromium's retained BLOCKED/UNKNOWN evidence. PR #3 remains Draft.

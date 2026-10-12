@@ -46,3 +46,8 @@ Local Playwright Chromium launch is unavailable: executable missing (browser-ava
 B2-B real chain reads, real signing, AI assessment, broadcast and blockchain writes NOT RUN. No REAL ONCHAIN PASS is claimed. Live HTTP 429/5xx/timeouts NOT RUN; existing synthetic network cases passed. Website publication, deployment, merge, B2-C/B3 and Portal submission are outside scope.
 
 Next permitted handoff: independent audit of Draft PR #3 and offline implementation; separately authorized Windows Chrome mock/read-only visual/keyboard validation at 390px and desktop. Business implementation has no remaining known offline test failure. Browser acceptance remains open. Do not enable live writes to validate this phase.
+
+
+## Later Windows Chrome user acceptance — supplemental status (2026-10-13)
+
+B13's earlier browser `NOT RUN` denotes the Work/offline checkpoint; preserve the original B01–B15 matrix and 258-PASS log intact. Subsequently **USER-EXECUTED** Windows Chrome screenshots support scoped PASS for the core Explore/My Intents, OKX 61999 connection, preview-only actions, Assessment/Cycle reads, ACTIVE action guards, 390px key pages, Offline/cached recovery, and keyboard selection. Full accessibility/multiple browsers remain PARTIAL/NOT RUN, as do live HTTP 429, MetaMask and real writes. Work Chromium's `ERR_EMPTY_RESPONSE` remains BLOCKED / UNKNOWN. See [full separate matrix](PHASE_B2B_WINDOWS_CHROME_ACCEPTANCE.md) and [screenshot SHA256 metadata](../evidence/b2b/windows-chrome-screenshot-manifest.md). Browser screenshot originals are **not** publicly uploaded; Work's offline suite was not rerun by this closure.

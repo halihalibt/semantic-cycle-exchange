@@ -1,6 +1,6 @@
 # Semantic Cycle Accord — Intelligent Contracts submission draft
 
-Prepared for manual entry. Do not claim Portal submission, approval or points.
+Prepared for manual entry. The public Semantic Cycle Exchange application using this standalone primitive has now been deployed and user-accepted at https://halihalibt.github.io/semantic-cycle-exchange/ (deployment SHA `12eac692f5d4cdd4b283f51e155aaf414976e07f`). Do not claim Portal submission, approval or points.
 Repository A remains at its frozen main. This submission describes the reusable contract
 created before the application, not a contract extracted from a submitted Project.
 
@@ -41,8 +41,8 @@ backend or wallet/session code is embedded in the contract.
 Validation disclosure:
 
 The original A evidence includes an AI-matched ACTIVE cycle, a NO_FIT/NOT_MATCHED assessment,
-and three owner confirmations. Subsequent user-operated application E2E independently
-verified by Work includes Cycle #2 ACTIVE and Cycle #3 ABORTED. Complete frozen source:
+and three owner confirmations. Subsequent user-operated application E2E whose transaction receipts were independently
+read and verified by Work includes Cycle #2 ACTIVE and Cycle #3 ABORTED. The final wallet UX Chrome acceptance was user-reported 7/7 PASS; a later published-site browser acceptance was also user-reported PASS. Complete frozen source:
 32,040 bytes, SHA256 `88de2802bbe4e795dcae2bb0c4028477133d41bdc9b7940d6aef273367ded442`.
 No new deployment or source change occurred in this delivery.
 

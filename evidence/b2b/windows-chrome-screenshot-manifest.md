@@ -1,10 +1,10 @@
 # B2-B Windows Chrome screenshot SHA256 manifest
 
-This inventory records **31 user-supplied PNG attachments in the ChatGPT conversation**, inspected for the separately authorized Windows Chrome acceptance of B2-B. The entries use the filenames of the accessible conversation-mounted copies, never a private filesystem path. SHA256 fingerprints and image dimensions were computed from these exact PNG bytes, not guessed from the screen. The originals **have not been uploaded into this GitHub repository**; the manifest is public metadata only. Reviewers who lack the original attachments cannot independently reproduce the image-hash check from this repository alone. No browser image is represented as a Work-produced artifact.
+This inventory records **31 user-supplied PNG attachments from the Windows Chrome acceptance session**, inspected for the separately authorized Windows Chrome acceptance of B2-B. The entries use the filenames of the supplied screenshot copies, never a private filesystem path. SHA256 fingerprints and image dimensions were computed from these exact PNG bytes, not guessed from the screen. The originals **have not been uploaded into this GitHub repository**; the manifest is public metadata only. Reviewers who lack the original attachments cannot independently reproduce the image-hash check from this repository alone. No independently generated browser screenshot is claimed.
 
 Source of evidence: user-operated Windows Chrome on a locally running app; screenshots capture the B2-B frontend and DevTools. Captured labels/OS upload times are *not* onchain timestamps. Network HTTP 200 lines remaining under Preserve log in Offline tests are historical; only the separately demonstrated restored-network read is evidence of recovery.
 
-| Conversation-mounted PNG filename | Observed scope | Dimensions (px) | SHA256 |
+| Supplied PNG filename | Observed scope | Dimensions (px) | SHA256 |
 |---|---|---|---|
 | `image(20261012-155436).png` | Overview — live finalized home | 2048×1348 | `e01603dca267fb706d2fd391dddc78650d23e1b9a2b3c7f09d816c5b38312bba` |
 | `image(20261012-155455).png` | Explore — live finalized page | 1944×1395 | `6627678b4e75db6d05c4b007552754c9b9b05c36746734236ef2ce758abad416` |
@@ -38,4 +38,4 @@ Source of evidence: user-operated Windows Chrome on a locally running app; scree
 | `image(20261012-165400).png` | Restored network — fresh finalized read and HTTP 200 | 1284×1314 | `44e89e2f6883e6865ee27262f094dcf27bef569250316101d92fe864024fea7c` |
 | `image(20261012-165639).png` | Keyboard focus — CONSUMED filter | 1185×1295 | `2f8e41198c9decc3111917f290a2d55834855ebac8bb6eff39a1adf49b6e3e0b` |
 
-**Provenance and boundary:** these are USER-EXECUTED browser screenshots, not Work Chromium results. They evidence observed UI/read/previews, not independent replay, accessibility certification or real blockchain writes. Real HTTP 429, 5xx, service delivery, signing/broadcast, public deployment and live AI invocation were NOT RUN. Work Chromium historical OPTIONS `net::ERR_EMPTY_RESPONSE` is separately retained as BLOCKED / root cause UNKNOWN, not established CORS.
+**Provenance and boundary:** these are USER-EXECUTED browser screenshots, not an independently executed browser-automation run. They evidence observed UI/read/previews, not independent replay, accessibility certification or real blockchain writes. Real HTTP 429, 5xx, service delivery, signing/broadcast, public deployment and live AI invocation were NOT RUN. A separate historical automated-browser OPTIONS `net::ERR_EMPTY_RESPONSE` is separately retained as BLOCKED / root cause UNKNOWN, not established CORS.

@@ -45,3 +45,21 @@ was obtained within the 25-second verification window. Root cause UNKNOWN;
 CORS is not established. Browser full Demo NOT VERIFIED and responsive browser
 acceptance NOT RUN. Original Node reads and 34 test results are historical B1
 PASS evidence, not rerun results or a replacement for browser validation.
+
+## B1-R3 superseding user-executed Windows Chrome matrix
+
+Earlier browser BLOCKED / NOT RUN cells above describe the original **Work Chromium environment** and remain true as historical results. The following NEW results apply **only to the user's Chrome**, based on screenshots, not to Work's Chromium:
+
+| Gate | B1-R3 result | Evidence |
+| --- | --- | --- |
+| Home real finalized RPC HTTP 200 | **USER-EXECUTED PASS**; cumulative 6/2/1/1 | screenshots 01/02/09 |
+| Positive Demo | **USER-EXECUTED PASS**; MATCHED/FIT-FIT-FIT, ACTIVE 3/3 | screenshot 03 |
+| Negative Demo | **USER-EXECUTED PASS**; NOT_MATCHED/FIT-FIT-NO_FIT, cycle_id 0 | screenshot 04 |
+| Missing Cycle #2 | **USER-EXECUTED PASS**; found=false UI | screenshot 05 |
+| 390px responsive emulation | **USER-EXECUTED VISUAL PASS**, one width only | screenshots 06/07/08 |
+| Offline refresh/cache warning | **USER-EXECUTED PASS**; RPC unavailable, prior data cached | screenshot 10 |
+| Work Chromium browser | **BLOCKED**; OPTIONS ERR_EMPTY_RESPONSE, root cause **UNKNOWN** | original B1/R2 diagnostics |
+| Actual live HTTP 429 and induced timeout | **NOT RUN**; offline tests only | prior local tests |
+| B1-R3 retest of original 34 tests | **NOT RUN**; original reported PASS remains historical | prior B1 result |
+
+Details: [R3 acceptance report](PHASE_B1_R3_WINDOWS_CHROME_ACCEPTANCE.md), [public screenshot metadata only](../evidence/b1/windows-chrome-acceptance-manifest.json). The original images remain private, and public SHA256 entries are not a substitute for original image bytes. B1 now awaits independent Draft PR audit; not merged and no B2 authorization.

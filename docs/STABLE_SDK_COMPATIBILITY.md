@@ -31,3 +31,7 @@ Browser verification is BLOCKED. Root cause is unknown: no CORS denial or HTTP
 429 was established. Node success must not be generalized to browser success.
 B1 STOP triggered before public GitHub commit/PR or further diagnostics.
 Do not introduce a proxy, paid backend, network switch or SDK upgrade.
+
+## B1-R3 subsequent user Windows Chrome evidence — 2026-10-12
+
+The Work Chromium result described above remains **BLOCKED/UNKNOWN** in that Work environment. Separate **USER-EXECUTED Windows Chrome** evidence now demonstrates real `genlayer-js@1.1.8` `latest-final` Studio HTTP 200 reads, Home statistics, positive and negative read-only Demo, and missing Cycle #2; Offline manual Refresh correctly showed an unavailable RPC worker and cached prior data. This does **not** prove the underlying cause of Work's `OPTIONS net::ERR_EMPTY_RESPONSE` (not established CORS). Live 429 and actual induced timeouts remain NOT RUN; existing offline test coverage is not claimed as live evidence. Details: [R3 report](PHASE_B1_R3_WINDOWS_CHROME_ACCEPTANCE.md). No SDK/network/contract changes were made.

@@ -1,0 +1,42 @@
+{
+  "account": "halihalibt",
+  "repositoryBBase": "4e6772a923b40c71f1cc61f860f2f75acefb10b6",
+  "repositoryABase": "8a09380c06f12afd6ac85197737b0018cd8e594f",
+  "canonicalSHA256": "88de2802bbe4e795dcae2bb0c4028477133d41bdc9b7940d6aef273367ded442",
+  "byteForByteRepositoryAComparison": true,
+  "frozenFilesUnchanged": {
+    "frontend/package.json": true,
+    "frontend/package-lock.json": true,
+    "intelligent-contract/contracts/semantic_cycle_accord.py": true,
+    "frontend/src/lib/wallet/request-boundary.ts": true,
+    "frontend/src/lib/wallet/session.ts": true,
+    "frontend/src/lib/wallet/provider.ts": true,
+    "frontend/src/lib/genlayer/fees.ts": true,
+    "frontend/src/lib/genlayer/config.ts": true,
+    "frontend/src/lib/genlayer/types.ts": true,
+    "frontend/src/lib/genlayer/transaction.ts": true,
+    "frontend/src/lib/genlayer/validation.ts": true,
+    "frontend/src/lib/genlayer/worker.ts": true,
+    "frontend/src/lib/genlayer/write-spec.ts": true,
+    "frontend/src/lib/genlayer/transport.ts": true,
+    "frontend/src/lib/genlayer/write-validation.ts": true,
+    "frontend/src/lib/genlayer/api.ts": true,
+    "frontend/src/pages.tsx": true,
+    "frontend/src/components.tsx": true,
+    "frontend/src/hooks.ts": true
+  },
+  "baselineTestResult": {
+    "pass": 170,
+    "fail": 0,
+    "skip": 0,
+    "files": 7
+  },
+  "finalTestResult": {
+    "pass": 258,
+    "fail": 0,
+    "skip": 0,
+    "files": 9
+  },
+  "browser": "NOT RUN",
+  "realSigningTransactionsDeploymentPublication": "NOT RUN / none performed"
+}

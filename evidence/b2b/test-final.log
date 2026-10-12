@@ -1,0 +1,77 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> semantic-cycle-exchange@0.1.0 test
+> node --import ./tests/deny-network.mjs ./node_modules/vitest/vitest.mjs run
+
+
+ RUN  v3.2.4 /workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend
+
+ ✓ tests/transaction.test.ts (24 tests) 12ms
+ ✓ tests/write-validation.test.ts (64 tests) 25ms
+ ✓ tests/business-model.test.ts (35 tests) 20ms
+ ✓ tests/adapter.test.ts (28 tests) 36ms
+ ✓ tests/wallet.test.tsx (26 tests) 79ms
+ ✓ tests/pages.test.tsx (6 tests) 288ms
+ ✓ tests/network.test.js (1 test) 3ms
+stderr | tests/sdk-118.test.ts > wrong chain blocked despite Studio skipping SDK chain guard
+Error using provider for method eth_sendTransaction: Error: APP_WRONG_NETWORK
+    at Object.request (/workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:34:88)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > account and revision mismatch blocked before fake send
+Error using provider for method eth_sendTransaction: Error: APP_IDENTITY_CHANGED
+    at Object.request (/workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:35:95)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > account and revision mismatch blocked before fake send
+Error using provider for method eth_sendTransaction: Error: APP_IDENTITY_CHANGED
+    at Object.request (/workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:33:49)
+    at Object.request (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:35)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at withRetry.delay.count.count (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > provider rejection propagated and never reaches fallback HTTP send
+Error using provider for method eth_sendTransaction: { code: 4001, message: 'mock rejection' }
+
+stderr | tests/sdk-118.test.ts > single attempt boundary blocks SDK ABI fallback rebroadcast
+Error using provider for method eth_sendTransaction: Error: function selector was not recognized
+    at FakeProvider.<anonymous> (/workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/tests/sdk-118.test.ts:48:244)
+    at FakeProvider.mockCall (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
+    at FakeProvider.spy [as request] (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/tinyspy/dist/index.js:47:80)
+    at Object.request (/workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:56:29)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > pending fake signature and concurrent call share one send latch
+Error using provider for method eth_sendTransaction: Error: APP_DUPLICATE_SUBMISSION_BLOCKED
+    at Object.request (/workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:31:28)
+    at Object.request (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:35)
+    at withRetry.delay.count.count (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/7e309ef95b07/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > mock HTTP 429 does not send or automatically retry
+GenLayer RPC error (eth_getTransactionCount): mock unavailable
+
+stderr | tests/sdk-118.test.ts > mock HTTP 503 does not send or automatically retry
+GenLayer RPC error (eth_getTransactionCount): mock unavailable
+
+stderr | tests/sdk-118.test.ts > mock RPC unavailable fails before provider submission
+GenLayer RPC error (eth_getTransactionCount): mock offline
+
+ ✓ tests/sdk-118.test.ts (21 tests) 132ms
+ ✓ tests/business-pages.test.tsx (53 tests) 1039ms
+
+ Test Files  9 passed (9)
+      Tests  258 passed (258)
+   Start at  12:36:31
+   Duration  2.19s (transform 700ms, setup 967ms, collect 1.52s, tests 1.63s, environment 3.44s, prepare 635ms)
+

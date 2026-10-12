@@ -70,3 +70,14 @@ is included. MIT License.
 ## B2-A foundation — WIP / INCOMPLETE
 
 Optional explicit browser-provider selection and account connection are implemented alongside the read-only pages. Signing and transaction submission remain disabled. Seven write specifications, validation and transaction safety are offline foundations; total fees are unavailable. See [B2-A execution report](docs/PHASE_B2A_EXECUTION_REPORT.md) and [acceptance matrix](docs/PHASE_B2A_TEST_AND_ACCEPTANCE.md). Real wallet/write compatibility is not established.
+
+## B2-B business request previews
+
+The product now includes Explore Intents, connected-owner history, Intent forms, a directed three-party Builder, Assessment lookup and a Cycle Workspace. All seven write methods stop at exact request review with **FEE_QUOTE_UNAVAILABLE / ONCHAIN_SUBMISSION_DISABLED**. No signing or broadcast executor is exposed. See [user flows](docs/PHASE_B2B_USER_FLOWS.md), [implementation](docs/PHASE_B2B_IMPLEMENTATION_REPORT.md), [test/acceptance results](docs/PHASE_B2B_TEST_AND_ACCEPTANCE.md) and [security boundaries](docs/PHASE_B2B_SECURITY_BOUNDARIES.md). Final 258 tests passed offline; new browser visual/keyboard acceptance is still pending.
+
+
+## B2-B Windows Chrome user-executed acceptance addendum (2026-10-13)
+
+The previous B2-B `NOT RUN` browser statements describe the **Work/offline execution checkpoint**, and are preserved verbatim for provenance. Later, the user independently completed scoped Windows Chrome acceptance of the frozen B2-B build. See [the user-executed acceptance matrix](docs/PHASE_B2B_WINDOWS_CHROME_ACCEPTANCE.md) and [the 31 screenshot SHA256 metadata entries](evidence/b2b/windows-chrome-screenshot-manifest.md). Screenshots are user-conversation attachments, **not** files publicly hosted by this GitHub repo; no independent in-GitHub image verification is claimed. Live read-only observations, wallet connection and write-request **previews** passed; no actual B2-B write, signing, broadcast or AI assessment was performed.
+
+Any older statement that B2-A is `WIP / INCOMPLETE` or that the app has "no write UX" is a **historical phase/status statement**: B2-A was subsequently merged, and B2-B now has **preview-only write UX** while all real signing and submission remain disabled. Do not interpret the presence of request previews as a live-write product. The older Work Chromium `ERR_EMPTY_RESPONSE` remains BLOCKED with UNKNOWN root cause, not a proven CORS defect. PR #3 remains Draft, unmerged.

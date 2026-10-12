@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { Discovery, type DiscoveredProvider } from './lib/wallet/provider';
 import { WalletSession, type WalletState } from './lib/wallet/session';
-export function WalletPanel() {
+export function WalletPanel({ onState }: { onState?: (state: WalletState) => void } = {}) {
   const [providers, setProviders] = useState<readonly DiscoveredProvider[]>([]);
   const [selected, setSelected] = useState('');
   const [state, setState] = useState<WalletState>({ status: 'NOT_INSTALLED', revision: 0 });
   const session = useRef<WalletSession | null>(null);
+  const changed = useRef(onState); changed.current = onState;
   useEffect(() => {
-    const wallet = new WalletSession(next => { setState(next); if (next.status === 'PROVIDER_UNAVAILABLE') setSelected(''); }); session.current = wallet;
+    const wallet = new WalletSession(next => { setState(next); changed.current?.(next); if (next.status === 'PROVIDER_UNAVAILABLE') setSelected(''); }); session.current = wallet;
     const discovery = new Discovery(window, items => { setProviders(items); wallet.discover(items.length); });
     discovery.start((window as Window & { ethereum?: unknown }).ethereum);
     return () => { discovery.stop(); wallet.dispose(); session.current = null; };

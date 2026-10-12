@@ -25,7 +25,7 @@ New regression test log confirms SDK envelope rejection for altered system desti
 
 ## Evidence scope and limits
 
-- **USER-EXECUTED PASS:** the user ran the supplied Windows verification script and provided the resulting original ZIP to ChatGPT; the source marker and per-command logs were examined.
+- **USER-EXECUTED PASS:** the user ran the supplied Windows verification script and provided the original ZIP for inspection; the source marker and per-command logs were examined.
 - **Not GitHub CI:** the audit was not an independent GitHub Actions run; do not conflate this local evidence with hosted CI.
 - **NOT RUN:** real MetaMask/OKX browser write, wallet signing, broadcasting, real GEN fees or gas quote, real GenLayer transaction finalization, public production deployment.
 - **BLOCKED:** production fee quote remains `FEE_QUOTE_UNAVAILABLE`, as already documented; the tests do not change that conclusion.

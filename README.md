@@ -1,6 +1,33 @@
-# Semantic Cycle Accord
+# Semantic Cycle Exchange
+
+## Current final-delivery checkpoint
+
+Wallet navigation now preserves the App/WalletSession/transaction runtime. Authorized EIP-6963
+wallet reloads recover using `eth_accounts`/`eth_chainId` only; local Disconnect persists and
+identity events invalidate old approvals. All 504 original tests and submission-security bytes
+are retained; new wallet and live-evidence regression results are linked in the final report.
+
+User-executed live writes have now been independently verified via read-only RPC: Cycle #2
+ACTIVE, Cycle #3 ABORTED, #7/#9/#10 CONSUMED and #8 CANCELLED. The cancellation receipt hash has also been independently recovered and verified. Live positive expiration is NOT RUN / TIME-GATED to 2026-10-15 05:16:08 UTC+8.
+
+**PR #4 remains Draft/unmerged; new Chrome wallet-fix acceptance NOT RUN; Pages not published.**
+[Final delivery report](docs/ACCELERATED_FINAL_DELIVERY_REPORT.md),
+[short Windows Chrome acceptance](docs/WINDOWS_CHROME_WALLET_ACCEPTANCE.md),
+[final evidence index](docs/FINAL_ONCHAIN_EVIDENCE_INDEX.md),
+[Intelligent Contracts draft](docs/SUBMISSION_INTELLIGENT_CONTRACTS_FINAL.md),
+[Projects draft](docs/SUBMISSION_PROJECTS_FINAL.md).
+A main, canonical source, SDK, network and production main remain frozen. A GitHub Pages
+workflow is prepared in this PR; publication waits for browser acceptance, merge and Pages setup.
+Earlier phase/status paragraphs below are historical and superseded where indicated here.
+
 
 Three digital-service offers. Three needs. One directed agreement.
+
+## Historical R1 engineering checkpoint
+
+The B2-C-R1 branch connects all seven writes to deliberate browser-wallet requests on **Stable Studionet 61999 only**, using the user-confirmed zero-fee test premise, strict successful Gas-limit estimation, value=0, SDK 1.1.8 encoding, single-attempt sending, persistent unresolved locks and finalized-state reconciliation. **497 offline tests PASS (410 unchanged + 87 new); 0 FAIL / 0 SKIP.** Production signing is now possible in this branch after explicit confirmation; **new real wallet/onchain E2E is NOT RUN**. Main remains unchanged and PR #4 remains Draft/unmerged; no website was published.
+
+[Integration report](docs/PHASE_B2C_R1_TRANSACTION_INTEGRATION_REPORT.md) · [Audit](docs/PHASE_B2C_R1_INDEPENDENT_AUDIT.md) · [User-operated E2E plan](docs/PHASE_B2C_R1_MANUAL_E2E_PLAN.md) · [Verification evidence](evidence/b2c-r1/verification.json). Current checks: `python scripts/verify-b2c-r1.py`; this supersedes the historical B2-C verifier’s production-isolation expectation. Earlier preview-only/fee-blocked statements below describe their frozen historical checkpoints.
 
 This application uses the existing SCA-3 V1 GenLayer Intelligent Contract to inspect
 three-party service exchange commitments. Each provider supplies the next participant.
@@ -81,3 +108,7 @@ The product now includes Explore Intents, connected-owner history, Intent forms,
 The previous B2-B `NOT RUN` browser statements describe the **Work/offline execution checkpoint**, and are preserved verbatim for provenance. Later, the user independently completed scoped Windows Chrome acceptance of the frozen B2-B build. See [the user-executed acceptance matrix](docs/PHASE_B2B_WINDOWS_CHROME_ACCEPTANCE.md) and [the 31 screenshot SHA256 metadata entries](evidence/b2b/windows-chrome-screenshot-manifest.md). Screenshots are user-conversation attachments, **not** files publicly hosted by this GitHub repo; no independent in-GitHub image verification is claimed. Live read-only observations, wallet connection and write-request **previews** passed; no actual B2-B write, signing, broadcast or AI assessment was performed.
 
 Any older statement that B2-A is `WIP / INCOMPLETE` or that the app has "no write UX" is a **historical phase/status statement**: B2-A was subsequently merged, and B2-B now has **preview-only write UX** while all real signing and submission remain disabled. Do not interpret the presence of request previews as a live-write product. The older Work Chromium `ERR_EMPTY_RESPONSE` remains BLOCKED with UNKNOWN root cause, not a proven CORS defect. PR #3 remains Draft, unmerged.
+
+## B2-C staged transaction engineering
+
+B2-B PR #3 was subsequently merged at frozen main `a98d3dcbefcef6e37b11fb41a2ef9e11050c5b78`; historical Draft statements above remain. B2-C adds isolated execution, exact SDK guards, complete mock fee budgets, readonly finality tracking and seven-method state reconciliation. **410 offline tests pass (258 unchanged + 152 new); FEE GATE BLOCKED.** No staged code or send boundary reachable from production; signing/broadcast/writes disabled. Browser B2-C NOT RUN; live execution NOT RUN. [Report](docs/PHASE_B2C_EXECUTION_REPORT.md), [tests](docs/PHASE_B2C_TEST_AND_ACCEPTANCE.md), [SDK/fees](docs/PHASE_B2C_SDK_FEE_COMPATIBILITY.md), [security](docs/PHASE_B2C_SECURITY_BOUNDARIES.md), [future manual plan](docs/PHASE_B2C_MANUAL_LIVE_TEST_PLAN.md). [PR #4](https://github.com/halihalibt/semantic-cycle-exchange/pull/4) remains Draft/unmerged.

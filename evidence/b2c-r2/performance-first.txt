@@ -1,0 +1,250 @@
+
+ RUN  v3.2.4 /workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend
+
+ ✓ tests/adapter.test.ts (28 tests) 114ms
+ ✓ tests/write-validation.test.ts (64 tests) 267ms
+ ✓ tests/pages.test.tsx (6 tests) 2439ms
+   ✓ renders real positive ACTIVE and negative NOT_MATCHED fixtures without a wallet  348ms
+   ✓ shows RPC failure and historical evidence without fake live success  672ms
+   ✓ shows protocol page counts and labels cumulative totals  806ms
+ ✓ tests/wallet.test.tsx (26 tests) 1677ms
+   ✓ session identity > invalidates identity on chainChanged  444ms
+   ✓ minimal UI escapes metadata, requires selection, and cleans listeners  520ms
+ ✓ tests/transaction.test.ts (24 tests) 126ms
+ ✓ tests/business-model.test.ts (35 tests) 158ms
+ ❯ tests/preflight-hotfix.test.tsx (7 tests | 1 failed) 17858ms
+   ✓ Create Intent reaches PREFLIGHT_READY with Chrome-like React performance instrumentation  2313ms
+   ✓ Create Intent preflight gas failure stays visible, retryable and unsigned  629ms
+   ✓ Create Intent preflight read failure stays visible, retryable and unsigned  1008ms
+   ✓ Create Intent preflight timeout failure stays visible, retryable and unsigned  728ms
+   ✓ create_intent review retains exact canonical BigInt encoding outside props enumeration  1680ms
+   ✓ assess_cycle review retains exact canonical BigInt encoding outside props enumeration 98ms
+   × a returned failed operation displays diagnostics and exposes no approval 10852ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+stderr | tests/live-pages.test.tsx > unknown send error is visible and provides read-only recovery, no resend button
+Error using provider for method eth_sendTransaction: Error: transport lost
+    at FakeProvider.<anonymous> (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/tests/live-pages.test.tsx:56:281)
+    at FakeProvider.mockCall (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
+    at FakeProvider.spy [as request] (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/tinyspy/dist/index.js:47:80)
+    at Object.request (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:65:29)
+    at Object.request (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+ ❯ tests/live-pages.test.tsx (14 tests | 2 failed) 29396ms
+   ✓ create_intent business page uses real adapter only after fresh preflight and explicit confirmation  2831ms
+   ✓ update_intent business page uses real adapter only after fresh preflight and explicit confirmation  437ms
+   ✓ cancel_intent business page uses real adapter only after fresh preflight and explicit confirmation  382ms
+   × assess_cycle business page uses real adapter only after fresh preflight and explicit confirmation 8354ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   × confirm_cycle business page uses real adapter only after fresh preflight and explicit confirmation 11039ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ decline_cycle business page uses real adapter only after fresh preflight and explicit confirmation  4105ms
+   ✓ expire_cycle business page uses real adapter only after fresh preflight and explicit confirmation  729ms
+   ✓ page load, preview and acknowledgement do not request a signature 76ms
+   ✓ rapid confirmation clicks forward a single wallet request 165ms
+   ✓ account change after preflight disables an existing confirmation 132ms
+   ✓ parameter change during fresh confirmation cancels approval before forwarding  376ms
+   ✓ unknown send error is visible and provides read-only recovery, no resend button  337ms
+   ✓ failed gas estimate displays an error and cannot open the wallet  355ms
+   ✓ production App installs live context without any automatic wallet request 75ms
+ ✓ tests/live-historical-receipts.test.ts (11 tests) 93ms
+ ✓ tests/staged-security.test.ts (74 tests) 2872ms
+   ✓ actual locked SDK adapter covers assess_cycle against Mock Provider + Mock RPC only  457ms
+   ✓ SDK gas price change blocked without a mock send  323ms
+   ✓ SDK gas price unavailable blocked without a mock send  514ms
+stderr | tests/live-transaction.test.ts > concurrent confirmation and ABI-shaped error forward at most once
+Error using provider for method eth_sendTransaction: Error: invalid pointer in tuple
+    at FakeProvider.<anonymous> (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/tests/live-transaction.test.ts:62:198)
+    at FakeProvider.mockCall (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
+    at FakeProvider.spy [as request] (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/tinyspy/dist/index.js:47:80)
+    at Object.request (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:65:29)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/live-transaction.test.ts > wallet rejection clears durable pending record; no resend
+Error using provider for method eth_sendTransaction: { code: 4001 }
+
+stderr | tests/live-transaction.test.ts > network error persists unknown and cannot resend after reload
+Error using provider for method eth_sendTransaction: Error: offline
+    at FakeProvider.<anonymous> (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/tests/live-transaction.test.ts:73:362)
+    at FakeProvider.mockCall (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
+    at FakeProvider.spy [as request] (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/tinyspy/dist/index.js:47:80)
+    at Object.request (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:65:29)
+    at Object.request (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+ ✓ tests/network.test.js (1 test) 10ms
+ ❯ tests/business-pages.test.tsx (53 tests | 1 failed) 32206ms
+   ✓ create previews exact args without inserting a fake Intent or hash  693ms
+   ✓ create rejects invalid text 0  798ms
+   ✓ create rejects invalid text 1 161ms
+   ✓ create rejects invalid text 2 104ms
+   ✓ create capacity uses contract unfinished_count even with empty page 127ms
+   ✓ rejects validity 0 139ms
+   ✓ rejects validity 31 149ms
+   ✓ rejects validity 1.5 112ms
+   ✓ invalidates create preview when form changes 150ms
+   ✓ update re-reads actual record and keeps version unchanged 115ms
+   ✓ update rejects fresh owner mismatch 91ms
+   ✓ update rejects fresh version mismatch 96ms
+   ✓ update rejects fresh status mismatch 104ms
+   ✓ update rejects fresh expiry mismatch 73ms
+   ✓ OPEN cancellation requires a second acknowledgement then previews 124ms
+   × RESERVED cancellation reads pending cycle and warns about whole ring 19532ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ RESERVED cancellation rejects a missing linked cycle  665ms
+   ✓ Explore uses real next_offset and labels local filters  778ms
+   ✓ Explore clearly distinguishes effective EXPIRED and stored OPEN  371ms
+   ✓ owner history uses connected address and shared offset without invented index  707ms
+   ✓ disconnected My Intents does not query another address 9ms
+   ✓ builder uses selected direction and remains semantically NOT_EVALUATED  359ms
+   ✓ builder rejects version drift after loading  953ms
+   ✓ builder rejects owner  317ms
+   ✓ builder rejects reserved 79ms
+   ✓ builder rejects expired 79ms
+   ✓ builder rejects outsider 111ms
+   ✓ duplicate builder ID fails before querying 26ms
+   ✓ Assessment viewer preserves actual result assessment-1 80ms
+   ✓ Assessment viewer preserves actual result assessment-2 24ms
+   ✓ Assessment viewer shows UNSURE without inventing rationale 20ms
+   ✓ Assessment viewer rejects prompt drift 22ms
+   ✓ missing intent renders without fabricated record 28ms
+   ✓ missing cycle renders without fabricated record 21ms
+   ✓ missing assessment renders without fabricated record 28ms
+   ✓ duplicate confirmation previews NO_OP without increasing count 75ms
+   ✓ confirmation uses actual chain-read snapshot in exact parameters 102ms
+   ✓ decline requires two acknowledgements and permanent snapshot warning 95ms
+   ✓ snapshot change blocks confirmation 54ms
+   ✓ expiry preserves effective vs stored distinction, cleaned=false 221ms
+   ✓ expiry preserves effective vs stored distinction, cleaned=true 107ms
+   ✓ workspace uses canonical owner order and never equates ACTIVE with delivery 48ms
+   ✓ review locks when wallet revision changes; no sign/send buttons exist 112ms
+   ✓ cached refresh is clearly labelled and preserves observation 138ms
+   ✓ invalid query ID blocks before worker read  335ms
+   ✓ query routing preserves w=1 priority and inspection link  606ms
+   ✓ untrusted service input is rendered as text, not HTML 98ms
+   ✓ editable fields and warnings have accessible labels and alerts  378ms
+   ✓ owner history rejects response belonging to another wallet 27ms
+   ✓ builder rejects record whose ID differs from requested ID  1582ms
+   ✓ form input locks during preflight to prevent preview/input race  648ms
+   ✓ wallet identity change during pending read blocks resulting preview 198ms
+   ✓ Cycle rejects wrong actual record ID before exposing actions 68ms
+ ✓ tests/staged-executor.test.ts (78 tests) 4131ms
+   ✓ third true confirmation requires ACTIVE and all three CONSUMED records  357ms
+   ✓ MATCHED assessment verifies frozen Snapshot, PENDING reservations and returned ids  1091ms
+   ✓ reserved cancellation verifies ABORTED cycle plus release of all original reservations  604ms
+stderr | tests/live-transaction.test.ts > a manually renewed preflight after explicit rejection is allowed, never automatic
+Error using provider for method eth_sendTransaction: { code: 4001 }
+
+stderr | tests/live-transaction.test.ts > an earlier rejected request cannot unlock a later identical ready request
+Error using provider for method eth_sendTransaction: { code: 4001 }
+
+ ✓ tests/live-transaction.test.ts (62 tests) 3377ms
+   ✓ create_intent: explicit adapter envelope equals installed SDK writeContract bytes  327ms
+   ✓ update_intent: explicit adapter envelope equals installed SDK writeContract bytes  542ms
+   ✓ cancel_intent: explicit adapter envelope equals installed SDK writeContract bytes  371ms
+stderr | tests/sdk-118.test.ts > wrong chain blocked despite Studio skipping SDK chain guard
+Error using provider for method eth_sendTransaction: Error: APP_WRONG_NETWORK
+    at Object.request (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:40:88)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > account and revision mismatch blocked before fake send
+Error using provider for method eth_sendTransaction: Error: APP_IDENTITY_CHANGED
+    at Object.request (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:41:95)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > account and revision mismatch blocked before fake send
+Error using provider for method eth_sendTransaction: Error: APP_IDENTITY_CHANGED
+    at Object.request (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:39:49)
+    at Object.request (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:35)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at withRetry.delay.count.count (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > provider rejection propagated and never reaches fallback HTTP send
+Error using provider for method eth_sendTransaction: { code: 4001, message: 'mock rejection' }
+
+stderr | tests/sdk-118.test.ts > single attempt boundary blocks SDK ABI fallback rebroadcast
+Error using provider for method eth_sendTransaction: Error: function selector was not recognized
+    at FakeProvider.<anonymous> (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/tests/sdk-118.test.ts:48:244)
+    at FakeProvider.mockCall (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
+    at FakeProvider.spy [as request] (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/tinyspy/dist/index.js:47:80)
+    at Object.request (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:65:29)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > pending fake signature and concurrent call share one send latch
+Error using provider for method eth_sendTransaction: Error: APP_DUPLICATE_SUBMISSION_BLOCKED
+    at Object.request (/workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/src/lib/wallet/request-boundary.ts:35:28)
+    at Object.request (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/genlayer-js/dist/index.js:2388:35)
+    at withRetry.delay.count.count (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > mock HTTP 429 does not send or automatically retry
+GenLayer RPC error (eth_getTransactionCount): mock unavailable
+
+stderr | tests/sdk-118.test.ts > mock HTTP 503 does not send or automatically retry
+GenLayer RPC error (eth_getTransactionCount): mock unavailable
+
+stderr | tests/sdk-118.test.ts > mock RPC unavailable fails before provider submission
+GenLayer RPC error (eth_getTransactionCount): mock offline
+
+ ✓ tests/sdk-118.test.ts (21 tests) 2414ms
+   ✓ actual SDK create_intent encodes exact arguments and returns only fake hash  311ms
+   ✓ wrong chain blocked despite Studio skipping SDK chain guard  727ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/business-pages.test.tsx > RESERVED cancellation reads pending cycle and warns about whole ring
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/business-pages.test.tsx:29:1
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/live-pages.test.tsx > assess_cycle business page uses real adapter only after fresh preflight and explicit confirmation
+ FAIL  tests/live-pages.test.tsx > confirm_cycle business page uses real adapter only after fresh preflight and explicit confirmation
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/live-pages.test.tsx:27:16
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/preflight-hotfix.test.tsx > a returned failed operation displays diagnostics and exposes no approval
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/preflight-hotfix.test.tsx:74:1
+     72| });
+     73| 
+     74| it('a returned failed operation displays diagnostics and exposes no ap…
+       | ^
+     75|   const { h, runtime, review } = await liveHarness();
+     76|   const original = runtime.prepare.bind(runtime);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+
+ Test Files  3 failed | 12 passed (15)
+      Tests  4 failed | 500 passed (504)
+   Start at  16:42:26
+   Duration  45.35s (transform 11.93s, setup 32.79s, collect 84.65s, tests 97.14s, environment 28.41s, prepare 10.05s)
+
+JSON report written to /workspace/scratch/66fce3402b3b/semantic-cycle-exchange/evidence/b2c-r2/performance-vitest.json

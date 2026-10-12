@@ -1,0 +1,14 @@
+{
+  "account": "halihalibt",
+  "A_main": "8a09380c06f12afd6ac85197737b0018cd8e594f",
+  "B_main": "a98d3dcbefcef6e37b11fb41a2ef9e11050c5b78",
+  "PR3_merged": true,
+  "PR3_merge_commit": "a98d3dcbefcef6e37b11fb41a2ef9e11050c5b78",
+  "canonical_source_bytes": 32040,
+  "canonical_sha256": "88de2802bbe4e795dcae2bb0c4028477133d41bdc9b7940d6aef273367ded442",
+  "sdk": "1.1.8",
+  "chain_id": 61999,
+  "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+  "RPC": "https://studio.genlayer.com/api",
+  "verified_via": "GitHub connector commit reads / PR metadata; independent A source base64 bytes; clean fresh clone"
+}

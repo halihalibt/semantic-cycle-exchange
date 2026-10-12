@@ -1,0 +1,16 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> semantic-cycle-exchange@0.1.0 typecheck
+> tsc --noEmit
+
+tests/staged-security.test.ts(22,178): error TS2322: Type 'Promise<{ expiresAt: number; status?: "MOCK_ONLY" | undefined; policy?: string | undefined; binding?: string | undefined; gasUnits?: bigint | undefined; gasPriceWei?: bigint | undefined; feeValueWei?: bigint | undefined; distribution?: bigint[] | undefined; coverage?: { ...; } | undefined; }>' is not assignable to type 'Promise<StagedFee | undefined>'.
+  Type '{ expiresAt: number; status?: "MOCK_ONLY" | undefined; policy?: string | undefined; binding?: string | undefined; gasUnits?: bigint | undefined; gasPriceWei?: bigint | undefined; feeValueWei?: bigint | undefined; distribution?: bigint[] | undefined; coverage?: { ...; } | undefined; }' is not assignable to type 'StagedFee'.
+    Types of property 'status' are incompatible.
+      Type '"MOCK_ONLY" | undefined' is not assignable to type '"MOCK_ONLY"'.
+        Type 'undefined' is not assignable to type '"MOCK_ONLY"'.
+tests/staged-security.test.ts(37,261): error TS2322: Type 'string' is not assignable to type '`0x${string}`'.
+tests/staged-security.test.ts(51,111): error TS2322: Type 'Promise<{ feeValueWei: bigint; distribution: bigint[]; status?: "MOCK_ONLY" | undefined; policy?: string | undefined; binding?: string | undefined; expiresAt?: number | undefined; gasUnits?: bigint | undefined; gasPriceWei?: bigint | undefined; coverage?: { ...; } | undefined; }>' is not assignable to type 'Promise<StagedFee | undefined>'.
+  Type '{ feeValueWei: bigint; distribution: bigint[]; status?: "MOCK_ONLY" | undefined; policy?: string | undefined; binding?: string | undefined; expiresAt?: number | undefined; gasUnits?: bigint | undefined; gasPriceWei?: bigint | undefined; coverage?: { ...; } | undefined; }' is not assignable to type 'StagedFee'.
+    Types of property 'status' are incompatible.
+      Type '"MOCK_ONLY" | undefined' is not assignable to type '"MOCK_ONLY"'.
+        Type 'undefined' is not assignable to type '"MOCK_ONLY"'.

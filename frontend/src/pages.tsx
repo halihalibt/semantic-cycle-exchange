@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { BrowserTransactionContext } from './features/transactions/BrowserTransactionContext';
 import { api } from './lib/genlayer/api';
 import { CONTRACT, EVIDENCE, NETWORK, SNAPSHOT, SOURCE } from './lib/genlayer/config';
 import { uint } from './lib/genlayer/validation';
 import { useRead } from './hooks';
 import { Badge, JsonDetails, ReadState } from './components';
 import type { Assessment, Cycle, Found, Intent, Observation } from './lib/genlayer/types';
-export function Home(){const state=useRead(signal=>api.getProtocolStats('0',50,signal));const stats=state.data?.data;return <>
+export function Home(){const live=!!useContext(BrowserTransactionContext);const state=useRead(signal=>api.getProtocolStats('0',50,signal));const stats=state.data?.data;return <>
   <section className="hero"><p className="eyebrow">A THREE-PARTY DIGITAL SERVICE EXCHANGE</p><h1>Three services.<br/><span>One shared accord.</span></h1><p className="lead">Your offer meets someone else’s need. Their offer completes the next edge. Three distinct owners agree to one immutable set of terms.</p><a className="button" href="?w=1">Explore the verified onchain cases ↗</a></section>
   <div className="ring-intro"><strong>A supplies B</strong><span>→</span><strong>B supplies C</strong><span>→</span><strong>C supplies A</strong></div>
   <section className="section"><div className="section-heading"><p className="eyebrow">01 / PROTOCOL OBSERVATION</p><h2>Read the actual contract.</h2></div><ReadState state={state}>{stats&&<><div className="stats">{[['Intents created',stats.intent_total],['Assessments',stats.assessment_total],['Cycles created',stats.cycle_total],['Cycles activated',stats.active_total]].map(([label,n])=><div key={label}><strong>{n}</strong><span>{label} · cumulative total</span></div>)}</div><p>Effective Intent status counts for this page only: offset {stats.offset} → {stats.next_offset}. {stats.has_more?'More pages exist.':'No further page at this observation.'}</p><div className="counts">{Object.entries(stats.effective_intent_counts_page).map(([k,v])=><span key={k}>{k} <b>{v}</b></span>)}</div><JsonDetails value={stats}/></>}</ReadState></section>
   <section className="principle"><h2>Agreement is the milestone.</h2><p>Three FIT decisions can create a pending Cycle. All three owners must accept the same snapshot before it becomes ACTIVE.</p><p><strong>ACTIVE means an accepted onchain commitment. It does not mean services were delivered.</strong></p><p>V1 has no payment, custody, token issuance, arbitration or delivery guarantee. Assessment evaluates a selected ring; it is not automatic global matching.</p></section>
-  <section className="identity"><p className="eyebrow">STABLE STUDIONET · CHAIN {NETWORK.id} · READ ONLY</p><code>{CONTRACT}</code><p>RPC: {NETWORK.rpc}</p><a href={`${SOURCE}/contracts/semantic_cycle_accord.py`} target="_blank" rel="noreferrer">Frozen canonical source ↗</a></section>
+  <section className="identity"><p className="eyebrow">STABLE STUDIONET · CHAIN {NETWORK.id} · {live ? 'MANUAL TRANSACTIONS' : 'READ ONLY'}</p><code>{CONTRACT}</code><p>RPC: {NETWORK.rpc}</p><a href={`${SOURCE}/contracts/semantic_cycle_accord.py`} target="_blank" rel="noreferrer">Frozen canonical source ↗</a></section>
   </>;}
 interface DemoRead {positive:Found<Assessment>;cycle:Found<Cycle>;negative:Found<Assessment>}
 async function loadDemo(signal:AbortSignal):Promise<Observation<DemoRead>>{

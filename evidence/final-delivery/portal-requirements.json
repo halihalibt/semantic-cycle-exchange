@@ -1,0 +1,19 @@
+{
+  "observed_at_utc": "2026-10-12T21:48:10.947840+00:00",
+  "source_page": "https://portal.genlayer.foundation/",
+  "source_asset": "https://portal.genlayer.foundation/assets/App-dT13CmMg.js",
+  "source_asset_sha256": "32b96df705c75d81925ce39c9e4be539f6d4b2a2017ad3a2b908aec494280488",
+  "method": "Read-only HTTP retrieval of current official public Portal UI bundle; no authenticated submission or form mutation",
+  "summaries": [
+    "Intelligent Contract contributions must be standalone, reusable, documented and useful beyond learning exercises.",
+    "Projects require a product/frontend using the contract and handling transaction lifecycle, with full code and accurate documentation.",
+    "An application website is required before review; contract links and a YouTube video are marked optional in the retrieved Explorer form.",
+    "The same work does not count twice; the contract category excludes extraction from an already submitted project.",
+    "No explicit expire_cycle live-positive requirement appears in the retrieved guidelines."
+  ],
+  "limits": [
+    "Authenticated account eligibility, current category availability, quotas and server-side validation were not inspected.",
+    "Absence of an expiry condition in public guidelines is not proof that reviewers will waive it.",
+    "No promise that both submissions will be accepted or rewarded."
+  ]
+}

@@ -1,0 +1,383 @@
+Installed genlayer-js@1.1.8; dist/index.js SHA256 577032b22e6077b671a7d27ba8d6dac58eb90ed5892f2a05b11eefc6eef29dd2
+
+lines 667-701
+667:     writeContract: async (args) => {
+668:       const {
+669:         account,
+670:         address,
+671:         functionName,
+672:         args: callArgs,
+673:         kwargs,
+674:         value = 0n,
+675:         leaderOnly = false,
+676:         consensusMaxRotations = client.chain.defaultConsensusMaxRotations
+677:       } = args;
+678:       const data = [encode(makeCalldataObject(functionName, callArgs, kwargs)), leaderOnly];
+679:       const serializedData = serialize(data);
+680:       const senderAccount = account || client.account;
+681:       const { primaryEncodedData, fallbackEncodedData } = _encodeAddTransactionData({
+682:         client,
+683:         senderAccount,
+684:         recipient: address,
+685:         data: serializedData,
+686:         consensusMaxRotations
+687:       });
+688:       return _sendTransaction({
+689:         client,
+690:         publicClient,
+691:         encodedData: primaryEncodedData,
+692:         fallbackEncodedData,
+693:         senderAccount,
+694:         value
+695:       });
+696:     },
+697:     /** Deploys a new intelligent contract to GenLayer. Returns the transaction hash. */
+698:     deployContract: async (args) => {
+699:       const {
+700:         account,
+701:         code,
+
+lines 885-971
+885:     inputs: [
+886:       { indexed: true, internalType: "bytes32", name: "txId", type: "bytes32" },
+887:       { indexed: false, internalType: "uint256", name: "txSlot", type: "uint256" }
+888:     ],
+889:     name: "CreatedTransaction",
+890:     type: "event"
+891:   }
+892: ];
+893: var ADD_TRANSACTION_ABI_V5 = [
+894:   {
+895:     type: "function",
+896:     name: "addTransaction",
+897:     stateMutability: "nonpayable",
+898:     inputs: [
+899:       { name: "_sender", type: "address" },
+900:       { name: "_recipient", type: "address" },
+901:       { name: "_numOfInitialValidators", type: "uint256" },
+902:       { name: "_maxRotations", type: "uint256" },
+903:       { name: "_txData", type: "bytes" }
+904:     ],
+905:     outputs: []
+906:   }
+907: ];
+908: var ADD_TRANSACTION_ABI_V6 = [
+909:   {
+910:     type: "function",
+911:     name: "addTransaction",
+912:     stateMutability: "nonpayable",
+913:     inputs: [
+914:       { name: "_sender", type: "address" },
+915:       { name: "_recipient", type: "address" },
+916:       { name: "_numOfInitialValidators", type: "uint256" },
+917:       { name: "_maxRotations", type: "uint256" },
+918:       { name: "_txData", type: "bytes" },
+919:       { name: "_validUntil", type: "uint256" }
+920:     ],
+921:     outputs: []
+922:   }
+923: ];
+924: var getAddTransactionInputCount = (abi) => {
+925:   if (!abi || !Array.isArray(abi)) {
+926:     return 0;
+927:   }
+928:   const addTransactionFunction = abi.find((item) => {
+929:     if (!item || typeof item !== "object") {
+930:       return false;
+931:     }
+932:     const candidate = item;
+933:     return candidate.type === "function" && candidate.name === "addTransaction";
+934:   });
+935:   return Array.isArray(addTransactionFunction?.inputs) ? addTransactionFunction.inputs.length : 0;
+936: };
+937: var _encodeAddTransactionData = ({
+938:   client,
+939:   senderAccount,
+940:   recipient,
+941:   data,
+942:   consensusMaxRotations = client.chain.defaultConsensusMaxRotations
+943: }) => {
+944:   const validatedSenderAccount = validateAccount(senderAccount);
+945:   const addTransactionArgs = [
+946:     validatedSenderAccount.address,
+947:     recipient,
+948:     client.chain.defaultNumberOfInitialValidators,
+949:     consensusMaxRotations,
+950:     data
+951:   ];
+952:   const encodedDataV5 = encodeFunctionData({
+953:     abi: ADD_TRANSACTION_ABI_V5,
+954:     functionName: "addTransaction",
+955:     args: addTransactionArgs
+956:   });
+957:   const validUntil = BigInt(Math.floor(Date.now() / 1e3) + 3600);
+958:   const encodedDataV6 = encodeFunctionData({
+959:     abi: ADD_TRANSACTION_ABI_V6,
+960:     functionName: "addTransaction",
+961:     args: [...addTransactionArgs, validUntil]
+962:   });
+963:   if (getAddTransactionInputCount(client.chain.consensusMainContract?.abi) >= 6) {
+964:     return {
+965:       primaryEncodedData: encodedDataV6,
+966:       fallbackEncodedData: encodedDataV5
+967:     };
+968:   }
+969:   return {
+970:     primaryEncodedData: encodedDataV5,
+971:     fallbackEncodedData: encodedDataV6
+
+lines 1090-1184
+1090: var _sendTransaction = async ({
+1091:   client,
+1092:   publicClient,
+1093:   encodedData,
+1094:   fallbackEncodedData,
+1095:   senderAccount,
+1096:   value = 0n
+1097: }) => {
+1098:   if (!client.chain.consensusMainContract?.address) {
+1099:     throw new Error(`Consensus main contract address not found in chain config for "${client.chain.name}".`);
+1100:   }
+1101:   const validatedSenderAccount = validateAccount(senderAccount);
+1102:   const nonce = await client.getCurrentNonce({ address: validatedSenderAccount.address });
+1103:   const sendWithEncodedData = async (encodedDataForSend) => {
+1104:     let estimatedGas;
+1105:     try {
+1106:       estimatedGas = await client.estimateTransactionGas({
+1107:         from: validatedSenderAccount.address,
+1108:         to: client.chain.consensusMainContract?.address,
+1109:         data: encodedDataForSend,
+1110:         value
+1111:       });
+1112:     } catch (err) {
+1113:       console.error("Gas estimation failed, using default 200_000:", err);
+1114:       estimatedGas = 200000n;
+1115:     }
+1116:     if (validatedSenderAccount?.type === "local") {
+1117:       if (!validatedSenderAccount?.signTransaction) {
+1118:         throw new Error("Local account does not support signTransaction. Use a private key account created via privateKeyToAccount().");
+1119:       }
+1120:       const gasPriceHex2 = await client.request({
+1121:         method: "eth_gasPrice"
+1122:       });
+1123:       const transactionRequest = {
+1124:         account: validatedSenderAccount,
+1125:         to: client.chain.consensusMainContract?.address,
+1126:         data: encodedDataForSend,
+1127:         type: "legacy",
+1128:         nonce: Number(nonce),
+1129:         value,
+1130:         gas: estimatedGas,
+1131:         gasPrice: BigInt(gasPriceHex2),
+1132:         chainId: client.chain.id
+1133:       };
+1134:       const serializedTransaction = await validatedSenderAccount.signTransaction(transactionRequest);
+1135:       const txHash = await client.sendRawTransaction({ serializedTransaction });
+1136:       const receipt = await publicClient.waitForTransactionReceipt({ hash: txHash });
+1137:       if (receipt.status === "reverted") {
+1138:         throw new Error(`Transaction reverted: EVM tx ${txHash} to consensus contract ${client.chain.consensusMainContract?.address} was reverted.`);
+1139:       }
+1140:       const txId = extractTxIdFromLogs(client, receipt.logs);
+1141:       if (!txId) {
+1142:         throw new Error(
+1143:           `Transaction not processed by consensus: EVM tx ${txHash} succeeded but no NewTransaction or CreatedTransaction event was found in the receipt logs.`
+1144:         );
+1145:       }
+1146:       return txId;
+1147:     }
+1148:     let gasPriceHex;
+1149:     try {
+1150:       const gasPriceResult = await client.request({
+1151:         method: "eth_gasPrice"
+1152:       });
+1153:       if (typeof gasPriceResult === "string") {
+1154:         gasPriceHex = gasPriceResult;
+1155:       }
+1156:     } catch (error) {
+1157:       console.warn("Failed to fetch gas price, delegating gas price selection to wallet:", error);
+1158:     }
+1159:     const nonceBigInt = typeof nonce === "bigint" ? nonce : typeof nonce === "string" ? BigInt(nonce) : BigInt(Number(nonce));
+1160:     const formattedRequest = {
+1161:       from: validatedSenderAccount.address,
+1162:       to: client.chain.consensusMainContract?.address,
+1163:       data: encodedDataForSend,
+1164:       value: `0x${value.toString(16)}`,
+1165:       gas: `0x${estimatedGas.toString(16)}`,
+1166:       nonce: `0x${nonceBigInt.toString(16)}`,
+1167:       type: "0x0",
+1168:       // legacy tx
+1169:       chainId: `0x${client.chain.id.toString(16)}`,
+1170:       ...gasPriceHex ? { gasPrice: gasPriceHex } : {}
+1171:     };
+1172:     const evmTxHash = await client.request({
+1173:       method: "eth_sendTransaction",
+1174:       params: [formattedRequest]
+1175:     });
+1176:     if (client.chain.isStudio) {
+1177:       return evmTxHash;
+1178:     }
+1179:     const externalReceipt = await publicClient.waitForTransactionReceipt({ hash: evmTxHash });
+1180:     if (externalReceipt.status === "reverted") {
+1181:       throw new Error(`Transaction reverted: EVM tx ${evmTxHash} to consensus contract ${client.chain.consensusMainContract?.address} was reverted.`);
+1182:     }
+1183:     const externalTxId = extractTxIdFromLogs(client, externalReceipt.logs);
+1184:     if (!externalTxId) {
+
+lines 1246-1260
+1246:   "timestamp_awaiting_finalization",
+1247:   "last_vote_timestamp",
+1248:   "read_state_block_range",
+1249:   "tx_slot",
+1250:   "blockHash",
+1251:   "blockNumber",
+1252:   "to",
+1253:   "transactionIndex"
+1254: ];
+1255: var FIELD_NAME_MAPPINGS = {
+1256:   statusName: "status_name",
+1257:   typeHex: "type"
+1258: };
+1259: var decodeInputData = (rlpEncodedAppData, recipient) => {
+1260:   if (!rlpEncodedAppData || rlpEncodedAppData === "0x" || rlpEncodedAppData.length <= 2) {
+
+lines 1458-1496
+1458:   waitForTransactionReceipt: async ({
+1459:     hash,
+1460:     status = "ACCEPTED" /* ACCEPTED */,
+1461:     interval = transactionsConfig.waitInterval,
+1462:     retries = transactionsConfig.retries,
+1463:     fullTransaction = false
+1464:   }) => {
+1465:     const transaction = await client.getTransaction({
+1466:       hash
+1467:     });
+1468:     if (!transaction) {
+1469:       throw new Error(`Transaction not found: ${hash}`);
+1470:     }
+1471:     const transactionStatusString = String(transaction.status);
+1472:     const requestedStatus = transactionsStatusNameToNumber[status];
+1473:     if (transactionStatusString === requestedStatus || status === "ACCEPTED" /* ACCEPTED */ && isDecidedState(transactionStatusString)) {
+1474:       let finalTransaction = transaction;
+1475:       if (client.chain.isStudio) {
+1476:         finalTransaction = decodeLocalnetTransaction(transaction);
+1477:       }
+1478:       if (!fullTransaction) {
+1479:         return simplifyTransactionReceipt(finalTransaction);
+1480:       }
+1481:       return finalTransaction;
+1482:     }
+1483:     if (retries === 0) {
+1484:       throw new Error(`Timed out waiting for transaction ${hash} to reach status "${status}" (current status: ${transactionStatusString}).`);
+1485:     }
+1486:     await sleep(interval);
+1487:     return receiptActions(client, publicClient).waitForTransactionReceipt({
+1488:       hash,
+1489:       status,
+1490:       interval,
+1491:       retries: retries - 1,
+1492:       fullTransaction
+1493:     });
+1494:   }
+1495: });
+1496: var transactionActions = (client, publicClient) => ({
+
+lines 1616-1631
+1616:   estimateTransactionGas: async (transactionParams) => {
+1617:     const formattedParams = {
+1618:       from: transactionParams.from || client.account?.address,
+1619:       to: transactionParams.to,
+1620:       data: transactionParams.data || "0x",
+1621:       value: transactionParams.value ? `0x${transactionParams.value.toString(16)}` : "0x0"
+1622:     };
+1623:     const gasHex = await client.request({
+1624:       method: "eth_estimateGas",
+1625:       params: [formattedParams]
+1626:     });
+1627:     return BigInt(gasHex);
+1628:   }
+1629: });
+1630: 
+1631: // src/config/snapID.ts
+
+lines 2350-2430
+2350:   };
+2351: }
+2352: 
+2353: // src/client/client.ts
+2354: var PROVIDER_METHODS = /* @__PURE__ */ new Set([
+2355:   "eth_accounts",
+2356:   "eth_requestAccounts",
+2357:   "eth_sendTransaction",
+2358:   "eth_signTransaction",
+2359:   "personal_sign",
+2360:   "eth_signTypedData_v4"
+2361: ]);
+2362: var assertChainMatch = async (provider, chainConfig) => {
+2363:   if (chainConfig.isStudio) return;
+2364:   const expectedChainIdHex = `0x${chainConfig.id.toString(16)}`;
+2365:   try {
+2366:     const currentChainId = await provider.request({ method: "eth_chainId" });
+2367:     if (currentChainId !== expectedChainIdHex) {
+2368:       const currentId = parseInt(currentChainId, 16);
+2369:       throw new Error(
+2370:         `Wallet is on chain ${currentId} but client is configured for chain ${chainConfig.id} (${chainConfig.name}). Call client.connect("${chainConfig.name}") or switch your wallet to the correct network before sending transactions.`
+2371:       );
+2372:     }
+2373:   } catch (err) {
+2374:     if (err instanceof Error && err.message.startsWith("Wallet is on chain")) throw err;
+2375:   }
+2376: };
+2377: var getCustomTransportConfig = (config, chainConfig) => {
+2378:   const isAddress = typeof config.account !== "object";
+2379:   return {
+2380:     async request({ method, params = [] }) {
+2381:       if (PROVIDER_METHODS.has(method) && isAddress) {
+2382:         const provider = config.provider || (typeof window !== "undefined" ? window.ethereum : void 0);
+2383:         if (provider) {
+2384:           try {
+2385:             if (method === "eth_sendTransaction" || method === "eth_signTransaction") {
+2386:               await assertChainMatch(provider, chainConfig);
+2387:             }
+2388:             return await provider.request({ method, params });
+2389:           } catch (err) {
+2390:             console.warn(`Error using provider for method ${method}:`, err);
+2391:             throw err;
+2392:           }
+2393:         }
+2394:       }
+2395:       try {
+2396:         const response = await fetch(chainConfig.rpcUrls.default.http[0], {
+2397:           method: "POST",
+2398:           headers: {
+2399:             "Content-Type": "application/json"
+2400:           },
+2401:           body: JSON.stringify({
+2402:             jsonrpc: "2.0",
+2403:             id: Date.now(),
+2404:             method,
+2405:             params
+2406:           })
+2407:         });
+2408:         const data = await response.json();
+2409:         if (data.error) {
+2410:           throw data.error;
+2411:         }
+2412:         return data.result;
+2413:       } catch (err) {
+2414:         console.error(`GenLayer RPC error (${method}):`, err.message || err);
+2415:         throw err;
+2416:       }
+2417:     }
+2418:   };
+2419: };
+2420: var createClient = (config = { chain: localnet }) => {
+2421:   const chainConfig = config.chain || localnet;
+2422:   if (config.endpoint) {
+2423:     chainConfig.rpcUrls.default.http = [config.endpoint];
+2424:   }
+2425:   const customTransport = custom(getCustomTransportConfig(config, chainConfig), { retryCount: 0, retryDelay: 0 });
+2426:   const publicClient = createPublicClient(chainConfig, customTransport).extend(
+2427:     publicActions
+2428:   );
+2429:   const baseClient = createViemClient({
+2430:     chain: chainConfig,

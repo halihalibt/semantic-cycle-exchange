@@ -1,0 +1,78 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> semantic-cycle-exchange@0.1.0 test
+> node --import ./tests/deny-network.mjs ./node_modules/vitest/vitest.mjs run
+
+
+ RUN  v3.2.4 /workspace/scratch/5a3536eba681/repository-b/frontend
+
+ ✓ tests/transaction.test.ts (24 tests) 15ms
+ ✓ tests/write-validation.test.ts (64 tests) 24ms
+ ✓ tests/adapter.test.ts (28 tests) 26ms
+ ✓ tests/business-model.test.ts (35 tests) 17ms
+ ✓ tests/wallet.test.tsx (26 tests) 93ms
+ ✓ tests/pages.test.tsx (6 tests) 336ms
+ ✓ tests/network.test.js (1 test) 4ms
+stderr | tests/sdk-118.test.ts > wrong chain blocked despite Studio skipping SDK chain guard
+Error using provider for method eth_sendTransaction: Error: APP_WRONG_NETWORK
+    at Object.request (/workspace/scratch/5a3536eba681/repository-b/frontend/src/lib/wallet/request-boundary.ts:40:88)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > account and revision mismatch blocked before fake send
+Error using provider for method eth_sendTransaction: Error: APP_IDENTITY_CHANGED
+    at Object.request (/workspace/scratch/5a3536eba681/repository-b/frontend/src/lib/wallet/request-boundary.ts:41:95)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > account and revision mismatch blocked before fake send
+Error using provider for method eth_sendTransaction: Error: APP_IDENTITY_CHANGED
+    at Object.request (/workspace/scratch/5a3536eba681/repository-b/frontend/src/lib/wallet/request-boundary.ts:39:49)
+    at Object.request (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/genlayer-js/dist/index.js:2388:35)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at withRetry.delay.count.count (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > provider rejection propagated and never reaches fallback HTTP send
+Error using provider for method eth_sendTransaction: { code: 4001, message: 'mock rejection' }
+
+stderr | tests/sdk-118.test.ts > single attempt boundary blocks SDK ABI fallback rebroadcast
+Error using provider for method eth_sendTransaction: Error: function selector was not recognized
+    at FakeProvider.<anonymous> (/workspace/scratch/5a3536eba681/repository-b/frontend/tests/sdk-118.test.ts:48:244)
+    at FakeProvider.mockCall (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/@vitest/spy/dist/index.js:96:15)
+    at FakeProvider.spy [as request] (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/tinyspy/dist/index.js:47:80)
+    at Object.request (/workspace/scratch/5a3536eba681/repository-b/frontend/src/lib/wallet/request-boundary.ts:65:29)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at Object.request (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/genlayer-js/dist/index.js:2388:20)
+    at withRetry.delay.count.count (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > pending fake signature and concurrent call share one send latch
+Error using provider for method eth_sendTransaction: Error: APP_DUPLICATE_SUBMISSION_BLOCKED
+    at Object.request (/workspace/scratch/5a3536eba681/repository-b/frontend/src/lib/wallet/request-boundary.ts:35:28)
+    at Object.request (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/genlayer-js/dist/index.js:2388:35)
+    at withRetry.delay.count.count (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/viem/utils/buildRequest.ts:163:22)
+    at attemptRetry (file:///workspace/scratch/5a3536eba681/repository-b/frontend/node_modules/viem/utils/promise/withRetry.ts:63:22)
+
+stderr | tests/sdk-118.test.ts > mock HTTP 429 does not send or automatically retry
+GenLayer RPC error (eth_getTransactionCount): mock unavailable
+
+stderr | tests/sdk-118.test.ts > mock HTTP 503 does not send or automatically retry
+GenLayer RPC error (eth_getTransactionCount): mock unavailable
+
+stderr | tests/sdk-118.test.ts > mock RPC unavailable fails before provider submission
+GenLayer RPC error (eth_getTransactionCount): mock offline
+
+ ✓ tests/sdk-118.test.ts (21 tests) 133ms
+ ✓ tests/staged-executor.test.ts (70 tests) 304ms
+ ✓ tests/business-pages.test.tsx (53 tests) 1054ms
+
+ Test Files  10 passed (10)
+      Tests  328 passed (328)
+   Start at  14:12:43
+   Duration  2.23s (transform 911ms, setup 1.17s, collect 2.07s, tests 2.01s, environment 3.31s, prepare 625ms)
+

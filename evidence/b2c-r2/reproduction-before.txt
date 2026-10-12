@@ -1,0 +1,32 @@
+
+ RUN  v3.2.4 /workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend
+
+stderr | tests/preflight-hotfix.test.tsx > Create Intent reaches PREFLIGHT_READY with Chrome-like React performance instrumentation
+Attempted to synchronously unmount a root while React was already rendering. React cannot finish unmounting the root until the current render has completed, which may lead to a race condition.
+
+ ❯ tests/preflight-hotfix.test.tsx (1 test | 1 failed) 792ms
+   × Create Intent reaches PREFLIGHT_READY with Chrome-like React performance instrumentation 789ms
+     → Do not know how to serialize a BigInt
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/preflight-hotfix.test.tsx > Create Intent reaches PREFLIGHT_READY with Chrome-like React performance instrumentation
+TypeError: Do not know how to serialize a BigInt
+ ❯ addValueToProperties node_modules/react-dom/cjs/react-dom-client.development.js:3862:30
+ ❯ addObjectToProperties node_modules/react-dom/cjs/react-dom-client.development.js:3787:11
+ ❯ addValueToProperties node_modules/react-dom/cjs/react-dom-client.development.js:3933:15
+ ❯ addObjectToProperties node_modules/react-dom/cjs/react-dom-client.development.js:3787:11
+ ❯ addValueToProperties node_modules/react-dom/cjs/react-dom-client.development.js:3933:15
+ ❯ addObjectDiffToProperties node_modules/react-dom/cjs/react-dom-client.development.js:4050:15
+ ❯ logComponentRender node_modules/react-dom/cjs/react-dom-client.development.js:4130:22
+ ❯ commitPassiveMountOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:15469:13
+ ❯ recursivelyTraversePassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  16:39:07
+   Duration  6.30s (transform 1.03s, setup 851ms, collect 2.12s, tests 792ms, environment 1.72s, prepare 210ms)
+

@@ -1,0 +1,15 @@
+{
+  "executables": {
+    "chromium": null,
+    "chromium-browser": null,
+    "google-chrome": null
+  },
+  "known_locations": {
+    "/usr/bin/chromium": false,
+    "/usr/bin/chromium-browser": false,
+    "/usr/bin/google-chrome": false,
+    "/opt/google/chrome/chrome": false
+  },
+  "cached_playwright_browsers": [],
+  "status": "NOT RUN: no browser execution attempted; this availability check does not alter historical Work Chromium BLOCKED/UNKNOWN evidence."
+}

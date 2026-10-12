@@ -1,0 +1,95 @@
+{
+  "timestamp_utc": "2026-10-12T18:21:21.868084+00:00",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "cwd": "/workspace/scratch/5a3536eba681/repository-b/frontend",
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "evidence/b2c/typecheck.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "cwd": "/workspace/scratch/5a3536eba681/repository-b/frontend",
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "evidence/b2c/lint.log"
+    },
+    {
+      "command": [
+        "npm",
+        "test",
+        "--",
+        "--reporter=default",
+        "--reporter=json",
+        "--outputFile=../evidence/b2c/vitest-final.json"
+      ],
+      "cwd": "/workspace/scratch/5a3536eba681/repository-b/frontend",
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "evidence/b2c/test-final.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/workspace/scratch/5a3536eba681/repository-b/frontend",
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "evidence/b2c/build.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "integrity"
+      ],
+      "cwd": "/workspace/scratch/5a3536eba681/repository-b/frontend",
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "evidence/b2c/integrity.log"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-b2c.mjs"
+      ],
+      "cwd": "/workspace/scratch/5a3536eba681/repository-b",
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "evidence/b2c/boundaries-and-lock.log"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "/workspace/scratch/5a3536eba681/repository-b",
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "evidence/b2c/diff-check.log"
+    }
+  ],
+  "tests": {
+    "numTotalTests": 410,
+    "numPassedTests": 410,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "numTodoTests": 0,
+    "success": true
+  },
+  "scope": "OFFLINE MOCK; no live wallets or chain writes",
+  "browser": "NOT RUN; see browser-availability.log",
+  "live_signature_broadcast_write": "NOT RUN / FORBIDDEN"
+}

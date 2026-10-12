@@ -1,0 +1,11 @@
+
+ RUN  v3.2.4 /workspace/scratch/66fce3402b3b/semantic-cycle-exchange/frontend
+
+ ✓ tests/preflight-hotfix.test.tsx (7 tests) 1040ms
+   ✓ Create Intent reaches PREFLIGHT_READY with Chrome-like React performance instrumentation  499ms
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  16:41:49
+   Duration  5.59s (transform 885ms, setup 309ms, collect 1.78s, tests 1.04s, environment 1.40s, prepare 458ms)
+

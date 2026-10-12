@@ -1,0 +1,56 @@
+[
+  {
+    "timestamp_utc": "2026-10-12T18:18:48.833158+00:00",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_chainId",
+      "params": []
+    },
+    "exit_code": 0,
+    "response": {
+      "jsonrpc": "2.0",
+      "result": "0xf22f",
+      "id": 1
+    },
+    "stderr": "",
+    "scope": "READ_ONLY; no estimates/simulation/write/signature"
+  },
+  {
+    "timestamp_utc": "2026-10-12T18:18:56.498264+00:00",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "eth_gasPrice",
+      "params": []
+    },
+    "exit_code": 0,
+    "response": {
+      "jsonrpc": "2.0",
+      "result": "0x0",
+      "id": 2
+    },
+    "stderr": "",
+    "scope": "READ_ONLY; no estimates/simulation/write/signature"
+  },
+  {
+    "timestamp_utc": "2026-10-12T18:19:04.062949+00:00",
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "eth_getBalance",
+      "params": [
+        "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+        "latest"
+      ]
+    },
+    "exit_code": 0,
+    "response": {
+      "jsonrpc": "2.0",
+      "result": "0x8ac7230489e80000",
+      "id": 3
+    },
+    "stderr": "",
+    "scope": "READ_ONLY; no estimates/simulation/write/signature"
+  }
+]

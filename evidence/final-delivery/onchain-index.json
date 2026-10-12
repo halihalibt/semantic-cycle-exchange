@@ -1,0 +1,1134 @@
+{
+  "timestamp": "2026-10-12T21:40:59.826Z",
+  "provenance": "WORK independently retrieved read-only Studio RPC; original UI actions USER-EXECUTED",
+  "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+  "chain": 61999,
+  "records": [
+    {
+      "label": "update-7",
+      "hash": "0x1be34dde1a051205063c3312deb0935be3745670e2fbdbb3188e1ebb425c24c6",
+      "method": "update_intent",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "7",
+        "1",
+        "I can edit short videos",
+        "One video, 45 seconds maximum",
+        "I need a social media poster",
+        "PNG format, 1080x1920",
+        "1792440076"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "2",
+      "votes": {
+        "0x03D58A4DeF6fDFc032A56374785a5F571D07Bc11": "agree",
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "agree",
+        "0x4404Fb70d490c935758146f42A73DC850FF95C71": "agree",
+        "0x6737ca1d6BDF8b7C4f19143E2D55581Ca64eb7C3": "idle",
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84": "idle"
+      },
+      "rounds": "1",
+      "path": "update-7.json",
+      "sha256": "ed235349a0c0f9b55d164ccd4d0aef1e1f442a92024a29372520b16ff430e4d2",
+      "verified": true
+    },
+    {
+      "label": "create-7",
+      "hash": "0x52923b7ccf1ab4cc568f1f87846083c17c3ee2e519904857782a766f184661fa",
+      "method": "create_intent",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "I can edit short videos",
+        "One video, 30 seconds maximum",
+        "I need a social media poster",
+        "PNG format, 1080x1920",
+        "1792440076"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "7",
+      "votes": {
+        "0x03D58A4DeF6fDFc032A56374785a5F571D07Bc11": "agree",
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "idle",
+        "0x4EDbE1FC9EAeC7b0EBA849b0C76AE73Eb0ad5C47": "agree",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25": "idle",
+        "0xcE1d6bBB36B744536153966B4DD42276f5ADd0F8": "agree"
+      },
+      "rounds": "1",
+      "path": "create-7.json",
+      "sha256": "9244ba8e1a72aa1b9396277af09a6571bc4d6c566931c3e77fcf59587ddb1a2b",
+      "verified": true
+    },
+    {
+      "label": "create-10",
+      "hash": "0x7daac86d3e17f5ccd637972610c56cf7cfd268f45f2f8dd3030677679331bfcf",
+      "method": "create_intent",
+      "account": "0xcF45E7e9dD6ED367F32817c581C37EcbA6a565e5",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "I can design social media posters",
+        "One PNG poster, 1080x1920",
+        "I need one product description written",
+        "One description, 100 words maximum",
+        "1792441729"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "10",
+      "votes": {
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "idle",
+        "0x4404Fb70d490c935758146f42A73DC850FF95C71": "idle",
+        "0x4aba638Cf0Cf5249437AaD968fC69dde46ae6BAC": "agree",
+        "0x5310dcF075E0BD47d29B8ec6581F736C767f54D2": "agree",
+        "0x6737ca1d6BDF8b7C4f19143E2D55581Ca64eb7C3": "agree"
+      },
+      "rounds": "1",
+      "path": "create-10.json",
+      "sha256": "060ca36d07f02fe6c363e63d506227194ad7423363b7a395f1e3a81da5edbca4",
+      "verified": true
+    },
+    {
+      "label": "create-9",
+      "hash": "0xd18ac0762e3ff379560fd5e8f980295982134837962c054bfbb3d1c9d5bf7f05",
+      "method": "create_intent",
+      "account": "0x49CE61764Cca0c15a79e2D98baa535fc7547eb3A",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "I can write product descriptions",
+        "One description, 100 words maximum",
+        "I need one short video edited for social media",
+        "One video, 45 seconds maximum",
+        "1792441568"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "9",
+      "votes": {
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "agree",
+        "0x5310dcF075E0BD47d29B8ec6581F736C767f54D2": "agree",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25": "agree",
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84": "idle",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "idle"
+      },
+      "rounds": "1",
+      "path": "create-9.json",
+      "sha256": "f461cde0d1b68bada3ea284ede350ab845f8a17292b5a87c08856a94fe348181",
+      "verified": true
+    },
+    {
+      "label": "confirm-2-a",
+      "hash": "0xb0cf0ea42ea3901d12e3f99e46bf689f667df70fb480ad384551aacea36568ed",
+      "method": "confirm_cycle",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "2",
+        "7ba9082b937abf1f1f5e4d095c7948fece21a1053b031eed4dfe205aa7743f4a"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": true,
+      "votes": {
+        "0x3E5ee2507cc167C9925Bf10c67D7986581112024": "agree",
+        "0x4404Fb70d490c935758146f42A73DC850FF95C71": "agree",
+        "0x4aba638Cf0Cf5249437AaD968fC69dde46ae6BAC": "agree",
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84": "agree",
+        "0xacc2459F341D7a887bcA8FAA62F1EC9378d4Bc67": "agree"
+      },
+      "rounds": "1",
+      "path": "confirm-2-a.json",
+      "sha256": "75d08ad57b9dd39a3b03e4914708985542a61b64f142151ab9e3324e35c30094",
+      "verified": true
+    },
+    {
+      "label": "assessment-3",
+      "hash": "0x29b2a75465b46864eb3bfdeadf4c54c3739c118c15099a4c8453dcd91eb46c48",
+      "method": "assess_cycle",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        [
+          "7",
+          "9",
+          "10"
+        ],
+        [
+          "2",
+          "1",
+          "1"
+        ],
+        [
+          [
+            "7",
+            "9"
+          ],
+          [
+            "9",
+            "10"
+          ],
+          [
+            "10",
+            "7"
+          ]
+        ]
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": {
+        "assessment_id": "3",
+        "cycle_id": "2",
+        "result": "MATCHED"
+      },
+      "votes": {
+        "0x4aba638Cf0Cf5249437AaD968fC69dde46ae6BAC": "idle",
+        "0x5310dcF075E0BD47d29B8ec6581F736C767f54D2": "agree",
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84": "agree",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "agree",
+        "0xacc2459F341D7a887bcA8FAA62F1EC9378d4Bc67": "idle"
+      },
+      "rounds": "1",
+      "path": "assessment-3.json",
+      "sha256": "bc8fb45c8e4de516fd29cacc3aa034ddd22000a7525d4aec61c8f375dd4fca80",
+      "verified": true
+    },
+    {
+      "label": "confirm-2-b",
+      "hash": "0x9694ff7b0a43ce2f40b22d7ad000b1914150a499dbe98eeca91669d513a90876",
+      "method": "confirm_cycle",
+      "account": "0x49CE61764Cca0c15a79e2D98baa535fc7547eb3A",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "2",
+        "7ba9082b937abf1f1f5e4d095c7948fece21a1053b031eed4dfe205aa7743f4a"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": true,
+      "votes": {
+        "0x03D58A4DeF6fDFc032A56374785a5F571D07Bc11": "agree",
+        "0x14402D49f317CE1a2F35BAE01b1804A2A9703dCb": "idle",
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "agree",
+        "0x6737ca1d6BDF8b7C4f19143E2D55581Ca64eb7C3": "idle",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "agree"
+      },
+      "rounds": "1",
+      "path": "confirm-2-b.json",
+      "sha256": "cc26a1b8b45fa2f7e11483526aeea95807d8bdbec5d7e5856092e96b68aa51f0",
+      "verified": true
+    },
+    {
+      "label": "confirm-2-c",
+      "hash": "0x49d8ffb9d9d4b887110f44a1d0576fd7948c0d0dfec86bcce06ca837592a936e",
+      "method": "confirm_cycle",
+      "account": "0xcF45E7e9dD6ED367F32817c581C37EcbA6a565e5",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "2",
+        "7ba9082b937abf1f1f5e4d095c7948fece21a1053b031eed4dfe205aa7743f4a"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": true,
+      "votes": {
+        "0x03D58A4DeF6fDFc032A56374785a5F571D07Bc11": "agree",
+        "0x14402D49f317CE1a2F35BAE01b1804A2A9703dCb": "idle",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25": "agree",
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84": "agree",
+        "0xBBb165E4c9d73a1493D363280f7067Cd07891dBE": "idle"
+      },
+      "rounds": "1",
+      "path": "confirm-2-c.json",
+      "sha256": "c4ddea49b12543a0ae3f77d7fa0c0d782f28631f4586aeea7e891706744d97e9",
+      "verified": true
+    },
+    {
+      "label": "create-11",
+      "hash": "0xb1ea3ba9ba4e267f534098987d1cd1421788233d6547d305f12b7683cad867ba",
+      "method": "create_intent",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "I can edit short videos",
+        "One video, 45 seconds maximum",
+        "I need a social media poster",
+        "PNG format, 1080x1920",
+        "1792443374"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "11",
+      "votes": {
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "agree",
+        "0x4404Fb70d490c935758146f42A73DC850FF95C71": "agree",
+        "0x5310dcF075E0BD47d29B8ec6581F736C767f54D2": "agree",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25": "agree",
+        "0xBBb165E4c9d73a1493D363280f7067Cd07891dBE": "agree"
+      },
+      "rounds": "1",
+      "path": "create-11.json",
+      "sha256": "a1bd3075ed6d0d740f2e55592a86cd7b0d263ec9641207f5bfe15973839fcb50",
+      "verified": true
+    },
+    {
+      "label": "create-12",
+      "hash": "0xc88df37d8b481b71e1bd93b98e0989455f0263ea0350e4457c8c74c4a328eb71",
+      "method": "create_intent",
+      "account": "0x49CE61764Cca0c15a79e2D98baa535fc7547eb3A",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "I can write product descriptions",
+        "One description, 100 words maximum",
+        "I need one short video edited for social media",
+        "One video, 45 seconds maximum",
+        "1792443534"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "12",
+      "votes": {
+        "0x14402D49f317CE1a2F35BAE01b1804A2A9703dCb": "idle",
+        "0x4EDbE1FC9EAeC7b0EBA849b0C76AE73Eb0ad5C47": "agree",
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84": "idle",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "agree",
+        "0xec2Fb79cd12255Eb34886CEd7332f27B98DEe658": "agree"
+      },
+      "rounds": "1",
+      "path": "create-12.json",
+      "sha256": "e2ad1fea836aa2a535186b3f84f71196f06ed33e977bcd29e1fd5ea6f351726e",
+      "verified": true
+    },
+    {
+      "label": "create-13",
+      "hash": "0x7b6d3553c21987b829a1dda41c355890f8df301dbeb740caaa5e65623516f55e",
+      "method": "create_intent",
+      "account": "0xcF45E7e9dD6ED367F32817c581C37EcbA6a565e5",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "I can design social media posters",
+        "One PNG poster, 1080x1920",
+        "I need one product description written",
+        "One description, 100 words maximum",
+        "1792443643"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "13",
+      "votes": {
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84": "agree",
+        "0x9ea87b28DcA2F79fe108CF06a4c13B4c876AC23d": "agree",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "agree",
+        "0xE6BD8050758CB15fC88387223E31Ae2708B119dC": "agree",
+        "0xcE1d6bBB36B744536153966B4DD42276f5ADd0F8": "agree"
+      },
+      "rounds": "1",
+      "path": "create-13.json",
+      "sha256": "c26abb07e57d02fb642e75a1f9ef94d161d644119ddf0481a89ff0b8d0ff8652",
+      "verified": true
+    },
+    {
+      "label": "assessment-4",
+      "hash": "0x32f3a6f3f5a59c4a48cbca57ecda61bd36fd57789c5f0c3142ed6e3bf06ae26e",
+      "method": "assess_cycle",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        [
+          "11",
+          "12",
+          "13"
+        ],
+        [
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          [
+            "11",
+            "12"
+          ],
+          [
+            "12",
+            "13"
+          ],
+          [
+            "13",
+            "11"
+          ]
+        ]
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": {
+        "assessment_id": "4",
+        "cycle_id": "3",
+        "result": "MATCHED"
+      },
+      "votes": {
+        "0x4EDbE1FC9EAeC7b0EBA849b0C76AE73Eb0ad5C47": "idle",
+        "0x4aba638Cf0Cf5249437AaD968fC69dde46ae6BAC": "agree",
+        "0x5310dcF075E0BD47d29B8ec6581F736C767f54D2": "agree",
+        "0x6737ca1d6BDF8b7C4f19143E2D55581Ca64eb7C3": "idle",
+        "0x9ea87b28DcA2F79fe108CF06a4c13B4c876AC23d": "agree"
+      },
+      "rounds": "1",
+      "path": "assessment-4.json",
+      "sha256": "2c64d3d529e5bbe708219da5708a0e4e5dc92de2323e60f28bcb39f07aab05e8",
+      "verified": true
+    },
+    {
+      "label": "decline-3",
+      "hash": "0xfd9abb76faae58049ebb86049c1712c52f21238b198b5e4f15c65f98aaf81c7a",
+      "method": "decline_cycle",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "3",
+        "7a29d68e5b38104e244043ee79e1dacff7b40c3ed9ab34113529ecdcb037e548"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": null,
+      "votes": {
+        "0x03D58A4DeF6fDFc032A56374785a5F571D07Bc11": "agree",
+        "0x4404Fb70d490c935758146f42A73DC850FF95C71": "agree",
+        "0x4EDbE1FC9EAeC7b0EBA849b0C76AE73Eb0ad5C47": "agree",
+        "0x6737ca1d6BDF8b7C4f19143E2D55581Ca64eb7C3": "agree",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "agree"
+      },
+      "rounds": "1",
+      "path": "decline-3.json",
+      "sha256": "6a593ac2422ffaab3f15cd6f711e26697cb0c85903baeba7e6945fea42f5962a",
+      "verified": true
+    },
+    {
+      "label": "create-8",
+      "hash": "0x86c6fb22e5e44dd6365e121efa6efeaa8b5232b9bea26de3fd4cf59c1e5dc9f5",
+      "method": "create_intent",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "I can write product descriptions",
+        "One description, 100 words maximum",
+        "I need a simple banner design",
+        "PNG format, 1200x628",
+        "1792440926"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "8",
+      "votes": {
+        "0x3E5ee2507cc167C9925Bf10c67D7986581112024": "agree",
+        "0x4404Fb70d490c935758146f42A73DC850FF95C71": "idle",
+        "0x4EDbE1FC9EAeC7b0EBA849b0C76AE73Eb0ad5C47": "agree",
+        "0x6737ca1d6BDF8b7C4f19143E2D55581Ca64eb7C3": "agree",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "idle"
+      },
+      "rounds": "1",
+      "path": "create-8.json",
+      "sha256": "404e357e38e6b3115d755878bb29acf682c3e3a3b749a5a073cea06e11d73646",
+      "verified": true
+    },
+    {
+      "label": "cancel-8",
+      "hash": "0xbc0cf2b63958b9000bb80b0c6a15933584ab8fc33737eef7a66fa058dfc2b349",
+      "method": "cancel_intent",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "8",
+        "1"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": null,
+      "votes": {
+        "0x36728d2a123aB444E603EE5b2ad17d18Bb193557": "agree",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25": "agree",
+        "0xBBb165E4c9d73a1493D363280f7067Cd07891dBE": "idle",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "agree",
+        "0xacc2459F341D7a887bcA8FAA62F1EC9378d4Bc67": "idle"
+      },
+      "rounds": "1",
+      "path": "cancel-8.json",
+      "sha256": "819f301151a6a5d5e96fe1717dd760fca3c36854dcda5fbe1733c4d6d452fa90",
+      "verified": true
+    },
+    {
+      "label": "create-14",
+      "hash": "0x7bab2d243d4a983f999234b9fc1c8d3478bfa82dfe324352e6d264196c3e42a2",
+      "method": "create_intent",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        "I can edit short videos",
+        "One video, 45 seconds maximum",
+        "I need a social media poster",
+        "PNG format, 1080x1920",
+        "1792012568"
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": "14",
+      "votes": {
+        "0x03D58A4DeF6fDFc032A56374785a5F571D07Bc11": "agree",
+        "0x14402D49f317CE1a2F35BAE01b1804A2A9703dCb": "agree",
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "idle",
+        "0xBBb165E4c9d73a1493D363280f7067Cd07891dBE": "idle",
+        "0xDB1c35c1f05d885999b8f13e5735307BcC16Be88": "agree"
+      },
+      "rounds": "1",
+      "path": "create-14.json",
+      "sha256": "dee0535d57553261629707e9a28157cf365ad8d1f3287910e152ff66b6d106fb",
+      "verified": true
+    },
+    {
+      "label": "assessment-5-cycle-4",
+      "hash": "0xd8157fec047a37150356dc22c8f8f2d8ca8c5518319ba58b5b7b5d9ada069c2b",
+      "method": "assess_cycle",
+      "account": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+      "args": [
+        [
+          "14",
+          "12",
+          "13"
+        ],
+        [
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          [
+            "14",
+            "12"
+          ],
+          [
+            "12",
+            "13"
+          ],
+          [
+            "13",
+            "14"
+          ]
+        ]
+      ],
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "result": {
+        "assessment_id": "5",
+        "cycle_id": "4",
+        "result": "MATCHED"
+      },
+      "votes": {
+        "0x14402D49f317CE1a2F35BAE01b1804A2A9703dCb": "agree",
+        "0x3D83ab507785b95ca5C208bEc80CCe3D5ca98100": "agree",
+        "0x4aba638Cf0Cf5249437AaD968fC69dde46ae6BAC": "idle",
+        "0x76c25AFC12c75485703cCFfd0083AA6201455B25": "agree",
+        "0x772ffCd1dF6Cc566eC4b8d3f4F4f8eBbb6B36C84": "idle"
+      },
+      "rounds": "1",
+      "path": "assessment-5-cycle-4.json",
+      "sha256": "e45e4c38f3112163133674696f8c84c2a1e85b9488a532253ee0ec216acc4229",
+      "verified": true
+    }
+  ],
+  "reads": [
+    {
+      "method": "get_cycle",
+      "id": 1,
+      "result": {
+        "canonical_snapshot": "[\"SCA-3-V1\",61999,\"0x84e9284448d4cd16dcbbcbd8104449b11209c6f0\",[[1,\"0x22acaa233b7b985b36ef168f2de9295334065b15\",\"Write one English homepage for a digital-service exchange: one headline, one subheading and three service paragraphs; 300 words total; deliver one UTF-8 TXT file within 48 hours after cycle activation.\",\"Exactly one 300-word English homepage; TXT only; no website coding or publication; delivery within 48 hours after cycle activation.\",\"Design one original typographic logo reading SCA-3; deliver one editable SVG vector file and one transparent 1024x1024 PNG within 48 hours after cycle activation.\",\"Exactly one typographic SCA-3 logo; editable SVG and transparent 1024x1024 PNG; no animation or brand guide; delivery within 48 hours after cycle activation.\",1,1792350285,3],[3,\"0xbe8567fd2294f3ec8e68f08b58abeb5b2d28ad61\",\"Create one bar chart from the fixed data Copy=10, Logo=20, Chart=30; include category labels and values; deliver one SVG vector file and one 1600x900 PNG within 48 hours after cycle activation.\",\"Exactly one labeled bar chart using only Copy=10, Logo=20, Chart=30; SVG and 1600x900 PNG; no interactive dashboard; delivery within 48 hours after cycle activation.\",\"Write one English homepage for a digital-service exchange: one headline, one subheading and three service paragraphs; 300 words total; deliver one UTF-8 TXT file within 48 hours after cycle activation.\",\"Exactly one 300-word English homepage; TXT only; no website coding or publication; delivery within 48 hours after cycle activation.\",1,1792350285,2],[2,\"0x418c0a70603f8231cd99b1f37dfc49300dcd024e\",\"Design one original typographic logo reading SCA-3; deliver one editable SVG vector file and one transparent 1024x1024 PNG within 48 hours after cycle activation.\",\"Exactly one typographic SCA-3 logo; editable SVG and transparent 1024x1024 PNG; no animation or brand guide; delivery within 48 hours after cycle activation.\",\"Create one bar chart from the fixed data Copy=10, Logo=20, Chart=30; include category labels and values; deliver one SVG vector file and one 1600x900 PNG within 48 hours after cycle activation.\",\"Exactly one labeled bar chart using only Copy=10, Logo=20, Chart=30; SVG and 1600x900 PNG; no interactive dashboard; delivery within 48 hours after cycle activation.\",1,1792350285,1]]]",
+        "confirmation_count": 3,
+        "confirmation_deadline": 1792005850,
+        "confirmations": [
+          true,
+          true,
+          true
+        ],
+        "created_at": 1791746650,
+        "cycle_id": 1,
+        "edges": [
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "found": true,
+        "intent_ids": [
+          1,
+          3,
+          2
+        ],
+        "owners": [
+          "0x22acaa233b7b985b36ef168f2de9295334065b15",
+          "0xbe8567fd2294f3ec8e68f08b58abeb5b2d28ad61",
+          "0x418c0a70603f8231cd99b1f37dfc49300dcd024e"
+        ],
+        "snapshot_id": "48e1c68d358f67368c5d8b478e9d450401be06cdf91e90b6b8b94932d2951ede",
+        "status": "ACTIVE",
+        "stored_status": "ACTIVE",
+        "terms": [
+          [
+            1,
+            "0x22acaa233b7b985b36ef168f2de9295334065b15",
+            "Write one English homepage for a digital-service exchange: one headline, one subheading and three service paragraphs; 300 words total; deliver one UTF-8 TXT file within 48 hours after cycle activation.",
+            "Exactly one 300-word English homepage; TXT only; no website coding or publication; delivery within 48 hours after cycle activation.",
+            "Design one original typographic logo reading SCA-3; deliver one editable SVG vector file and one transparent 1024x1024 PNG within 48 hours after cycle activation.",
+            "Exactly one typographic SCA-3 logo; editable SVG and transparent 1024x1024 PNG; no animation or brand guide; delivery within 48 hours after cycle activation.",
+            1,
+            1792350285,
+            3
+          ],
+          [
+            3,
+            "0xbe8567fd2294f3ec8e68f08b58abeb5b2d28ad61",
+            "Create one bar chart from the fixed data Copy=10, Logo=20, Chart=30; include category labels and values; deliver one SVG vector file and one 1600x900 PNG within 48 hours after cycle activation.",
+            "Exactly one labeled bar chart using only Copy=10, Logo=20, Chart=30; SVG and 1600x900 PNG; no interactive dashboard; delivery within 48 hours after cycle activation.",
+            "Write one English homepage for a digital-service exchange: one headline, one subheading and three service paragraphs; 300 words total; deliver one UTF-8 TXT file within 48 hours after cycle activation.",
+            "Exactly one 300-word English homepage; TXT only; no website coding or publication; delivery within 48 hours after cycle activation.",
+            1,
+            1792350285,
+            2
+          ],
+          [
+            2,
+            "0x418c0a70603f8231cd99b1f37dfc49300dcd024e",
+            "Design one original typographic logo reading SCA-3; deliver one editable SVG vector file and one transparent 1024x1024 PNG within 48 hours after cycle activation.",
+            "Exactly one typographic SCA-3 logo; editable SVG and transparent 1024x1024 PNG; no animation or brand guide; delivery within 48 hours after cycle activation.",
+            "Create one bar chart from the fixed data Copy=10, Logo=20, Chart=30; include category labels and values; deliver one SVG vector file and one 1600x900 PNG within 48 hours after cycle activation.",
+            "Exactly one labeled bar chart using only Copy=10, Logo=20, Chart=30; SVG and 1600x900 PNG; no interactive dashboard; delivery within 48 hours after cycle activation.",
+            1,
+            1792350285,
+            1
+          ]
+        ],
+        "versions": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "method": "get_cycle",
+      "id": 2,
+      "result": {
+        "canonical_snapshot": "[\"SCA-3-V1\",61999,\"0x84e9284448d4cd16dcbbcbd8104449b11209c6f0\",[[7,\"0x22acaa233b7b985b36ef168f2de9295334065b15\",\"I can edit short videos\",\"One video, 45 seconds maximum\",\"I need a social media poster\",\"PNG format, 1080x1920\",2,1792440076,9],[9,\"0x49ce61764cca0c15a79e2d98baa535fc7547eb3a\",\"I can write product descriptions\",\"One description, 100 words maximum\",\"I need one short video edited for social media\",\"One video, 45 seconds maximum\",1,1792441568,10],[10,\"0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5\",\"I can design social media posters\",\"One PNG poster, 1080x1920\",\"I need one product description written\",\"One description, 100 words maximum\",1,1792441729,7]]]",
+        "confirmation_count": 3,
+        "confirmation_deadline": 1792096289,
+        "confirmations": [
+          true,
+          true,
+          true
+        ],
+        "created_at": 1791837089,
+        "cycle_id": 2,
+        "edges": [
+          [
+            7,
+            9
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            7
+          ]
+        ],
+        "found": true,
+        "intent_ids": [
+          7,
+          9,
+          10
+        ],
+        "owners": [
+          "0x22acaa233b7b985b36ef168f2de9295334065b15",
+          "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+          "0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5"
+        ],
+        "snapshot_id": "7ba9082b937abf1f1f5e4d095c7948fece21a1053b031eed4dfe205aa7743f4a",
+        "status": "ACTIVE",
+        "stored_status": "ACTIVE",
+        "terms": [
+          [
+            7,
+            "0x22acaa233b7b985b36ef168f2de9295334065b15",
+            "I can edit short videos",
+            "One video, 45 seconds maximum",
+            "I need a social media poster",
+            "PNG format, 1080x1920",
+            2,
+            1792440076,
+            9
+          ],
+          [
+            9,
+            "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+            "I can write product descriptions",
+            "One description, 100 words maximum",
+            "I need one short video edited for social media",
+            "One video, 45 seconds maximum",
+            1,
+            1792441568,
+            10
+          ],
+          [
+            10,
+            "0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5",
+            "I can design social media posters",
+            "One PNG poster, 1080x1920",
+            "I need one product description written",
+            "One description, 100 words maximum",
+            1,
+            1792441729,
+            7
+          ]
+        ],
+        "versions": [
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "method": "get_cycle",
+      "id": 3,
+      "result": {
+        "canonical_snapshot": "[\"SCA-3-V1\",61999,\"0x84e9284448d4cd16dcbbcbd8104449b11209c6f0\",[[11,\"0x22acaa233b7b985b36ef168f2de9295334065b15\",\"I can edit short videos\",\"One video, 45 seconds maximum\",\"I need a social media poster\",\"PNG format, 1080x1920\",1,1792443374,12],[12,\"0x49ce61764cca0c15a79e2d98baa535fc7547eb3a\",\"I can write product descriptions\",\"One description, 100 words maximum\",\"I need one short video edited for social media\",\"One video, 45 seconds maximum\",1,1792443534,13],[13,\"0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5\",\"I can design social media posters\",\"One PNG poster, 1080x1920\",\"I need one product description written\",\"One description, 100 words maximum\",1,1792443643,11]]]",
+        "confirmation_count": 0,
+        "confirmation_deadline": 1792098194,
+        "confirmations": [
+          false,
+          false,
+          false
+        ],
+        "created_at": 1791838994,
+        "cycle_id": 3,
+        "edges": [
+          [
+            11,
+            12
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            13,
+            11
+          ]
+        ],
+        "found": true,
+        "intent_ids": [
+          11,
+          12,
+          13
+        ],
+        "owners": [
+          "0x22acaa233b7b985b36ef168f2de9295334065b15",
+          "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+          "0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5"
+        ],
+        "snapshot_id": "7a29d68e5b38104e244043ee79e1dacff7b40c3ed9ab34113529ecdcb037e548",
+        "status": "ABORTED",
+        "stored_status": "ABORTED",
+        "terms": [
+          [
+            11,
+            "0x22acaa233b7b985b36ef168f2de9295334065b15",
+            "I can edit short videos",
+            "One video, 45 seconds maximum",
+            "I need a social media poster",
+            "PNG format, 1080x1920",
+            1,
+            1792443374,
+            12
+          ],
+          [
+            12,
+            "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+            "I can write product descriptions",
+            "One description, 100 words maximum",
+            "I need one short video edited for social media",
+            "One video, 45 seconds maximum",
+            1,
+            1792443534,
+            13
+          ],
+          [
+            13,
+            "0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5",
+            "I can design social media posters",
+            "One PNG poster, 1080x1920",
+            "I need one product description written",
+            "One description, 100 words maximum",
+            1,
+            1792443643,
+            11
+          ]
+        ],
+        "versions": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "method": "get_cycle",
+      "id": 4,
+      "result": {
+        "canonical_snapshot": "[\"SCA-3-V1\",61999,\"0x84e9284448d4cd16dcbbcbd8104449b11209c6f0\",[[12,\"0x49ce61764cca0c15a79e2d98baa535fc7547eb3a\",\"I can write product descriptions\",\"One description, 100 words maximum\",\"I need one short video edited for social media\",\"One video, 45 seconds maximum\",1,1792443534,13],[13,\"0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5\",\"I can design social media posters\",\"One PNG poster, 1080x1920\",\"I need one product description written\",\"One description, 100 words maximum\",1,1792443643,14],[14,\"0x22acaa233b7b985b36ef168f2de9295334065b15\",\"I can edit short videos\",\"One video, 45 seconds maximum\",\"I need a social media poster\",\"PNG format, 1080x1920\",1,1792012568,12]]]",
+        "confirmation_count": 0,
+        "confirmation_deadline": 1792012568,
+        "confirmations": [
+          false,
+          false,
+          false
+        ],
+        "created_at": 1791839933,
+        "cycle_id": 4,
+        "edges": [
+          [
+            12,
+            13
+          ],
+          [
+            13,
+            14
+          ],
+          [
+            14,
+            12
+          ]
+        ],
+        "found": true,
+        "intent_ids": [
+          12,
+          13,
+          14
+        ],
+        "owners": [
+          "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+          "0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5",
+          "0x22acaa233b7b985b36ef168f2de9295334065b15"
+        ],
+        "snapshot_id": "b710987581187442258dbd6865959bbf2d9bc81fae2a65e334a580fc93f2c594",
+        "status": "PENDING",
+        "stored_status": "PENDING",
+        "terms": [
+          [
+            12,
+            "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+            "I can write product descriptions",
+            "One description, 100 words maximum",
+            "I need one short video edited for social media",
+            "One video, 45 seconds maximum",
+            1,
+            1792443534,
+            13
+          ],
+          [
+            13,
+            "0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5",
+            "I can design social media posters",
+            "One PNG poster, 1080x1920",
+            "I need one product description written",
+            "One description, 100 words maximum",
+            1,
+            1792443643,
+            14
+          ],
+          [
+            14,
+            "0x22acaa233b7b985b36ef168f2de9295334065b15",
+            "I can edit short videos",
+            "One video, 45 seconds maximum",
+            "I need a social media poster",
+            "PNG format, 1080x1920",
+            1,
+            1792012568,
+            12
+          ]
+        ],
+        "versions": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "method": "get_assessment",
+      "id": 3,
+      "result": {
+        "assessed_at": 1791837089,
+        "assessment_id": 3,
+        "canonical_snapshot": "[\"SCA-3-V1\",61999,\"0x84e9284448d4cd16dcbbcbd8104449b11209c6f0\",[[7,\"0x22acaa233b7b985b36ef168f2de9295334065b15\",\"I can edit short videos\",\"One video, 45 seconds maximum\",\"I need a social media poster\",\"PNG format, 1080x1920\",2,1792440076,9],[9,\"0x49ce61764cca0c15a79e2d98baa535fc7547eb3a\",\"I can write product descriptions\",\"One description, 100 words maximum\",\"I need one short video edited for social media\",\"One video, 45 seconds maximum\",1,1792441568,10],[10,\"0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5\",\"I can design social media posters\",\"One PNG poster, 1080x1920\",\"I need one product description written\",\"One description, 100 words maximum\",1,1792441729,7]]]",
+        "cycle_id": 2,
+        "cycle_status": "ACTIVE",
+        "decisions": [
+          "FIT",
+          "FIT",
+          "FIT"
+        ],
+        "edges": [
+          [
+            7,
+            9
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            7
+          ]
+        ],
+        "found": true,
+        "intent_ids": [
+          7,
+          9,
+          10
+        ],
+        "prompt_sha256": "8a7b279a3594397802c71fef4df9b4d30db1ff528177d0bf05c80a62397192d3",
+        "prompt_version": "SCA3-CANONICAL-CLASSIFICATION-V1",
+        "proposer": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+        "result": "MATCHED",
+        "snapshot_id": "7ba9082b937abf1f1f5e4d095c7948fece21a1053b031eed4dfe205aa7743f4a",
+        "versions": [
+          2,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "method": "get_assessment",
+      "id": 4,
+      "result": {
+        "assessed_at": 1791838994,
+        "assessment_id": 4,
+        "canonical_snapshot": "[\"SCA-3-V1\",61999,\"0x84e9284448d4cd16dcbbcbd8104449b11209c6f0\",[[11,\"0x22acaa233b7b985b36ef168f2de9295334065b15\",\"I can edit short videos\",\"One video, 45 seconds maximum\",\"I need a social media poster\",\"PNG format, 1080x1920\",1,1792443374,12],[12,\"0x49ce61764cca0c15a79e2d98baa535fc7547eb3a\",\"I can write product descriptions\",\"One description, 100 words maximum\",\"I need one short video edited for social media\",\"One video, 45 seconds maximum\",1,1792443534,13],[13,\"0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5\",\"I can design social media posters\",\"One PNG poster, 1080x1920\",\"I need one product description written\",\"One description, 100 words maximum\",1,1792443643,11]]]",
+        "cycle_id": 3,
+        "cycle_status": "ABORTED",
+        "decisions": [
+          "FIT",
+          "FIT",
+          "FIT"
+        ],
+        "edges": [
+          [
+            11,
+            12
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            13,
+            11
+          ]
+        ],
+        "found": true,
+        "intent_ids": [
+          11,
+          12,
+          13
+        ],
+        "prompt_sha256": "8a7b279a3594397802c71fef4df9b4d30db1ff528177d0bf05c80a62397192d3",
+        "prompt_version": "SCA3-CANONICAL-CLASSIFICATION-V1",
+        "proposer": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+        "result": "MATCHED",
+        "snapshot_id": "7a29d68e5b38104e244043ee79e1dacff7b40c3ed9ab34113529ecdcb037e548",
+        "versions": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "method": "get_intent",
+      "id": 7,
+      "result": {
+        "cycle_id": 2,
+        "expires_at": 1792440076,
+        "found": true,
+        "intent_id": 7,
+        "need_description": "I need a social media poster",
+        "need_requirements": "PNG format, 1080x1920",
+        "offer_description": "I can edit short videos",
+        "offer_limitations": "One video, 45 seconds maximum",
+        "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+        "status": "CONSUMED",
+        "stored_status": "CONSUMED",
+        "version": 2
+      }
+    },
+    {
+      "method": "get_intent",
+      "id": 8,
+      "result": {
+        "cycle_id": 0,
+        "expires_at": 1792440926,
+        "found": true,
+        "intent_id": 8,
+        "need_description": "I need a simple banner design",
+        "need_requirements": "PNG format, 1200x628",
+        "offer_description": "I can write product descriptions",
+        "offer_limitations": "One description, 100 words maximum",
+        "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+        "status": "CANCELLED",
+        "stored_status": "CANCELLED",
+        "version": 1
+      }
+    },
+    {
+      "method": "get_intent",
+      "id": 9,
+      "result": {
+        "cycle_id": 2,
+        "expires_at": 1792441568,
+        "found": true,
+        "intent_id": 9,
+        "need_description": "I need one short video edited for social media",
+        "need_requirements": "One video, 45 seconds maximum",
+        "offer_description": "I can write product descriptions",
+        "offer_limitations": "One description, 100 words maximum",
+        "owner": "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+        "status": "CONSUMED",
+        "stored_status": "CONSUMED",
+        "version": 1
+      }
+    },
+    {
+      "method": "get_intent",
+      "id": 10,
+      "result": {
+        "cycle_id": 2,
+        "expires_at": 1792441729,
+        "found": true,
+        "intent_id": 10,
+        "need_description": "I need one product description written",
+        "need_requirements": "One description, 100 words maximum",
+        "offer_description": "I can design social media posters",
+        "offer_limitations": "One PNG poster, 1080x1920",
+        "owner": "0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5",
+        "status": "CONSUMED",
+        "stored_status": "CONSUMED",
+        "version": 1
+      }
+    },
+    {
+      "method": "get_intent",
+      "id": 11,
+      "result": {
+        "cycle_id": 0,
+        "expires_at": 1792443374,
+        "found": true,
+        "intent_id": 11,
+        "need_description": "I need a social media poster",
+        "need_requirements": "PNG format, 1080x1920",
+        "offer_description": "I can edit short videos",
+        "offer_limitations": "One video, 45 seconds maximum",
+        "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+        "status": "OPEN",
+        "stored_status": "OPEN",
+        "version": 1
+      }
+    },
+    {
+      "method": "get_intent",
+      "id": 12,
+      "result": {
+        "cycle_id": 4,
+        "expires_at": 1792443534,
+        "found": true,
+        "intent_id": 12,
+        "need_description": "I need one short video edited for social media",
+        "need_requirements": "One video, 45 seconds maximum",
+        "offer_description": "I can write product descriptions",
+        "offer_limitations": "One description, 100 words maximum",
+        "owner": "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+        "status": "RESERVED",
+        "stored_status": "RESERVED",
+        "version": 1
+      }
+    },
+    {
+      "method": "get_intent",
+      "id": 13,
+      "result": {
+        "cycle_id": 4,
+        "expires_at": 1792443643,
+        "found": true,
+        "intent_id": 13,
+        "need_description": "I need one product description written",
+        "need_requirements": "One description, 100 words maximum",
+        "offer_description": "I can design social media posters",
+        "offer_limitations": "One PNG poster, 1080x1920",
+        "owner": "0xcf45e7e9dd6ed367f32817c581c37ecba6a565e5",
+        "status": "RESERVED",
+        "stored_status": "RESERVED",
+        "version": 1
+      }
+    },
+    {
+      "method": "get_intent",
+      "id": 14,
+      "result": {
+        "cycle_id": 4,
+        "expires_at": 1792012568,
+        "found": true,
+        "intent_id": 14,
+        "need_description": "I need a social media poster",
+        "need_requirements": "PNG format, 1080x1920",
+        "offer_description": "I can edit short videos",
+        "offer_limitations": "One video, 45 seconds maximum",
+        "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+        "status": "RESERVED",
+        "stored_status": "RESERVED",
+        "version": 1
+      }
+    }
+  ],
+  "cancelIntent8Hash": "0xbc0cf2b63958b9000bb80b0c6a15933584ab8fc33737eef7a66fa058dfc2b349",
+  "expiration": "LIVE EXPIRATION POSITIVE TEST — NOT RUN / TIME-GATED",
+  "supplemented_at_utc": "2026-10-12T21:52:54.194Z"
+}

@@ -1,0 +1,13 @@
+{
+  "phase": "B2-C-R2",
+  "baseline": "cadbc4defc7c069394419e7648ea5fd77e467b87",
+  "priorTestsPreserved": 497,
+  "newTests": 7,
+  "standardTests": {"pass": 504, "fail": 0, "skip": 0},
+  "performanceTests": {"pass": 504, "fail": 0, "skip": 0},
+  "realChromium": "NOT RUN: no executable; download failed",
+  "windowsChromeOkxLivePreflight": "NOT RUN",
+  "realSignatureBroadcastDeployPublishPortal": "NOT RUN",
+  "mainMerge": false,
+  "repositoryAChanged": false
+}

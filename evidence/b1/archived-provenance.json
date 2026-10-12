@@ -1,0 +1,103 @@
+{
+  "category": "archived original RPC and Explorer-derived metadata; NOT a new B1 transaction read",
+  "repository": "halihalibt/semantic-cycle-accord-genlayer",
+  "commit": "8a09380c06f12afd6ac85197737b0018cd8e594f",
+  "sourceIdentity": {
+    "baseline_main": "2215e6fac7d4922b50ff1546bae76b6e4e3a530c",
+    "baseline_tree": "6f655969dfcf32667e8e8569e94b34dd11c367e3",
+    "source_path": "contracts/semantic_cycle_accord.py",
+    "source_size_bytes": 32040,
+    "source_sha256": "88de2802bbe4e795dcae2bb0c4028477133d41bdc9b7940d6aef273367ded442",
+    "deployment_source_sha256": "88de2802bbe4e795dcae2bb0c4028477133d41bdc9b7940d6aef273367ded442",
+    "deployment_byte_identity": true,
+    "deployment_transaction": "0x3bf2036d9683c6ab55b09cacf54bdeb8ecfa7cb8e7864b832ae7041067f196cc",
+    "deployment_contract": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+    "prompt_sha256": "8a7b279a3594397802c71fef4df9b4d30db1ff528177d0bf05c80a62397192d3",
+    "persisted_assessment_prompt_hashes": [
+      "8a7b279a3594397802c71fef4df9b4d30db1ff528177d0bf05c80a62397192d3",
+      "8a7b279a3594397802c71fef4df9b4d30db1ff528177d0bf05c80a62397192d3"
+    ]
+  },
+  "selectedTransactions": [
+    {
+      "label": "tx04",
+      "hash": "0xc71701f70199e4d65565adb2bbee2592e4e463f3fbf81b25d99b10c9de703968",
+      "status": "FINALIZED",
+      "result_name": "MAJORITY_AGREE",
+      "leader_execution_result": "SUCCESS",
+      "vote_counts": {
+        "idle": 2,
+        "agree": 3
+      },
+      "rotation_count": 0,
+      "consensus_rounds": [
+        "Accepted"
+      ],
+      "explorer_detail_url": "https://explorer-studio.genlayer.com/tx/0xc71701f70199e4d65565adb2bbee2592e4e463f3fbf81b25d99b10c9de703968"
+    },
+    {
+      "label": "tx05",
+      "hash": "0x48c3a1d262adba989c1f37520b871919b619a61e9bb721e14eeffeac6ca1b34b",
+      "status": "FINALIZED",
+      "result_name": "MAJORITY_AGREE",
+      "leader_execution_result": "SUCCESS",
+      "vote_counts": {
+        "idle": 2,
+        "agree": 3
+      },
+      "rotation_count": 0,
+      "consensus_rounds": [
+        "Accepted"
+      ],
+      "explorer_detail_url": "https://explorer-studio.genlayer.com/tx/0x48c3a1d262adba989c1f37520b871919b619a61e9bb721e14eeffeac6ca1b34b"
+    },
+    {
+      "label": "tx06",
+      "hash": "0x4736fce42672766d2b589eab8a73d8bee56caf202c7ceaf1c83ada8b9fbd4531",
+      "status": "FINALIZED",
+      "result_name": "MAJORITY_AGREE",
+      "leader_execution_result": "SUCCESS",
+      "vote_counts": {
+        "idle": 2,
+        "agree": 3
+      },
+      "rotation_count": 0,
+      "consensus_rounds": [
+        "Accepted"
+      ],
+      "explorer_detail_url": "https://explorer-studio.genlayer.com/tx/0x4736fce42672766d2b589eab8a73d8bee56caf202c7ceaf1c83ada8b9fbd4531"
+    },
+    {
+      "label": "tx07",
+      "hash": "0xcc310816d39b379189690be115241f594719c44959351232908b9ab85ee8ef82",
+      "status": "FINALIZED",
+      "result_name": "MAJORITY_AGREE",
+      "leader_execution_result": "SUCCESS",
+      "vote_counts": {
+        "idle": 2,
+        "agree": 3
+      },
+      "rotation_count": 0,
+      "consensus_rounds": [
+        "Accepted"
+      ],
+      "explorer_detail_url": "https://explorer-studio.genlayer.com/tx/0xcc310816d39b379189690be115241f594719c44959351232908b9ab85ee8ef82"
+    },
+    {
+      "label": "tx11",
+      "hash": "0x0bb517817a4dd54ec6afb1b1d04223fb78804ed3f6e561f2ca65ca31d2b3234f",
+      "status": "FINALIZED",
+      "result_name": "MAJORITY_AGREE",
+      "leader_execution_result": "SUCCESS",
+      "vote_counts": {
+        "agree": 3,
+        "idle": 2
+      },
+      "rotation_count": 0,
+      "consensus_rounds": [
+        "Accepted"
+      ],
+      "explorer_detail_url": "https://explorer-studio.genlayer.com/tx/0x0bb517817a4dd54ec6afb1b1d04223fb78804ed3f6e561f2ca65ca31d2b3234f"
+    }
+  ]
+}

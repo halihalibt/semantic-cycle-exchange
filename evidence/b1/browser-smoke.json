@@ -1,0 +1,31 @@
+{
+  "category": "local real-browser SDK verification",
+  "timestamp": "2026-10-12T05:47:08.769Z",
+  "calls": [
+    {
+      "timestamp": "2026-10-12T05:47:08.897Z",
+      "url": "https://studio.genlayer.com/api",
+      "body": {
+        "jsonrpc": "2.0",
+        "id": 1791784028895,
+        "method": "gen_call",
+        "params": [
+          {
+            "type": "read",
+            "to": "0x84e9284448D4cd16dcBBCbd8104449B11209C6F0",
+            "from": "0x0000000000000000000000000000000000000000",
+            "data": "0xe7a516046172677315019103066d6574686f6494016765745f70726f746f636f6c5f737461747300",
+            "transaction_hash_variant": "latest-final"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [],
+  "errors": [],
+  "status": "BLOCKED",
+  "browser": "153.0.8010.0",
+  "webSecurity": "default enabled; no CORS bypass flags",
+  "error": "TimeoutError: locator.waitFor: Timeout 25000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Intents created · cumulative total') to be visible\u001b[22m\n",
+  "visibleText": "\n"
+}

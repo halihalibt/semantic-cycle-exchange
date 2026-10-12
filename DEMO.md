@@ -19,3 +19,7 @@ ACTIVE does not prove delivered services.
 No wallet, signing or transaction step is part of this path. Live browser Home,
 Demo and responsive checks must be completed before B1 can be accepted.
 See docs/PHASE_B1_REPORT.md and docs/PHASE_B1_TEST_AND_ACCEPTANCE.md.
+
+## B1-R3 current browser acceptance clarification
+
+The initial "browser Demo is not yet live-verified" paragraph above is the historical **Work Chromium** status. On 2026-10-12, the **user independently ran the same B1 app in Windows Chrome**: Home Studio HTTP 200 real finalized results, both positive/negative `?w=1` cases, missing Cycle #2, 390px visual responsive layout and Offline error with cached-data label were screenshot-supported PASS. See [R3 acceptance](docs/PHASE_B1_R3_WINDOWS_CHROME_ACCEPTANCE.md). Work Chromium's separate `ERR_EMPTY_RESPONSE` remains BLOCKED, cause UNKNOWN. This is a **local read-only Demo**, not an already published website, not a multi-browser claim and not authorization for signing or chain writes.

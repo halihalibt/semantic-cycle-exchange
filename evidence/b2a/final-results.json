@@ -1,0 +1,22 @@
+{
+  "typecheck": {
+    "command": "npm run typecheck",
+    "exit_code": 0
+  },
+  "lint": {
+    "command": "npm run lint",
+    "exit_code": 0
+  },
+  "tests": {
+    "command": "npm test -- --reporter=verbose",
+    "exit_code": 0
+  },
+  "build": {
+    "command": "npm run build",
+    "exit_code": 0
+  },
+  "integrity": {
+    "command": "npm run integrity",
+    "exit_code": 0
+  }
+}

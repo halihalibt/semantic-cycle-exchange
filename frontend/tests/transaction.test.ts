@@ -1,0 +1,60 @@
+import { it,expect } from 'vitest';
+import { Transactions } from '../src/lib/genlayer/transaction';
+import { feeQuote,calculateMockFee } from '../src/lib/genlayer/fees';
+import { OWNER,MOCK_HASH } from './fake-provider';
+import { FakeProvider } from './fake-provider';
+import { WalletSession } from '../src/lib/wallet/session';
+const identity={account:OWNER,chain:'61999',revision:1};
+function ready(method:'create_intent'|'confirm_cycle'|'expire_cycle'='create_intent'){const t=new Transactions();t.begin('one',method,identity);t.prepared('one',true);return t;}
+function submitted(method:'create_intent'|'confirm_cycle'|'expire_cycle'='create_intent'){const t=ready(method);t.signatureRequestedForMock('one',identity,true);t.hashObserved('one',MOCK_HASH);return t;}
+it('real quotes always unavailable including AI; mock arithmetic not production pricing',()=>{expect(feeQuote('assess_cycle')).toMatchObject({status:'FEE_QUOTE_UNAVAILABLE',usableForSubmission:false});expect(feeQuote('create_intent').usableForSubmission).toBe(false);const policy={revision:'mock-a',gasPriceWei:2n,gasUnits:100n,allocationWei:7n};expect(calculateMockFee(policy)).toMatchObject({totalWei:207n,usableForSubmission:false});expect(calculateMockFee({...policy,revision:'mock-b',gasPriceWei:3n})).toMatchObject({totalWei:307n,revision:'mock-b'});});
+it('unavailable quote prevents signature state',()=>{const t=new Transactions();t.begin('one','create_intent',identity);t.prepared('one',false);expect(t.get('one').status).toBe('FEE_UNAVAILABLE');expect(()=>t.signatureRequestedForMock('one',identity,true)).toThrow();});
+it('production submission is unconditionally blocked',()=>expect(ready().productionSubmission('one').status).toBe('BLOCKED'));
+it('duplicate local key and double-click cannot start second signature',()=>{const t=ready();t.signatureRequestedForMock('one',identity,true);expect(()=>t.signatureRequestedForMock('one',identity,true)).toThrow();expect(()=>t.begin('one','create_intent',identity)).toThrow();expect(t.get('one').status).toBe('AWAITING_USER_SIGNATURE');});
+it('requires deliberate action and fresh verified identity',()=>{const t=ready();expect(()=>t.signatureRequestedForMock('one',identity,false)).toThrow();expect(()=>t.signatureRequestedForMock('one',{...identity,revision:2},true)).toThrow();expect(()=>t.signatureRequestedForMock('one',{...identity,chain:'1'},true)).toThrow();});
+it('rejection never successful submission',()=>{const t=ready();t.signatureRequestedForMock('one',identity,true);expect(t.rejected('one').status).toBe('USER_REJECTED');expect(t.get('one').hash).toBeUndefined();});
+it('timeout unknown is not retryable; late hash tracked',()=>{const t=ready();t.signatureRequestedForMock('one',identity,true);t.unknown('one');expect(()=>t.signatureRequestedForMock('one',identity,true)).toThrow();expect(t.hashObserved('one',MOCK_HASH).status).toBe('SUBMITTED');expect(t.get('one').hash).toBe(MOCK_HASH);});
+it('hash is not finalized and cannot be replaced',()=>{const t=submitted();expect(t.get('one').status).toBe('SUBMITTED');expect(()=>t.hashObserved('one','0x'+'cd'.repeat(32))).toThrow();});
+it('consensus alone is not execution success',()=>{const t=submitted();t.terminalObserved('one',{finalized:false,execution:'SUCCESS'});expect(t.get('one').status).toBe('PENDING_CONSENSUS');t.terminalObserved('one',{finalized:true,execution:'UNKNOWN'});expect(()=>t.reconciled('one','CHANGED',true)).toThrow('RECONCILIATION_REQUIRED');});
+it('finalized execution still requires state reconciliation',()=>{const t=submitted();t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});expect(t.get('one').status).toBe('RECONCILIATION_REQUIRED');expect(()=>t.reconciled('one','CHANGED',false)).toThrow();expect(t.reconciled('one','CHANGED',true).status).toBe('FINALIZED_SUCCESS');});
+it('terminal failure stays failure after reconciliation',()=>{const t=submitted();t.terminalObserved('one',{finalized:true,execution:'FAILURE'});expect(()=>t.reconciled('one','CHANGED',true)).toThrow();expect(t.reconciled('one','FAILED',true).status).toBe('FINALIZED_FAILURE');});
+it.each(['confirm_cycle','expire_cycle'] as const)('%s false is no state change',method=>{const t=submitted(method);t.terminalObserved('one',{finalized:true,execution:'SUCCESS',returnValue:false});expect(()=>t.reconciled('one','CHANGED',true)).toThrow();expect(t.reconciled('one','NO_OP',true).outcome).toBe('NO_OP');});
+it('missing boolean return cannot imply a state change',()=>{const t=submitted('confirm_cycle');t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});expect(()=>t.reconciled('one','CHANGED',true)).toThrow();});
+it('account change clears unsigned context and does not discard submitted hash',()=>{const t=ready();t.invalidateIdentity();expect(t.get('one')).toMatchObject({status:'BLOCKED',identity:undefined});const p=submitted();p.invalidateIdentity();expect(p.get('one')).toMatchObject({status:'SUBMITTED',hash:MOCK_HASH,identity:undefined});});
+it('identity change during signature remains unknown until resolved',()=>{const t=ready();t.signatureRequestedForMock('one',identity,true);t.invalidateIdentity();expect(t.get('one').status).toBe('SUBMISSION_UNKNOWN');expect(()=>t.begin('one','create_intent',identity)).toThrow();});
+it.each(['accountsChanged','chainChanged'])('wallet %s invalidates transaction preflight through callback',async event=>{const t=new Transactions(),p=new FakeProvider(),s=new WalletSession(()=>{},()=>t.invalidateIdentity());s.select(p);await s.connect();t.begin('one','create_intent',{account:s.state.account!,chain:s.state.chain!,revision:s.state.revision});t.prepared('one',true);p.emit(event,event==='chainChanged'?'0x1':[]);expect(t.get('one')).toMatchObject({status:'BLOCKED',identity:undefined});s.dispose();});
+it('later complete evidence can resolve unknown execution without rebroadcast',()=>{const t=submitted();t.terminalObserved('one',{finalized:true,execution:'UNKNOWN'});t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});expect(t.reconciled('one','CHANGED',true).status).toBe('FINALIZED_SUCCESS');});
+
+it('failure then success retains failure evidence and locks resolution',()=>{
+  const t=submitted();t.terminalObserved('one',{finalized:true,execution:'FAILURE'});
+  const conflict=t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});
+  expect(conflict).toMatchObject({status:'TERMINAL_CONFLICT',terminalExecution:'FAILURE',reconciliation:'FAILURE',outcome:'FAILED',hash:MOCK_HASH});
+  expect(()=>t.reconciled('one','CHANGED',true)).toThrow();
+  expect(()=>t.terminalObserved('one',{finalized:true,execution:'FAILURE'})).toThrow();
+});
+it('success then failure retains success evidence and locks resolution',()=>{
+  const t=submitted();t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});
+  const conflict=t.terminalObserved('one',{finalized:true,execution:'FAILURE'});
+  expect(conflict).toMatchObject({status:'TERMINAL_CONFLICT',terminalExecution:'SUCCESS',reconciliation:'SUCCESS',hash:MOCK_HASH});
+  expect(()=>t.reconciled('one','CHANGED',true)).toThrow();
+});
+it('success with missing boolean return still prevents opposing failure',()=>{
+  const t=submitted('confirm_cycle');t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});
+  const conflict=t.terminalObserved('one',{finalized:true,execution:'FAILURE'});
+  expect(conflict.status).toBe('TERMINAL_CONFLICT');
+  expect(conflict.terminalExecution).toBe('SUCCESS');
+});
+it('contradictory boolean return locks terminal evidence',()=>{
+  const t=submitted('expire_cycle');t.terminalObserved('one',{finalized:true,execution:'SUCCESS',returnValue:false});
+  const conflict=t.terminalObserved('one',{finalized:true,execution:'SUCCESS',returnValue:true});
+  expect(conflict).toMatchObject({status:'TERMINAL_CONFLICT',terminalReturn:false,outcome:'NO_OP',hash:MOCK_HASH});
+  expect(()=>t.reconciled('one','NO_OP',true)).toThrow();
+});
+it('unknown and incomplete later observations cannot erase known result',()=>{
+  const t=submitted('confirm_cycle');
+  t.terminalObserved('one',{finalized:true,execution:'SUCCESS',returnValue:true});
+  t.terminalObserved('one',{finalized:true,execution:'UNKNOWN'});
+  t.terminalObserved('one',{finalized:true,execution:'SUCCESS'});
+  expect(t.get('one')).toMatchObject({status:'RECONCILIATION_REQUIRED',terminalExecution:'SUCCESS',terminalReturn:true,outcome:'CHANGED'});
+  expect(t.reconciled('one','CHANGED',true).status).toBe('FINALIZED_SUCCESS');
+});

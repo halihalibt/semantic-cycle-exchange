@@ -38,3 +38,12 @@ All earlier unpushed/no-PR claims above are **historical**. B1-R1 saved the exis
 **USER-EXECUTED Windows Chrome PASS (screenshot-supported):** Home latest-final Studio HTTP 200 (6 Intents, 2 Assessments, 1 Cycle, 1 Activated), Assessment #1 MATCHED/ACTIVE with 3 confirmations, Assessment #2 NOT_MATCHED/FIT-FIT-NO_FIT with no linked Cycle, Cycle #2 not found, 390px visual layout, Offline unavailable + cached-data notice. See [R3 acceptance](docs/PHASE_B1_R3_WINDOWS_CHROME_ACCEPTANCE.md) and [screenshot metadata](evidence/b1/windows-chrome-acceptance-manifest.json). Ten PNG files had their hashes/sizes/dimensions checked but **are not publicly uploaded**.
 
 Work Chromium's older `OPTIONS net::ERR_EMPTY_RESPONSE` remains **BLOCKED / UNKNOWN root cause**. Original 34 tests / nine Node finalized reads are historical B1 PASS, not rerun in R3; live 429 and induced timeouts NOT RUN. **STOP** for independent PR #1 review and eventual separately approved merge; do not enter B2, write to chain, sign, deploy or publish.
+
+
+## PHASE B2-A — WIP continuation checkpoint
+
+Recovered existing wallet/write safety foundation on phase-b2a-wallet-write-foundation from frozen main 5c10ffedddb2c4e8fb6fe89285ba224de4d29026. Latest completed offline suite: 163 PASS, 0 FAIL, 0 SKIP. Failed-run evidence preserved. Final post-reinstall checks and publication closure pending at this local checkpoint. Real fees/signing/writes/browser extension testing NOT RUN; production fee FEE_QUOTE_UNAVAILABLE. See docs/PHASE_B2A_EXECUTION_REPORT.md. No B2-B authorization or merge.
+
+### B2-A continuation closure
+
+Remote WIP Draft PR #2 created: https://github.com/halihalibt/semantic-cycle-exchange/pull/2. Initial checkpoint 07868e6330e42d6ed348c1eb21f90f19cb6b92bf. Post-reinstall final typecheck, lint, tests (163 PASS / 0 FAIL / 0 SKIP), build and source integrity PASS. Raw prior failures retained. Still Draft/unmerged; independent audit and browser/live NOT RUN items remain. STOP after final report.

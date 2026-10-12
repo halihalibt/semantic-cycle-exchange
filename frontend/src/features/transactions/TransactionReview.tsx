@@ -12,7 +12,7 @@ export function TransactionReview({ review, wallet }: { review?: Review; wallet:
     <pre aria-label="Exact method parameters">{json(Object.fromEntries(WRITE_PARAMETERS[review.method].map((name, i) => [name, review.parameters.args[i]])))}</pre>
     <p><strong>{review.fee.status}</strong> · {review.fee.reason}</p><p><strong>ONCHAIN_SUBMISSION_DISABLED</strong></p>
     <p>No signature, broadcast, transaction hash or finalized outcome exists for this preview. Refresh finalized state to inspect actual records. Local validation uses an advisory clock; contract revalidation remains authoritative.</p>
-  <details><summary>Transaction status meanings</summary><dl>{Object.entries(STATUS_MEANINGS).map(([status,meaning])=><div key={status}><dt>{status}</dt><dd>{meaning}</dd></div>)}</dl></details>
+  <details><summary>Transaction status meanings</summary><p>Definitions only. This request preview cannot advance to signing, submission or finality.</p><dl>{Object.entries(STATUS_MEANINGS).map(([status,meaning])=><div key={status}><dt>{status}</dt><dd>{meaning}</dd></div>)}</dl></details>
   </section>;
 }
 

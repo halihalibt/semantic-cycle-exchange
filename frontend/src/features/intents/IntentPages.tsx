@@ -21,7 +21,7 @@ export function MyIntents({wallet}: {wallet: WalletState}) {
 }
 function OwnerHistory({owner}: {owner: string}) { const [offset, setOffset] = useState('0'); return <OwnerPage key={offset} owner={owner} offset={offset} setOffset={setOffset}/>; }
 function OwnerPage({owner,offset,setOffset}: {owner:string;offset:string;setOffset:(value:string)=>void}) {
-  const state = useRead(signal => api.getOwnerRecords(owner, offset, 20, signal)); const d = state.data?.data;
+  const state = useRead(async signal => {const r=await api.getOwnerRecords(owner, offset, 20, signal);if(r.data.owner.toLowerCase()!==owner.toLowerCase())throw new Error('OWNER_MISMATCH');return r;}); const d = state.data?.data;
   return <ReadState state={state}>{d && <><code>{d.owner}</code><p>{d.unfinished_count} / 5 effective unfinished Intents · {d.intent_total} historical Intents · {d.cycle_total} historical Cycles</p>
     <p>Shared offset {offset} → {d.next_offset}. The contract slices both histories with the same offset and limit; either list may be empty. There is no separate history index.</p>
     <h2>Intent history</h2><div className="intent-grid">{d.intents.map(item => <IntentCard key={item.intent_id} item={item}/>)}</div>{!d.intents.length && <p>No Intents in this history range.</p>}

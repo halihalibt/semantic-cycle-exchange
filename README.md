@@ -70,3 +70,7 @@ is included. MIT License.
 ## B2-A foundation — WIP / INCOMPLETE
 
 Optional explicit browser-provider selection and account connection are implemented alongside the read-only pages. Signing and transaction submission remain disabled. Seven write specifications, validation and transaction safety are offline foundations; total fees are unavailable. See [B2-A execution report](docs/PHASE_B2A_EXECUTION_REPORT.md) and [acceptance matrix](docs/PHASE_B2A_TEST_AND_ACCEPTANCE.md). Real wallet/write compatibility is not established.
+
+## B2-B business request previews
+
+The product now includes Explore Intents, connected-owner history, Intent forms, a directed three-party Builder, Assessment lookup and a Cycle Workspace. All seven write methods stop at exact request review with **FEE_QUOTE_UNAVAILABLE / ONCHAIN_SUBMISSION_DISABLED**. No signing or broadcast executor is exposed. See [user flows](docs/PHASE_B2B_USER_FLOWS.md), [implementation](docs/PHASE_B2B_IMPLEMENTATION_REPORT.md), [test/acceptance results](docs/PHASE_B2B_TEST_AND_ACCEPTANCE.md) and [security boundaries](docs/PHASE_B2B_SECURITY_BOUNDARIES.md). Final 258 tests passed offline; new browser visual/keyboard acceptance is still pending.

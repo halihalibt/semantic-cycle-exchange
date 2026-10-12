@@ -16,7 +16,7 @@ export function CycleBuilder({wallet}: {wallet:WalletState}) {
     try {
       ids.forEach(id=>uint(id)); if(new Set(ids).size!==3)throw new Error('DUPLICATE_INTENT');
       const fresh:Observation<Intent>[]=[];
-      for(const id of ids){const r=await api.getIntent(id);if(!r.data.found)throw new Error(`INTENT_NOT_FOUND: ${id}`);fresh.push({...r,data:r.data});}
+      for(const id of ids){const r=await api.getIntent(id);if(!r.data.found)throw new Error(`INTENT_NOT_FOUND: ${id}`);if(r.data.intent_id!==id)throw new Error('INTENT_MISMATCH');fresh.push({...r,data:r.data});}
       if(preview){
         if(!records)throw new Error('LOAD_SELECTION_FIRST');
         const args=assessmentArgs(records.map(r=>r.data));

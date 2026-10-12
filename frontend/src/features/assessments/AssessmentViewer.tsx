@@ -3,7 +3,7 @@ import { api } from '../../lib/genlayer/api';
 import { Badge, JsonDetails, ReadState } from '../../components';
 import { verifyAssessment } from '../cycles/model';
 export function AssessmentViewer({id}: {id:string}) {
-  const state=useRead(async signal=>{const r=await api.getAssessment(id,signal);if(r.data.found)verifyAssessment(r.data);return r;});const a=state.data?.data;
+  const state=useRead(async signal=>{const r=await api.getAssessment(id,signal);if(r.data.found){if(r.data.assessment_id!==id)throw new Error('ASSESSMENT_MISMATCH');verifyAssessment(r.data);}return r;});const a=state.data?.data;
   return <><section className="page-header"><h1>AI Assessment #{id}</h1><p className="lead">Read an actual assessment by ID. The contract has no assessment pagination endpoint.</p></section><form action="" method="get"><input type="hidden" name="view" value="assessment"/><label>Assessment ID<input name="id" inputMode="numeric" required defaultValue={id}/></label><button>Read assessment</button></form>
     <ReadState state={state}>{a&&(a.found?<><p><Badge value={a.result}/></p><p>Canonical Intent order: {a.intent_ids.join(' → ')} · Versions: {a.versions.join(' / ')}</p>
       <div className="negative-vector">{a.edges.map((edge,i)=><div key={i}><span>Edge {i+1}: #{edge[0]} → #{edge[1]}</span><Badge value={a.decisions[i]}/></div>)}</div>

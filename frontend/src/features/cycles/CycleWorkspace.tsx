@@ -11,7 +11,7 @@ import { verifyCycleMapping } from './model';
 import { FrozenTerms } from './DirectedRing';
 import { stamp } from '../intents/IntentCard';
 export function CycleWorkspace({id,wallet}: {id:string;wallet:WalletState}) {
-  const state=useRead(async signal=>{const r=await api.getCycle(id,signal);if(r.data.found)verifyCycleMapping(r.data);return r;});const c=state.data?.data;
+  const state=useRead(async signal=>{const r=await api.getCycle(id,signal);if(r.data.found){if(r.data.cycle_id!==id)throw new Error('CYCLE_MISMATCH');verifyCycleMapping(r.data);}return r;});const c=state.data?.data;
   return <><section className="page-header"><h1>Cycle #{id}</h1><p className="lead">Three owners. One immutable snapshot. ACTIVE records a commitment, not service delivery.</p></section><form action="" method="get"><input type="hidden" name="view" value="cycle"/><label>Cycle ID<input name="id" inputMode="numeric" required defaultValue={id}/></label><button>Read Cycle</button></form>
     <ReadState state={{...state,refresh:state.refresh}}>{c&&(c.found?<><p>Effective <Badge value={c.status}/> · Stored <strong>{c.stored_status}</strong></p><p>{c.confirmation_count} / 3 confirmations in canonical owner order</p><p>Actual directed ring: {c.intent_ids.concat(c.intent_ids[0]).join(' → ')}</p><p>Created {stamp(c.created_at)} · Confirmation deadline {stamp(c.confirmation_deadline)}</p><p>Snapshot <code>{c.snapshot_id}</code></p><FrozenTerms terms={c.terms} confirmations={c.confirmations}/>
       {c.status==='EXPIRED'&&c.stored_status==='PENDING'&&<p className="notice">Effective EXPIRED; stored PENDING. Time expiry has not yet performed onchain reservation cleanup.</p>}
@@ -24,7 +24,7 @@ export function CycleActions({cycle,wallet}: {cycle:Cycle;wallet:WalletState}) {
     if(busy)return;setBusy(true);setReview(undefined);setError('');
     try {
       const owner=caller(wallet);const observation=await api.getCycle(cycle.cycle_id);if(!observation.data.found)throw new Error('CYCLE_NOT_FOUND');
-      const current=verifyCycleMapping(observation.data);const ctx=advisory(observation.fetchedAt);
+      if(observation.data.cycle_id!==cycle.cycle_id)throw new Error('CYCLE_MISMATCH');const current=verifyCycleMapping(observation.data);const ctx=advisory(observation.fetchedAt);
       if(current.snapshot_id!==cycle.snapshot_id)throw new Error('SNAPSHOT_MISMATCH');
       if(method==='expire_cycle'){
         const effect=validateExpiration(current,ctx);

@@ -13,7 +13,7 @@ import { verifyCycleMapping } from '../cycles/model';
 const fieldNames = ['Offer description','Offer limitations','Need description','Need requirements'];
 export function CreateIntent({wallet}: {wallet:WalletState}) { return <><section className="page-header"><h1>Create an Intent.</h1><p className="lead">Describe what you provide and what you need. Review only; chain submission is disabled.</p></section><IntentForm wallet={wallet}/></>; }
 export function IntentDetail({id,wallet}: {id:string;wallet:WalletState}) {
-  const state = useRead(signal => api.getIntent(id,signal)); const item = state.data?.data;
+  const state = useRead(async signal => {const r=await api.getIntent(id,signal);if(r.data.found&&r.data.intent_id!==id)throw new Error('INTENT_MISMATCH');return r;}); const item = state.data?.data;
   return <><section className="page-header"><h1>Intent #{id}</h1></section><ReadState state={state}>{item && (item.found ? <><IntentCard item={item}/><IntentForm key={`${item.intent_id}-${item.version}-${state.data?.fetchedAt}`} wallet={wallet} item={item}/></> : <p>No Intent found.</p>)}</ReadState></>;
 }
 export function IntentForm({wallet,item}: {wallet:WalletState;item?:Intent}) {

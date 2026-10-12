@@ -1,0 +1,133 @@
+{
+  "schema": "SCA3_B1_R3_BROWSER_EVIDENCE_V1",
+  "date": "2026-10-12",
+  "repository": "halihalibt/semantic-cycle-exchange",
+  "pull_request": 1,
+  "original_execution": "User Windows Chrome; NOT Work Chromium",
+  "verification": "10 private PNG ZIP entries checked for SHA256, byte count, PNG dimensions and ZIP integrity by assistant; originals not publicly uploaded",
+  "private_zip": {
+    "filename": "SCA3_B1_R3_Windows_Chrome_Evidence.zip",
+    "sha256": "bfb484df2118f27cc7f5de51768f9b45bee92f0029d544e7b4b1ef504e5bddf9",
+    "publicly_available": false
+  },
+  "count": 10,
+  "images": [
+    {
+      "name": "01_home_live_finalized.png",
+      "sha256": "546f45f6129b426df9bacf5248d75ad000f5bdd890d5c18d87ed80e75873ebfe",
+      "bytes": 240044,
+      "dimensions_px": [
+        2048,
+        1130
+      ],
+      "observation": "Home latest-final read; 6/2/1/1 counts",
+      "public_png_uploaded": false
+    },
+    {
+      "name": "02_home_network_http200.png",
+      "sha256": "d101c7d0f14445868426dc705463e95a048ce351f5fcd415742e9d8a2fd56d6e",
+      "bytes": 166880,
+      "dimensions_px": [
+        1263,
+        1386
+      ],
+      "observation": "Studio RPC HTTP 200",
+      "public_png_uploaded": false
+    },
+    {
+      "name": "03_demo_positive_matched.png",
+      "sha256": "92d475a849af5ee95c497cc449e30e9c97a1ddb006240ff32ef5a3d45098d7ea",
+      "bytes": 190085,
+      "dimensions_px": [
+        1161,
+        1053
+      ],
+      "observation": "MATCHED, 3 FIT, ACTIVE, 3 confirmations",
+      "public_png_uploaded": false
+    },
+    {
+      "name": "04_demo_negative_not_matched.png",
+      "sha256": "f2ade2bfb73ea46570f148df836abcc30e9eefd0de01eb00f566d0093871c19a",
+      "bytes": 198776,
+      "dimensions_px": [
+        1173,
+        1170
+      ],
+      "observation": "NOT_MATCHED, FIT/FIT/NO_FIT, no Cycle",
+      "public_png_uploaded": false
+    },
+    {
+      "name": "05_inspect_missing_cycle2.png",
+      "sha256": "51a96e01a12a7401122aba320c2e8aae5258b8c77f659b6cdb25dd247af958ec",
+      "bytes": 75416,
+      "dimensions_px": [
+        1173,
+        998
+      ],
+      "observation": "Cycle ID 2 correctly not found",
+      "public_png_uploaded": false
+    },
+    {
+      "name": "06_mobile390_demo_top.png",
+      "sha256": "55bf6b05d35ac193fe9f1767245f40335e71c62c05b83586e98e1f11dd8b3137",
+      "bytes": 93202,
+      "dimensions_px": [
+        411,
+        1371
+      ],
+      "observation": "390px responsive top",
+      "public_png_uploaded": false
+    },
+    {
+      "name": "07_mobile390_demo_middle.png",
+      "sha256": "0d8568ae84313f6413813f9c34318e66f7cac2fd5d683b86f28ccfe6f0f3b682",
+      "bytes": 87107,
+      "dimensions_px": [
+        399,
+        1374
+      ],
+      "observation": "390px responsive middle",
+      "public_png_uploaded": false
+    },
+    {
+      "name": "08_mobile390_demo_bottom.png",
+      "sha256": "4af0c91ba42140568a0cc5c2a934be4f65eb18d850a01e5d57905c3648053ed6",
+      "bytes": 94119,
+      "dimensions_px": [
+        417,
+        1374
+      ],
+      "observation": "390px responsive bottom",
+      "public_png_uploaded": false
+    },
+    {
+      "name": "09_home_network_multiple_http200.png",
+      "sha256": "69f8ee5ccb68b9493552cad9f17776a5da40337cb491ea36f1fff96b5a0672ce",
+      "bytes": 184418,
+      "dimensions_px": [
+        1274,
+        1377
+      ],
+      "observation": "Multiple RPC HTTP 200",
+      "public_png_uploaded": false
+    },
+    {
+      "name": "10_offline_cached_failure.png",
+      "sha256": "98ceda052463447ffd9b792afd0bae95193bca64dd5b295874835c221280f356",
+      "bytes": 214436,
+      "dimensions_px": [
+        1263,
+        1373
+      ],
+      "observation": "Offline RPC unavailable; previous observation labeled cached",
+      "public_png_uploaded": false
+    }
+  ],
+  "known_limits": [
+    "Original screenshots private; SHA256 not independently checkable from public repository alone",
+    "Work Chromium OPTIONS ERR_EMPTY_RESPONSE persists as historical BLOCKED; root cause UNKNOWN, CORS not established",
+    "User 390px test is single visual viewport; other devices and browsers NOT RUN",
+    "HTTP 429 live and induced timeout tests NOT RUN; offline unit tests only",
+    "User screenshot evidence is not cryptographically signed HTTP evidence"
+  ]
+}

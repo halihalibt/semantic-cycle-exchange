@@ -1,0 +1,76 @@
+{
+  "timestamp_utc": "2026-10-12T21:43:12.890888+00:00",
+  "checks": [
+    {
+      "check": "npm-ci",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "typecheck",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "lint",
+      "exit_code": 0,
+      "status": "PASS",
+      "note": "Node Buffer import fixed in read-only evidence probe; initial lint log retained"
+    },
+    {
+      "check": "vitest",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "performance-vitest",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "build",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "canonical",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "production-integrity",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "diff-check",
+      "exit_code": 0,
+      "status": "PASS"
+    }
+  ],
+  "tests": {
+    "numTotalTests": 524,
+    "numPassedTests": 524,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "numTodoTests": 0,
+    "success": true
+  },
+  "timing_enabled_full_suite": {
+    "numTotalTests": 524,
+    "numPassedTests": 524,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "numTodoTests": 0,
+    "success": true
+  },
+  "all_504_original_tests_and_transaction_safety_bytes_preserved": true,
+  "frozen_file_count": 45,
+  "sdk": "genlayer-js@1.1.8",
+  "canonical_sha256": "88de2802bbe4e795dcae2bb0c4028477133d41bdc9b7940d6aef273367ded442",
+  "scope": "OFFLINE Mock Provider + Mock RPC + jsdom with denied network",
+  "real_chrome_okx_new_fix": "NOT RUN / no Chromium executable",
+  "real_expiration_positive": "NOT RUN / TIME-GATED",
+  "merge": "NOT RUN / pending Windows Chrome acceptance",
+  "publication": "NOT RUN / merge gate and Pages not enabled"
+}

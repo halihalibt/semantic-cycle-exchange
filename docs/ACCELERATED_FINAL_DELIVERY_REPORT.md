@@ -92,10 +92,7 @@ No duplicate PR, Squash, Rebase or Force Push was used.
 
 ## 8. Merge
 
-Merge Commit SHA: **NONE / NOT MERGED**. Standard merge authorization already exists, but
-new Chrome acceptance has not passed the user's stated gate. The historical checkpoint awaited the
-targeted browser result. After PASS, recheck exact PR HEAD, B main and A baseline, unresolved
-reviews/CI and final diff; convert Ready and merge with a standard Merge Commit only.
+At this historical snapshot no merge commit existed and the new Chrome continuity checks had not passed. These are dated release limits, not current instructions to integrate a branch.
 
 ## 9. Repository B main
 

@@ -1,6 +1,6 @@
 # SCA-3 V1 — B1 BLOCKED checkpoint
 
-Authorized owner: halihalibt. Target: https://github.com/halihalibt/semantic-cycle-exchange
+Repository: https://github.com/halihalibt/semantic-cycle-exchange
 B main baseline: 1ac07943412b8eb0acf192a89758178bbfe3ef26.
 Remote branch: phase-b1-readonly-foundation, created from that baseline.
 No implementation commit was pushed. No PR exists. PR HEAD: NOT CREATED.
@@ -26,16 +26,9 @@ source check passed. A new live Node probe is distinct from fixture component
 verification. Browser started using a temporary tool outside frontend dependencies;
 its production Home emitted a finalized read, but no HTTP response was observed
 and live statistics did not render within 25 seconds. No CORS denial was established.
-Browser SDK and Demo gates are BLOCKED/NOT RUN. Per authorization, execution
-stopped immediately rather than publishing a successful checkpoint or adding
-infrastructure. browser-smoke.json preserves the request and failed assertion.
+Browser SDK and Demo gates are BLOCKED/NOT RUN. Verification ended at that blocker without declaring a successful browser checkpoint. browser-smoke.json preserves the request and failed assertion.
 
-Minimum recovery: authorize only browser/transport diagnosis against this same
-local implementation and fixed RPC/SDK. First establish that the production Home
-can complete one real finalized read in an available browser, then test ?w=1,
-missing-ID and desktop/mobile layout. Preserve Node probes; do not redesign or
-rerun contract E2E. Only after the browser gate passes should the existing B1
-branch receive implementation files and a Draft PR. No merge/B2 is authorized.
+Browser transport diagnosis remained open at this checkpoint. The fixed RPC/SDK, Node probes and contract E2E evidence were unchanged; a failed browser read did not establish a CORS root cause.
 
 No blockchain write, wallet connection/signature/key access, deployment, A change,
 public website release, PR merge, paid dependency or Portal submission occurred.
@@ -45,8 +38,7 @@ B2/B3 remain out of scope. ACTIVE means accepted commitment, not service deliver
 ## B1-R1 checkpoint recovery — supersedes publication status only
 
 The preceding NOT PUSHED / no PR statements are preserved observations from the
-original blocked B1 run. B1-R1 separately authorizes saving this existing local
-implementation to the existing branch and opening a BLOCKED Draft PR. It does
+original blocked B1 run. B1-R1 recorded the existing local implementation in the same branch as a BLOCKED Draft PR. It does
 not unblock browser acceptance. See PHASE_B1_R1_RECOVERY.md in docs/ for this
 checkpoint's scope; the returned GitHub HEAD/PR identifies its publication.
 
@@ -61,4 +53,4 @@ PASS evidence, not rerun results or a replacement for browser validation.
 
 Earlier B1/B1-R1 "BLOCKED" and "not pushed" statements above are preserved as **historical checkpoint observations**. B1-R1 already published the implementation in Draft PR #1. The user subsequently ran the current app in Windows Chrome and furnished original screenshot evidence. **USER-EXECUTED PASS**: Home finalized Studio HTTP 200 and 6/2/1/1 cumulative counts; Assessment #1 MATCHED, Cycle #1 ACTIVE with three confirmations; Assessment #2 NOT_MATCHED (FIT/FIT/NO_FIT), no linked Cycle; Cycle #2 correctly not found; visual 390px layout; Offline request failure visibly marked unavailable and previous data cached.
 
-See [R3 detailed acceptance](PHASE_B1_R3_WINDOWS_CHROME_ACCEPTANCE.md) and [private-image SHA256 metadata](../evidence/b1/windows-chrome-acceptance-manifest.json). Ten PNG bytes, dimensions and hashes were checked from the user-provided private transfer ZIP. **Raw PNG files are not public**, so image hashes are not independently verifiable from GitHub alone. Work Chromium `OPTIONS net::ERR_EMPTY_RESPONSE` remains **BLOCKED/UNKNOWN** separately; do not claim CORS was proven. Live 429 and deliberately induced timeout NOT RUN; original Node and 34 local test results were not rerun. B1 now awaits independent PR review, not automatic merge. No production, SDK or contract changes, writes or deployment in R3.
+See [R3 detailed acceptance](PHASE_B1_R3_WINDOWS_CHROME_ACCEPTANCE.md) and [private-image SHA256 metadata](../evidence/b1/windows-chrome-acceptance-manifest.json). Ten PNG bytes, dimensions and hashes were checked from the user-provided private transfer ZIP. **Raw PNG files are not public**, so image hashes are not independently verifiable from GitHub alone. cloud Chromium `OPTIONS net::ERR_EMPTY_RESPONSE` remains **BLOCKED/UNKNOWN** separately; do not claim CORS was proven. Live 429 and deliberately induced timeout NOT RUN; original Node and 34 local test results were not rerun. B1 now awaits independent PR review, not automatic merge. No production, SDK or contract changes, writes or deployment in R3.

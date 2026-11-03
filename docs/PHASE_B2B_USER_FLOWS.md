@@ -19,6 +19,6 @@ Transaction Review shows exact named positional parameters, contract, public acc
 Mobile CSS uses a single column below 800px, wrapping navigation, addresses/hashes and full-width fields. 390px visual/browser verification is NOT RUN; do not infer screenshot acceptance from DOM tests.
 
 
-## Browser follow-up (2026-10-13; USER-EXECUTED, not Work)
+## Browser follow-up (2026-10-13; USER-EXECUTED, not independently rerun)
 
-The prior statement that 390px visual verification was NOT RUN belongs to Work's environment. Later the user separately verified the core Windows Chrome flows and sampled mobile 390px Create/Builder/Cycle layouts and native keyboard Explore filtering. Full accessibility and other mobile pages NOT RUN; real signing and RPC writes remain disabled. See [Windows Chrome scope](PHASE_B2B_WINDOWS_CHROME_ACCEPTANCE.md). Wallet selection requires reconnection after full-document navigation, which is a known UX limitation. Preserve the original Work NOT RUN and Chromium BLOCKED/UNKNOWN records.
+The prior statement that 390px visual verification was NOT RUN belongs to the initial test environment's environment. Later the user separately verified the core Windows Chrome flows and sampled mobile 390px Create/Builder/Cycle layouts and native keyboard Explore filtering. Full accessibility and other mobile pages NOT RUN; real signing and RPC writes remain disabled. See [Windows Chrome scope](PHASE_B2B_WINDOWS_CHROME_ACCEPTANCE.md). Wallet selection requires reconnection after full-document navigation, which is a known UX limitation. Preserve the original NOT RUN and Chromium BLOCKED/UNKNOWN records.

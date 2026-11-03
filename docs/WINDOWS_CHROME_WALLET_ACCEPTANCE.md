@@ -47,14 +47,14 @@ Do not intentionally create an unknown/pending transaction to test a lock. Offli
 covers persistence and the unchanged submission boundary; keep any existing unresolved record.
 Do not clear site localStorage to troubleshoot, because it contains the submission journal.
 
-After these checks pass, complete the already authorized final recheck and standard merge of
+After these checks pass, complete the final recheck and standard merge of
 PR #4. If Pages is still disabled, in repository Settings → Pages set Source to GitHub Actions;
 then use the prepared main-branch Pages workflow. Recheck the actual deployment URL/build SHA
 and the same navigation/read-only checks on production before marking publication accepted.
 
 ## User-operated completion checkpoint — 2026-10-13 (UTC+8)
 
-**USER-EXECUTED / USER-REPORTED Windows Chrome + OKX wallet acceptance: 7 PASS / 0 FAIL / 0 NOT RUN** for the exact wallet-continuity functionality in PR #4. This report was supplied directly by the user after running the updated local build; it is not an independently rerun Work Chromium session. No new signing or blockchain transaction was requested or required.
+**USER-EXECUTED / USER-REPORTED Windows Chrome + OKX wallet acceptance: 7 PASS / 0 FAIL / 0 NOT RUN** for the exact wallet-continuity functionality in PR #4. This report was supplied directly by the user after running the updated local build; it is not an independently rerun cloud Chromium session. No new signing or blockchain transaction was requested or required.
 
 | User-reported scenario | Outcome |
 | --- | --- |

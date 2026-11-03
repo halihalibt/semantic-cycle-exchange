@@ -1,6 +1,6 @@
 # B2-C-R1 user-operated live E2E plan
 
-Status: READY FOR USER-OPERATED ACCEPTANCE; NOT EXECUTED BY WORK. PR #4 remains Draft. Do not merge, publish, deploy or submit Portal as part of this checkpoint.
+Status: READY FOR USER-OPERATED ACCEPTANCE; NOT EXECUTED IN THIS HISTORICAL CHECKPOINT. PR #4 remains Draft. Do not merge, publish, deploy or submit Portal as part of this checkpoint.
 
 Use the R1 branch locally: `cd frontend`, `npm ci`, `npm run dev`. Open the displayed localhost URL in desktop Chrome/Edge or another browser supporting Web Locks, localStorage and an EIP-1193 provider. Secure localhost supports Web Locks. Remote HTTP origins without Web Locks fail closed. Read-only pages need no wallet.
 

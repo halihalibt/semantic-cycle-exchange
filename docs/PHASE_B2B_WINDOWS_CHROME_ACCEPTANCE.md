@@ -1,8 +1,8 @@
 # PHASE B2-B — Windows Chrome user-executed acceptance closure
 
-**Scope:** additive evidence record for the authorized B2-B Draft PR #3, frozen implementation SHA `c5239afcdedfbb752abad150d87244a80aa5818a` on `phase-b2b-business-workflows`; Repository B main `4e6772a923b40c71f1cc61f860f2f75acefb10b6`. This document is not a new software implementation or transaction audit. Source/SDK/contract were not changed.
+**Scope:** additive evidence record for B2-B Draft PR #3, frozen implementation SHA `c5239afcdedfbb752abad150d87244a80aa5818a` on `phase-b2b-business-workflows`; Repository B main `4e6772a923b40c71f1cc61f860f2f75acefb10b6`. This document is not a new software implementation or transaction audit. Source/SDK/contract were not changed.
 
-**Provenance:** USER-EXECUTED Windows Chrome, local Vite deployment `/semantic-cycle-exchange/`, real browser extension **OKX Wallet**. Tests are shown by user-supplied screenshots and statements in the ChatGPT conversation. The Work execution report's prior browser `NOT RUN` remains a correct historical description of **Work's** environment; this subsequent, separate user acceptance does not rewrite that history. 31 screenshot file hashes/dimensions are recorded in [the screenshot manifest](../evidence/b2b/windows-chrome-screenshot-manifest.md). The PNG binaries remain in the user conversation, not in GitHub.
+**Provenance:** USER-EXECUTED Windows Chrome, local Vite deployment `/semantic-cycle-exchange/`, real browser extension **OKX Wallet**. Tests are shown by user-supplied screenshots and statements in the owner report. The read-only verification report's prior browser `NOT RUN` remains a correct historical description of **the initial test environment's** environment; this subsequent, separate user acceptance does not rewrite that history. 31 screenshot file hashes/dimensions are recorded in [the screenshot manifest](../evidence/b2b/windows-chrome-screenshot-manifest.md). The PNG binaries remain in the owner-supplied evidence, not in GitHub.
 
 ## Acceptance matrix
 
@@ -27,16 +27,16 @@
 | Full keyboard/a11y, screenreader, touch targets and multiple browsers | PARTIAL / NOT RUN | Some mobile helper text and controls are small; no full audit |
 | Real HTTP 429/5xx, MetaMask, real PENDING Cycle action | NOT RUN | Synthetic/mock tests are not live-browser proof |
 | Wallet signature, broadcast, real B2-B writes/AI assessment, deployment | NOT RUN (PROHIBITED) | No new finalized transaction or real write result claimed |
-| Work Chromium original OPTIONS `net::ERR_EMPTY_RESPONSE` | BLOCKED / UNKNOWN | Historical failure is preserved in B1 evidence; no proof of general CORS |
+| cloud Chromium original OPTIONS `net::ERR_EMPTY_RESPONSE` | BLOCKED / UNKNOWN | Historical failure is preserved in B1 evidence; no proof of general CORS |
 
 ## Findings and forward constraints
 
 - Page navigation uses full navigation links; the wallet component remounts, so the user had to reconnect to review subsequent requests. This is a known UX limitation, **not** proof of an account/chain guard bypass. Do not claim seamless session persistence.
-- Mobile helper text and checkbox labels can be small at 390px. Address in a later separately authorized UX improvement; record scoped browser layout pass only.
+- Mobile helper text and checkbox labels can be small at 390px. Address in a later UX improvement; record scoped browser layout pass only.
 - Some action buttons appear enabled after connecting/acknowledging even for an ACTIVE Cycle; fresh read-based preflight then returns `CYCLE_NOT_PENDING`. This is accurate fail-closed preview behavior but has a UX affordance limitation. No live transaction path exists.
 - One same-wallet review preview is valid only for that wallet revision; navigation/reconnect invalidates prior in-memory previews. Do not infer a persistent signed workflow.
 - Real RPC 429 is NOT RUN. Offline behavior is not equivalent to the rate-limit case. Network restored HTTP 200 is a *new* successful read, whereas earlier 200 requests shown in a retained log during Offline are historical.
-- The existing `258 PASS / 0 FAIL / 0 SKIP` is **Work offline test-log evidence**, not a new Windows test run. Preserve historical failed runs and the earlier Work `NOT RUN` browser matrix without rewriting their provenance.
+- The existing `258 PASS / 0 FAIL / 0 SKIP` is **offline test-log evidence**, not a new Windows test run. Preserve historical failed runs and the earlier `NOT RUN` browser matrix without rewriting their provenance.
 - Verified B1 `?w=1` Demo code and history remain unchanged, but **full B2-B rerun of every B1 Demo case is NOT RUN**. B1's prior Windows acceptance remains separate evidence.
 
-**B2-B acceptance conclusion:** the user-tested core workflows passed their bounded browser-read and preview checks. This establishes neither a ready-to-write DApp nor full accessibility certification. No production source changes, no SDK upgrade, no wallet signing, no chain writes, no merge, no publishing. **STOP at Draft PR #3 pending independent review and user authorization.**
+**B2-B acceptance conclusion:** the user-tested core workflows passed their bounded browser-read and preview checks. This establishes neither a ready-to-write DApp nor full accessibility certification. No production source changes, no SDK upgrade, no wallet signing, no chain writes, no merge, no publishing. The original checkpoint recorded Draft PR #3 before integration.

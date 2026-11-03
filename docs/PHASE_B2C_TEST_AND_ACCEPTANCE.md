@@ -29,7 +29,7 @@ verification.json records actual commands/exits. scripts/verify-b2c.py reproduce
 | Browser B2-C | NOT RUN | No Chromium executable/cache; browser-availability.log; no repair loop |
 | Prior B2-B Windows Chrome | HISTORICAL USER PASS | Separate earlier user acceptance; not rerun here |
 | Three current Studio reads | PASS READ-ONLY | chain id / gasPrice / balance; readonly-probes.json; not a total-fee quote |
-| Live signing/broadcast/write/AI/E2E | NOT RUN / FORBIDDEN | No authorization or verified production fees |
+| Live signing/broadcast/write/AI/E2E | NOT RUN / FORBIDDEN | No verified production fee coverage at this snapshot |
 
 ## Retained failures
 

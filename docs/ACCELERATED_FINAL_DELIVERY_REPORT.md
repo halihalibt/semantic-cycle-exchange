@@ -1,6 +1,6 @@
 # SCA-3 V1 — ACCELERATED FINAL DELIVERY REPORT
 
-**Engineering/evidence checkpoint complete. Post-release addendum (2026-10-13):** The new Windows Chrome + OKX wallet UX tests were USER-EXECUTED 7/7 PASS; PR #4 was converted Ready and standard-merged, producing main `12eac692f5d4cdd4b283f51e155aaf414976e07f`. GitHub Actions run `38315428325` attempt 2 passed build (541 tests) and deploy, serving https://halihalibt.github.io/semantic-cycle-exchange/ . User confirmed the published site and essential navigation/wallet functionality. This is user-operated acceptance, not Work-independent Chrome automation. Earlier chronological sections below remain archived pre-release checkpoint facts; this addendum supersedes their old current-status claims. Live positive `expire_cycle` for Cycle #4 remains NOT RUN / TIME-GATED and authenticated Portal eligibility is UNKNOWN.
+**Engineering/evidence checkpoint complete. Post-release addendum (2026-10-13):** The new Windows Chrome + OKX wallet UX tests were USER-EXECUTED 7/7 PASS; PR #4 was converted Ready and standard-merged, producing main `12eac692f5d4cdd4b283f51e155aaf414976e07f`. GitHub Actions run `38315428325` attempt 2 passed build (541 tests) and deploy, serving https://halihalibt.github.io/semantic-cycle-exchange/ . User confirmed the published site and essential navigation/wallet functionality. This is user-operated acceptance, not independently rerun-independent Chrome automation. Earlier chronological sections below remain archived pre-release checkpoint facts; this addendum supersedes their old current-status claims. Live positive `expire_cycle` for Cycle #4 remains NOT RUN / TIME-GATED and authenticated Portal eligibility is UNKNOWN.
 No new onchain write, signature, deployment or Portal submission was performed during this read-only engineering and evidence audit.
 
 ## 1. Wallet reconnection root cause
@@ -93,7 +93,7 @@ No duplicate PR, Squash, Rebase or Force Push was used.
 ## 8. Merge
 
 Merge Commit SHA: **NONE / NOT MERGED**. Standard merge authorization already exists, but
-new Chrome acceptance has not passed the user's stated gate. Leave Draft and stop for the
+new Chrome acceptance has not passed the user's stated gate. The historical checkpoint awaited the
 targeted browser result. After PASS, recheck exact PR HEAD, B main and A baseline, unresolved
 reviews/CI and final diff; convert Ready and merge with a standard Merge Commit only.
 
@@ -162,15 +162,6 @@ explicitly requires the live positive test. Public retrieved guidelines did not 
   remain locked after reload; never clear localStorage or re-send to resolve an uncertain outcome.
 - Existing large Vite chunk warning is advisory. No code/test safety restriction was reduced.
 
-## 15. Minimum user actions
+## Remaining verification scope at this snapshot
 
-1. Update the existing local PR branch and perform the linked Chrome checklist; return row-wise
-   PASS/FAIL. No real write is necessary. This provides the missing authorized merge evidence.
-2. After browser PASS, set Pages Source to GitHub Actions if still disabled. The already authorized
-   merge/release can then proceed and record the real deployed commit/URL and production acceptance.
-3. After the genuine deadline, manually run the existing expiry case if required for full live
-   acceptance. Intent #8 evidence is already complete; no repeat cancellation is needed.
-4. Only after the relevant gates pass, use the supplied drafts for the two manual Portal submissions.
-
-Execution stops here for the new browser evidence. No approval is being requested again for
-engineering, standard merge or publication; the remaining dependency is actual verification.
+The browser continuity checklist, deployed Pages commit/URL and time-gated expiry case had separate verification gaps. Intent #8 cancellation evidence was already complete. These historical release limits do not imply a second cancellation or another transaction was required to reproduce the recorded evidence.

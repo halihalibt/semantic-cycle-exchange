@@ -2,7 +2,7 @@
 
 **B2-C ENGINEERING COMPLETE / FEE GATE BLOCKED**
 
-Completed the authorized offline engineering scope. No production write adapter is installed. Real signing, broadcasting, chain writes, deployment, publication and Portal submission were NOT RUN and remain prohibited. This is not a live-ready release.
+Completed the offline engineering scope. No production write adapter is installed. Real signing, broadcasting, chain writes, deployment, publication and Portal submission were NOT RUN and remain prohibited. This is not a live-ready release.
 
 ## GitHub baseline and checkpoints
 
@@ -16,7 +16,7 @@ Completed the authorized offline engineering scope. No production write adapter 
 | Draft PR | [#4](https://github.com/halihalibt/semantic-cycle-exchange/pull/4) |
 | Initial checkpoint | `de9229733c61c604d96e3190c7bdc42bce7dbadd` |
 | Engineering checkpoint | `20b8bba880bc9e69b918a122bacb2dfbac7ae8b4` |
-| Final head | Exact PR/branch head returned in final handoff; no self-referential final commit SHA embedded here |
+| Final head | The source and branch head are identified by the linked PR and evidence metadata |
 
 Direct GitHub connector reads verified both main commits, merged PR and independent A source. Canonical A/B source: 32040 identical bytes, SHA256 `88de2802bbe4e795dcae2bb0c4028477133d41bdc9b7940d6aef273367ded442`. SDK 1.1.8, Stable Studionet 61999, RPC, contract `0x84e9284448D4cd16dcBBCbd8104449B11209C6F0`, Prompt and dependency lock remain frozen. No comprehensive A re-audit repeated.
 
@@ -48,4 +48,4 @@ Production FEE_QUOTE_UNAVAILABLE and ONCHAIN_SUBMISSION_DISABLED remain closed. 
 
 Known limits: advisory local clock; non-atomic multiple finalized reads; contract-only replay/decline/rollback; no live extension/fee certification; in-memory operation locks with no supported live reload recovery; legitimate 200000-gas estimates conservatively refused too. Concurrent later chain actions can make reconciliation inconclusive. No unresolved offline failure remains.
 
-Next minimum task: independent Draft PR #4 review, then separately authorized **read-only Stable Studionet fee compatibility closure at SDK 1.1.8**, proving complete policy/distribution or authoritative exact-network total-fee-free semantics. Production activation/recovery needs a separately reviewed change and authorization. **Not eligible for manual live signing acceptance yet. STOP with PR Draft, unmerged.**
+At this checkpoint the complete SDK 1.1.8 / Stable 61999 fee-policy evidence and production activation remained unverified. This historical implementation was not eligible for manual live signing acceptance.

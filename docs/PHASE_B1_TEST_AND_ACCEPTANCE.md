@@ -20,10 +20,10 @@
 | No write transport / fixtures absent from UI imports | PASS | transport tests + source inspection |
 | HTTP CORS preflight localhost | PASS HTTP ONLY | OPTIONS 200; not browser SDK PASS |
 | Real browser Home finalized read | BLOCKED | emitted request; no observed response; 25s UI timeout |
-| Real browser positive/negative Demo | NOT RUN | hard STOP after Home blocker |
-| Real browser missing Cycle #2 | NOT RUN | hard STOP |
-| Responsive visual inspection / screenshots | NOT RUN | hard STOP before screenshot step |
-| Draft PR / GitHub code publication | NOT RUN | hard STOP; remote branch exists at baseline only |
+| Real browser positive/negative Demo | NOT RUN | blocked after Home error |
+| Real browser missing Cycle #2 | NOT RUN | blocked |
+| Responsive visual inspection / screenshots | NOT RUN | blocked before screenshot step |
+| Draft PR / GitHub code publication | NOT RUN | blocked; remote branch existed at baseline only |
 
 No unresolved failing local test is hidden. Live browser compatibility remains a
 critical gate. B1 is not complete or recommended for merge. Historical regression
@@ -48,7 +48,7 @@ PASS evidence, not rerun results or a replacement for browser validation.
 
 ## B1-R3 superseding user-executed Windows Chrome matrix
 
-Earlier browser BLOCKED / NOT RUN cells above describe the original **Work Chromium environment** and remain true as historical results. The following NEW results apply **only to the user's Chrome**, based on screenshots, not to Work's Chromium:
+Earlier browser BLOCKED / NOT RUN cells above describe the original **cloud Chromium environment** and remain true as historical results. The following NEW results apply **only to the user's Chrome**, based on screenshots, not to the cloud Chromium environment:
 
 | Gate | B1-R3 result | Evidence |
 | --- | --- | --- |
@@ -58,8 +58,8 @@ Earlier browser BLOCKED / NOT RUN cells above describe the original **Work Chrom
 | Missing Cycle #2 | **USER-EXECUTED PASS**; found=false UI | screenshot 05 |
 | 390px responsive emulation | **USER-EXECUTED VISUAL PASS**, one width only | screenshots 06/07/08 |
 | Offline refresh/cache warning | **USER-EXECUTED PASS**; RPC unavailable, prior data cached | screenshot 10 |
-| Work Chromium browser | **BLOCKED**; OPTIONS ERR_EMPTY_RESPONSE, root cause **UNKNOWN** | original B1/R2 diagnostics |
+| cloud Chromium browser | **BLOCKED**; OPTIONS ERR_EMPTY_RESPONSE, root cause **UNKNOWN** | original B1/R2 diagnostics |
 | Actual live HTTP 429 and induced timeout | **NOT RUN**; offline tests only | prior local tests |
 | B1-R3 retest of original 34 tests | **NOT RUN**; original reported PASS remains historical | prior B1 result |
 
-Details: [R3 acceptance report](PHASE_B1_R3_WINDOWS_CHROME_ACCEPTANCE.md), [public screenshot metadata only](../evidence/b1/windows-chrome-acceptance-manifest.json). The original images remain private, and public SHA256 entries are not a substitute for original image bytes. B1 now awaits independent Draft PR audit; not merged and no B2 authorization.
+Details: [R3 acceptance report](PHASE_B1_R3_WINDOWS_CHROME_ACCEPTANCE.md), [public screenshot metadata only](../evidence/b1/windows-chrome-acceptance-manifest.json). The original images remain private, and public SHA256 entries are not a substitute for original image bytes. B1 now awaits independent Draft PR audit; not merged and B2 was outside that checkpoint.

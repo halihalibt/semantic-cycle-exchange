@@ -59,6 +59,6 @@ Evidence: `evidence/b2c-r2/vitest.*`, `performance-vitest.*`, `performance-regre
 
 ## User retry
 
-Update the existing PR branch to this checkpoint, restart the local Vite server, and hard-refresh Chrome to discard the failed React runtime. Connect OKX on Stable Studionet 61999; create a new preview and click Run fresh preflight. Expected: PREFLIGHT_READY with explicit confirmation disabled until acknowledged, or a visible preflight error. Stop at preflight for this hotfix verification. No signing or broadcast is needed to verify the repair.
+Restart the local Vite server and hard-refresh Chrome to discard the failed React runtime. Connect OKX on Stable Studionet 61999; create a new preview and click Run fresh preflight. Expected: PREFLIGHT_READY with explicit confirmation disabled until acknowledged, or a visible preflight error. Stop at preflight for this hotfix verification. No signing or broadcast is needed to verify the repair.
 
-PR #4 remains the original Draft PR. Latest HEAD is the commit containing this report and is independently returned in the final execution report. STOP after saving this checkpoint.
+PR #4 remains the original Draft PR. Latest HEAD is the commit containing this report and is independently returned in the final execution report.

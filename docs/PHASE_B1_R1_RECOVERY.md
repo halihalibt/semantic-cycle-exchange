@@ -33,8 +33,3 @@ credentials are excluded. The Draft PR title explicitly contains PHASE B1 and
 BLOCKED; it is not marked ready or merged. Actual commit SHA, remote verification,
 file count and PR URL are returned by the R1 execution result.
 
-Next separately authorized recovery: investigate the browser transport on the
-same implementation, SDK, contract and network; then complete real Home/Demo,
-missing-record, wallet-free and responsive browser gates. Do not redesign,
-introduce a backend/proxy, change network/SDK or re-execute contract business E2E.
-B1 remains incomplete and cannot be recommended for merge.
